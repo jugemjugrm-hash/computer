@@ -28,9 +28,16 @@ HITS = 20           # 1パーツあたり取得する商品数
 SLEEP = 1.1         # APIへの間隔（秒）。Yahoo!の制限が「1クエリ/秒」なので少し余裕をもたせる
 DAILY_DAYS = 60     # 直近この日数は毎日の点を残す
 MAX_POINTS = 250    # 1パーツあたりの保持点数の上限
-LO_RATIO = 0.40     # 誌面価格のこの割合を下回る商品は別物とみなす
-HI_RATIO = 2.50     # 同じく上回る商品は除外する
-NG_WORDS = ('中古', 'ジャンク', '訳あり', '部品取り', 'のみ', 'ケーブル', 'ステッカー')
+# 2段階で絞り込む。
+#  1) 誌面価格に対する広めの窓 … 明らかな別物だけを落とす。値下がりで切られないよう広くとる
+#  2) その日の中央値に対する窓 … 付属品・バルク・法外な出品を落とす。相場が動いても追従する
+LO_BOOK = 0.25
+HI_BOOK = 3.00
+LO_MED  = 0.60
+HI_MED  = 2.00
+MIN_HITS = 3        # これ未満しか残らない日は中央値が当てにならないので記録しない
+NG_WORDS = ('中古', 'ジャンク', '訳あり', '部品取り', '本体のみ', '箱のみ', '空箱',
+            'ステッカー', 'キーホルダー', 'Tシャツ')
 
 
 def load_dotenv():
@@ -74,9 +81,14 @@ def search(appid, query):
 
 
 def extract(data, ref):
-    """APIの応答から、対象パーツらしい商品の価格だけを取り出す"""
+    """APIの応答から対象パーツらしい価格だけを取り出し、診断情報も返す。
+
+    戻り値: (価格のリスト, 診断dict)
+    """
     hits = (data or {}).get('hits') or []
-    prices = []
+    diag = {'hits': len(hits), 'ng': 0, 'book': 0, 'med': 0}
+
+    raw = []
     for h in hits:
         name = h.get('name') or ''
         price = h.get('price')
@@ -88,13 +100,22 @@ def extract(data, ref):
             continue
         if price <= 0:
             continue
-        # 誌面価格からかけ離れたものは別商品（付属品や中古）とみなして落とす
-        if ref > 0 and not (ref * LO_RATIO <= price <= ref * HI_RATIO):
-            continue
         if any(w in name for w in NG_WORDS):
+            diag['ng'] += 1
             continue
-        prices.append(price)
-    return sorted(prices)
+        raw.append(price)
+
+    # 1段階目：誌面価格に対する広めの窓
+    step1 = [p for p in raw if not ref or (ref * LO_BOOK <= p <= ref * HI_BOOK)]
+    diag['book'] = len(raw) - len(step1)
+    if not step1:
+        return [], diag
+
+    # 2段階目：その日の中央値を基準にした外れ値の除去
+    med = statistics.median(step1)
+    step2 = [p for p in step1 if med * LO_MED <= p <= med * HI_MED]
+    diag['med'] = len(step1) - len(step2)
+    return sorted(step2), diag
 
 
 def thin(hist, today):
@@ -140,27 +161,36 @@ def main():
         parts = json.load(f)
 
     items = load_prev()
+    diag = {}
     today = jst_today()
     ok = ng = 0
 
     for i, p in enumerate(parts, 1):
         name, query, ref = p['name'], p['query'], int(p.get('ref') or 0)
         try:
-            prices = extract(search(appid, query), ref)
+            prices, dg = extract(search(appid, query), ref)
         except Exception as e:
             print('  [%2d/%d] %-28s 取得失敗: %s' % (i, len(parts), name, e), file=sys.stderr)
+            diag[name] = {'ok': False, 'why': 'api', 'msg': str(e)[:80]}
             ng += 1
             time.sleep(SLEEP)
             continue
 
-        if not prices:
-            print('  [%2d/%d] %-28s 該当なし' % (i, len(parts), name))
+        if len(prices) < MIN_HITS:
+            why = ('0hit' if dg['hits'] == 0 else
+                   'filtered' if dg['hits'] > 0 else 'few')
+            print('  [%2d/%d] %-28s 記録せず（検索%d件 → NG語%d / 誌面外%d / 外れ値%d → 残り%d）'
+                  % (i, len(parts), name, dg['hits'], dg['ng'], dg['book'], dg['med'], len(prices)))
+            dg.update({'ok': False, 'why': why, 'kept': len(prices), 'q': query})
+            diag[name] = dg
             ng += 1
             time.sleep(SLEEP)
             continue
 
         lo = prices[0]
         mid = int(statistics.median(prices))
+        dg.update({'ok': True, 'kept': len(prices)})
+        diag[name] = dg
         entry = items.setdefault(name, {'cat': p['cat'], 'hist': []})
         entry['cat'] = p['cat']
         entry['hist'] = [h for h in entry.get('hist', []) if h.get('d') != today]
@@ -176,8 +206,10 @@ def main():
     feed = {
         'updated': datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%d %H:%M'),
         'source': 'Yahoo!ショッピング（商品検索API）',
-        'note': '各日の値は、検索結果のうち誌面価格に近い範囲の商品の最安値と中央値です。送料・ポイントは含みません。',
+        'note': '各日の値は、検索結果から外れ値を除いたうえでの中央値（mid）と最安値（lo）です。'
+                '送料・ポイントは含みません。',
         'items': items,
+        'diag': diag,
     }
 
     os.makedirs(os.path.dirname(OUT_JS), exist_ok=True)

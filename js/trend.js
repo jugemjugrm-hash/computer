@@ -50,7 +50,8 @@ function yen(n) { return '¥' + Number(n || 0).toLocaleString('ja-JP'); }
 function feedHist(name) {
   const f = window.PRICE_FEED;
   if (!f || !f.items || !f.items[name]) return [];
-  return (f.items[name].hist || []).map((h) => ({ d: h.d, p: h.lo, s: 'feed', n: h.n }));
+  // 相場として見るので中央値(mid)を採用する。最安値(lo)は補足としてツールチップに出す
+  return (f.items[name].hist || []).map((h) => ({ d: h.d, p: h.mid != null ? h.mid : h.lo, s: 'feed', n: h.n, lo: h.lo }));
 }
 
 /** 自分の記録とフィードを日付で突き合わせ、1日1点にまとめる */
@@ -225,7 +226,7 @@ function renderTrend() {
   box.innerHTML = svg;
 
   cap.textContent = '記録した価格の推移（' + plot.length + '製品・' + fmtDate(dates[0]) + '〜' + fmtDate(dates[dates.length - 1]) + '）';
-  foot.textContent = '縦軸は0から始まっていません（値動きを見やすくするため）。最初の点は誌面掲載価格、以降は調べた日の最安値です。';
+  foot.textContent = '縦軸は0から始まっていません（値動きを見やすくするため）。最初の点は誌面掲載価格、以降は調べた日の中央値です（外れ値を除いた相場）。';
 
   bindCrosshair(box, plot, dates, X, t0, span);
 }
@@ -275,7 +276,8 @@ function bindCrosshair(box, plot, dates, X, t0, span) {
     const found = plot.filter((s) => s.rec.some((x) => x.d === best));
     $$('.tip-nm', t).forEach((el, i) => { el.textContent = found[i].name; });
     $$('.tip-pv', t).forEach((el, i) => {
-      el.textContent = yen(found[i].rec.find((x) => x.d === best).p);
+      const r = found[i].rec.find((x) => x.d === best);
+      el.textContent = yen(r.p) + (r.lo != null && r.lo !== r.p ? '（最安 ' + yen(r.lo) + '）' : '');
     });
     t.hidden = false;
     const x = Math.min(ev.clientX + 14, window.innerWidth - t.offsetWidth - 10);

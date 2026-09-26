@@ -182,115 +182,91 @@
   {
     "name": "RTX 5050",
     "cat": "gpu",
-    "query": "GeForce RTX 5050",
+    "query": "RTX 5050",
     "ref": 34000
   },
   {
     "name": "RX 9070 XT",
     "cat": "gpu",
-    "query": "Radeon RX 9070 XT",
+    "query": "RX 9070 XT",
     "ref": 90000
   },
   {
     "name": "RX 9070",
     "cat": "gpu",
-    "query": "Radeon RX 9070",
+    "query": "RX 9070",
     "ref": 85000
   },
   {
     "name": "RX 9060 XT 16GB",
     "cat": "gpu",
-    "query": "Radeon RX 9060 XT 16GB",
+    "query": "RX 9060 XT 16GB",
     "ref": 50000
   },
   {
     "name": "RX 9060 XT 8GB",
     "cat": "gpu",
-    "query": "Radeon RX 9060 XT 8GB",
+    "query": "RX 9060 XT 8GB",
     "ref": 42000
   },
   {
     "name": "Arc B580",
     "cat": "gpu",
-    "query": "Arc B580",
+    "query": "Intel Arc B580",
     "ref": 40000
   },
   {
     "name": "Arc B570",
     "cat": "gpu",
-    "query": "Arc B570",
+    "query": "Intel Arc B570",
     "ref": 30000
   },
   {
     "name": "PRIME X870-P WIFI-CSM",
     "cat": "mb",
-    "query": "PRIME X870-P WIFI-CSM",
+    "query": "ASUS PRIME X870-P",
     "ref": 31000
   },
   {
     "name": "PRIME B850-PLUS WIFI-CSM",
     "cat": "mb",
-    "query": "PRIME B850-PLUS WIFI-CSM",
+    "query": "ASUS PRIME B850-PLUS",
     "ref": 30000
   },
   {
     "name": "PRIME B840-PLUS WIFI-CSM",
     "cat": "mb",
-    "query": "PRIME B840-PLUS WIFI-CSM",
+    "query": "ASUS PRIME B840-PLUS",
     "ref": 23000
   },
   {
     "name": "PRIME Z890-P WIFI-CSM",
     "cat": "mb",
-    "query": "PRIME Z890-P WIFI-CSM",
+    "query": "ASUS PRIME Z890-P",
     "ref": 31000
   },
   {
     "name": "PRIME B860-PLUS-CSM",
     "cat": "mb",
-    "query": "PRIME B860-PLUS-CSM",
+    "query": "ASUS PRIME B860-PLUS",
     "ref": 20000
   },
   {
     "name": "PRIME H810M-A-CSM",
     "cat": "mb",
-    "query": "PRIME H810M-A-CSM",
+    "query": "ASUS PRIME H810M-A",
     "ref": 18000
   },
   {
     "name": "Windows 11 Home パッケージ版",
     "cat": "os",
-    "query": "Windows 11 Home パッケージ版",
+    "query": "Windows 11 Home",
     "ref": 17000
-  },
-  {
-    "name": "Windows 11 Home ダウンロード版",
-    "cat": "os",
-    "query": "Windows 11 Home ダウンロード版",
-    "ref": 18000
-  },
-  {
-    "name": "Windows 11 Home DSP版",
-    "cat": "os",
-    "query": "Windows 11 Home DSP版",
-    "ref": 20000
   },
   {
     "name": "Windows 11 Pro パッケージ版",
     "cat": "os",
-    "query": "Windows 11 Pro パッケージ版",
+    "query": "Windows 11 Pro",
     "ref": 25000
-  },
-  {
-    "name": "Windows 11 Pro ダウンロード版",
-    "cat": "os",
-    "query": "Windows 11 Pro ダウンロード版",
-    "ref": 26000
-  },
-  {
-    "name": "Windows 11 Pro DSP版",
-    "cat": "os",
-    "query": "Windows 11 Pro DSP版",
-    "ref": 26000
   }
 ]
