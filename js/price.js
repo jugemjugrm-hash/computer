@@ -123,9 +123,12 @@ function renderChart() {
     row.addEventListener('keydown', (ev) => {
       if ((ev.key === 'Enter' || ev.key === ' ') && list[i].page) { ev.preventDefault(); window.App.openPage(list[i].page); }
     });
-    row.addEventListener('mouseenter', (ev) => showTip(ev, list[i]));
-    row.addEventListener('mousemove', moveTip);
-    row.addEventListener('mouseleave', hideTip);
+    // マウスは「乗せたら出る」、指は「触れたら出る」。
+    // pointer イベントに寄せて、両方を一本で扱う
+    row.addEventListener('pointerenter', (ev) => { if (ev.pointerType === 'mouse') showTip(ev, list[i]); });
+    row.addEventListener('pointermove',  (ev) => { if (ev.pointerType === 'mouse') moveTip(ev); });
+    row.addEventListener('pointerleave', hideTip);
+    row.addEventListener('pointerdown',  (ev) => { if (ev.pointerType !== 'mouse') showTip(ev, list[i]); });
     row.addEventListener('focus', (ev) => showTip(ev, list[i]));
     row.addEventListener('blur', hideTip);
   });
@@ -164,6 +167,7 @@ function tip() {
     tipEl.className = 'viz-tip';
     tipEl.hidden = true;
     document.body.appendChild(tipEl);
+    bindTipDismiss();
   }
   return tipEl;
 }
@@ -180,12 +184,34 @@ function showTip(ev, it) {
 function moveTip(ev) {
   const t = tip();
   if (t.hidden) return;
-  const x = Math.min(ev.clientX + 14, window.innerWidth - t.offsetWidth - 10);
-  const y = Math.min(ev.clientY + 16, window.innerHeight - t.offsetHeight - 10);
+  const touch = ev.pointerType && ev.pointerType !== 'mouse';
+  // 指のときは吹き出しを指の上に出す。下に出すと指そのもので隠れてしまう。
+  // ただし画面の上端に近くて上に置けないときは、下に回り込ませる
+  let y;
+  if (touch) {
+    const above = ev.clientY - t.offsetHeight - 18;
+    y = above >= 8 ? above : ev.clientY + 26;
+  } else {
+    y = ev.clientY + 16;
+  }
+  const x = Math.min(ev.clientX + (touch ? -t.offsetWidth / 2 : 14), window.innerWidth - t.offsetWidth - 10);
+  y = Math.min(y, window.innerHeight - t.offsetHeight - 10);
   t.style.left = Math.max(8, x) + 'px';
   t.style.top  = Math.max(8, y) + 'px';
 }
 function hideTip() { if (tipEl) tipEl.hidden = true; }
+
+// 指で出した吹き出しは pointerleave が来ないことがある。
+// 画面を動かしたときと、他の場所を触ったときに必ず消す
+let tipDismissBound = false;
+function bindTipDismiss() {
+  if (tipDismissBound) return;
+  tipDismissBound = true;
+  window.addEventListener('scroll', hideTip, { passive: true });
+  document.addEventListener('pointerdown', (ev) => {
+    if (!ev.target.closest || !ev.target.closest('.bar-row')) hideTip();
+  }, true);
+}
 
 /* ============================== 構成見積もり ============================== */
 const PSU_WATTS = [450, 550, 650, 750, 850, 1000, 1200];

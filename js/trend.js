@@ -280,17 +280,43 @@ function bindCrosshair(box, plot, dates, X, t0, span) {
       el.textContent = yen(r.p) + (r.lo != null && r.lo !== r.p ? '（最安 ' + yen(r.lo) + '）' : '');
     });
     t.hidden = false;
-    const x = Math.min(ev.clientX + 14, window.innerWidth - t.offsetWidth - 10);
-    const y = Math.min(ev.clientY + 16, window.innerHeight - t.offsetHeight - 10);
+    const touch = ev.pointerType && ev.pointerType !== 'mouse';
+    const ox = touch ? -t.offsetWidth / 2 : 14;
+    // 指の上に出す。上端で置けないときだけ下に回す
+    let ty;
+    if (touch) {
+      const above = ev.clientY - t.offsetHeight - 24;
+      ty = above >= 8 ? above : ev.clientY + 32;
+    } else {
+      ty = ev.clientY + 16;
+    }
+    const x = Math.min(ev.clientX + ox, window.innerWidth - t.offsetWidth - 10);
+    const y = Math.min(ty, window.innerHeight - t.offsetHeight - 10);
     t.style.left = Math.max(8, x) + 'px';
     t.style.top = Math.max(8, y) + 'px';
   };
 
-  hit.addEventListener('mousemove', move);
-  hit.addEventListener('mouseleave', () => {
+  const clear = () => {
     if (tipEl) tipEl.hidden = true;
     cross.classList.add('is-off');
+  };
+
+  // マウスは乗せるだけで読めるが、指は「押しながら横に滑らせる」操作になる。
+  // 縦スクロールは殺したくないので touch-action は pan-y にしてある（CSS側）
+  let scrubbing = false;
+  hit.addEventListener('pointerdown', (ev) => {
+    if (ev.pointerType !== 'mouse') { scrubbing = true; move(ev); }
   });
+  hit.addEventListener('pointermove', (ev) => {
+    if (ev.pointerType === 'mouse' || scrubbing) move(ev);
+  });
+  hit.addEventListener('pointerup', () => { scrubbing = false; });
+  hit.addEventListener('pointercancel', () => { scrubbing = false; clear(); });
+  hit.addEventListener('pointerleave', (ev) => {
+    if (ev.pointerType === 'mouse') clear();
+  });
+  // 指で読んだあと、画面を動かしたら消す
+  window.addEventListener('scroll', () => { if (scrubbing) return; clear(); }, { passive: true });
 }
 
 /* ------------------------------ ウォッチ一覧 ------------------------------ */

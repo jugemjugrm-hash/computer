@@ -601,27 +601,83 @@ function initViewer() {
     });
   });
 
+  // ---- マウスでのドラッグ移動 ----
+  // 指の場合はビューポート自身のスクロールがそのまま使えるので、マウスだけ相手にする
   let dragging = false, sx = 0, sy = 0, sl = 0, st = 0;
-  vp.addEventListener('mousedown', (ev) => {
-    if (viewer.fit) return;
+  vp.addEventListener('pointerdown', (ev) => {
+    if (ev.pointerType !== 'mouse' || viewer.fit) return;
     dragging = true;
     vp.dataset.dragged = '0';
     sx = ev.clientX; sy = ev.clientY; sl = vp.scrollLeft; st = vp.scrollTop;
     vp.classList.add('is-dragging');
     ev.preventDefault();
   });
-  window.addEventListener('mousemove', (ev) => {
+  window.addEventListener('pointermove', (ev) => {
     if (!dragging) return;
     const dx = ev.clientX - sx, dy = ev.clientY - sy;
     if (Math.abs(dx) > 3 || Math.abs(dy) > 3) vp.dataset.dragged = '1';
     vp.scrollLeft = sl - dx;
     vp.scrollTop  = st - dy;
   });
-  window.addEventListener('mouseup', () => {
+  const endDrag = () => {
     if (!dragging) return;
     dragging = false;
     vp.classList.remove('is-dragging');
+  };
+  window.addEventListener('pointerup', endDrag);
+  window.addEventListener('pointercancel', endDrag);
+
+  // ---- 二本指のピンチで拡大縮小 ----
+  // スマホでは誌面の細かい表を読むのにこれが要る。
+  // ブラウザのページ全体のピンチだと、モーダルの外まで一緒に伸びて使いものにならない
+  const pts = new Map();
+  let pinchFrom = 0, pinchScale = 1, pinchAnchor = null;
+
+  const pinchDist = () => {
+    const [a, b] = [...pts.values()];
+    return Math.hypot(a.x - b.x, a.y - b.y);
+  };
+  const pinchMid = () => {
+    const [a, b] = [...pts.values()];
+    const r = img.getBoundingClientRect();
+    if (!r.width || !r.height) return { x: 0.5, y: 0.5 };
+    return {
+      x: Math.min(1, Math.max(0, ((a.x + b.x) / 2 - r.left) / r.width)),
+      y: Math.min(1, Math.max(0, ((a.y + b.y) / 2 - r.top) / r.height))
+    };
+  };
+
+  vp.addEventListener('pointerdown', (ev) => {
+    if (ev.pointerType === 'mouse') return;
+    pts.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
+    if (pts.size === 2) {
+      pinchFrom = pinchDist();
+      pinchScale = viewer.fit ? fitScale() : viewer.scale;
+      pinchAnchor = pinchMid();
+      vp.dataset.dragged = '1';   // ピンチ直後のタップ判定を抑える
+    }
   });
+  vp.addEventListener('pointermove', (ev) => {
+    if (!pts.has(ev.pointerId)) return;
+    pts.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
+    if (pts.size !== 2 || !pinchFrom) return;
+    ev.preventDefault();
+    const ratio = pinchDist() / pinchFrom;
+    if (Math.abs(ratio - 1) < 0.02) return;
+    const next = pinchScale * ratio;
+    // 画面に収まる倍率より小さくしようとしたら「フィット」に戻す。
+    // これが無いと、縮めきっても中途半端に画面からはみ出したままになる。
+    // fitScale() は拡大中だと現在の倍率を返すので、ここでは枠の幅から直に求める
+    const fitNow = img.naturalWidth ? vp.clientWidth / img.naturalWidth : 1;
+    if (next <= fitNow + 0.005) zoomFit();
+    else zoomTo(next, pinchAnchor);
+  });
+  const dropPoint = (ev) => {
+    pts.delete(ev.pointerId);
+    if (pts.size < 2) pinchFrom = 0;
+  };
+  vp.addEventListener('pointerup', dropPoint);
+  vp.addEventListener('pointercancel', dropPoint);
 }
 
 /* ================================ テーマ ================================ */
@@ -630,11 +686,25 @@ function initTheme() {
   try { t = localStorage.getItem(THEME_KEY); } catch (e) { /* 自動判定に任せる */ }
   if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   document.documentElement.dataset.theme = t;
+  applyThemeColor(t);
 }
 function toggleTheme() {
   const t = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
   document.documentElement.dataset.theme = t;
   try { localStorage.setItem(THEME_KEY, t); } catch (e) { /* 表示は切り替わる */ }
+  applyThemeColor(t);
+}
+/** スマホのアドレスバーの色を、アプリの背景色に合わせる。
+    HTML 側の theme-color は OS の設定にしか従わないので、手動切り替えの分をここで上書きする */
+function applyThemeColor(t) {
+  const c = t === 'dark' ? '#11151d' : '#f4f6fb';
+  let m = document.querySelector('meta[name="theme-color"]:not([media])');
+  if (!m) {
+    m = document.createElement('meta');
+    m.name = 'theme-color';
+    document.head.appendChild(m);
+  }
+  m.content = c;
 }
 
 function updateModeUI() {

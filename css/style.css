@@ -55,6 +55,11 @@ body {
   margin: 0;
   padding: 0;
 }
+html {
+  /* iPhone を横向きにしたときに Safari が本文だけ勝手に拡大するのを止める */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 
 body {
   background: var(--bg);
@@ -122,8 +127,10 @@ body {
   place-items: center;
   font-family: inherit;
 }
-.icon-btn:hover {
-  background: var(--border);
+@media (hover: hover) {
+  .icon-btn:hover {
+    background: var(--border);
+  }
 }
 .icon-btn.sm {
   width: 32px;
@@ -241,8 +248,10 @@ body {
     border-color 0.15s,
     background 0.15s;
 }
-.cat-item:hover {
-  border-color: var(--accent);
+@media (hover: hover) {
+  .cat-item:hover {
+    border-color: var(--accent);
+  }
 }
 .cat-item input {
   accent-color: var(--accent);
@@ -301,8 +310,10 @@ body {
   font-size: 0.85rem;
   font-family: inherit;
 }
-.chip:hover {
-  border-color: var(--accent);
+@media (hover: hover) {
+  .chip:hover {
+    border-color: var(--accent);
+  }
 }
 .chip.is-on {
   background: var(--accent);
@@ -339,8 +350,10 @@ body {
     transform 0.08s,
     filter 0.15s;
 }
-.btn:hover:not(:disabled) {
-  filter: brightness(1.06);
+@media (hover: hover) {
+  .btn:hover:not(:disabled) {
+    filter: brightness(1.06);
+  }
 }
 .btn:active:not(:disabled) {
   transform: translateY(1px);
@@ -488,8 +501,10 @@ body {
     border-color 0.15s,
     background 0.15s;
 }
-.choice:hover:not(:disabled) {
-  border-color: var(--accent);
+@media (hover: hover) {
+  .choice:hover:not(:disabled) {
+    border-color: var(--accent);
+  }
 }
 .choice:disabled {
   cursor: default;
@@ -774,6 +789,9 @@ kbd {
   display: flex;
   flex-direction: column;
   max-height: 94vh;
+  /* スマホはアドレスバーの出入りで vh が実際の表示領域より大きくなる。
+     dvh に対応した端末では dvh を優先する */
+  max-height: 94dvh;
 }
 .modal-head {
   display: flex;
@@ -804,10 +822,11 @@ kbd {
   cursor: pointer;
   font-variant-numeric: tabular-nums;
 }
-.zoom-label:hover {
-  background: var(--border);
+@media (hover: hover) {
+  .zoom-label:hover {
+    background: var(--border);
+  }
 }
-
 .modal-viewport {
   flex: 1;
   overflow: auto;
@@ -815,6 +834,9 @@ kbd {
   background: var(--surface-2);
   cursor: zoom-in;
   overscroll-behavior: contain;
+  /* 二本指のピンチは自前で処理する（ブラウザ標準だとモーダルの外まで
+     一緒に伸びてしまう）。一本指のスクロールは標準のまま使う */
+  touch-action: pan-x pan-y;
 }
 .modal-viewport.is-zoomed {
   cursor: grab;
@@ -905,8 +927,10 @@ kbd {
   color: var(--text-mute);
   white-space: nowrap;
 }
-.tab:hover {
-  border-color: var(--accent);
+@media (hover: hover) {
+  .tab:hover {
+    border-color: var(--accent);
+  }
 }
 .tab.is-on {
   background: var(--accent);
@@ -945,8 +969,10 @@ kbd {
     border-color 0.15s,
     transform 0.08s;
 }
-.table-card:hover {
-  border-color: var(--accent);
+@media (hover: hover) {
+  .table-card:hover {
+    border-color: var(--accent);
+  }
 }
 .table-card:active {
   transform: translateY(1px);
@@ -1044,9 +1070,11 @@ kbd {
   font-weight: 700;
   user-select: none;
 }
-.data-table td.is-hidden-cell:hover {
-  background: var(--border);
-  color: var(--text);
+@media (hover: hover) {
+  .data-table td.is-hidden-cell:hover {
+    background: var(--border);
+    color: var(--text);
+  }
 }
 .data-table td.is-revealed {
   background: var(--ok-bg);
@@ -1156,8 +1184,10 @@ kbd {
   padding: 11px 13px;
   transition: border-color 0.15s;
 }
-.price-item:hover {
-  border-color: var(--accent);
+@media (hover: hover) {
+  .price-item:hover {
+    border-color: var(--accent);
+  }
 }
 .pi-thumb {
   flex: 0 0 62px;
@@ -1354,10 +1384,14 @@ kbd {
   position: relative;
   z-index: 1;
 }
-.bar-row:hover,
 .bar-row:focus-visible {
   background: var(--surface-2);
   outline: none;
+}
+@media (hover: hover) {
+  .bar-row:hover {
+    background: var(--surface-2);
+  }
 }
 .bar-label {
   font-size: 0.78rem;
@@ -1579,10 +1613,11 @@ kbd {
   font-size: 0.82rem;
   color: var(--text-mute);
 }
-.api-details summary:hover {
-  color: var(--accent);
+@media (hover: hover) {
+  .api-details summary:hover {
+    color: var(--accent);
+  }
 }
-
 @media (max-width: 560px) {
   .viz-grid {
     margin-left: 0;
@@ -1649,8 +1684,9 @@ kbd {
 .watch-list { margin: 10px 0 16px; }
 .watch-chip { display: inline-flex; align-items: center; gap: 7px; }
 .watch-x { color: var(--text-mute); font-size: .8em; }
-.watch-chip:hover .watch-x { color: var(--ng); }
-
+@media (hover: hover) {
+  .watch-chip:hover .watch-x { color: var(--ng); }
+}
 /* ------------------------------ 折れ線グラフ ------------------------------ */
 .trend-wrap { width: 100%; }
 .trend-svg { width: 100%; height: auto; display: block; overflow: visible; }
@@ -1677,7 +1713,9 @@ kbd {
   stroke: var(--text-mute); stroke-width: 1; stroke-opacity: .45;
   vector-effect: non-scaling-stroke; pointer-events: none;
 }
-.tr-hit { cursor: crosshair; }
+/* 指で押しながら横に滑らせると日付を読める。
+   縦方向は残すので、グラフの上からでもページをスクロールできる */
+.tr-hit { cursor: crosshair; touch-action: pan-y; }
 
 .viz-tip .tip-date { font-size: .78rem; color: var(--text-mute); font-weight: 400; margin-bottom: 2px; }
 .tip-row { display: flex; align-items: center; gap: 7px; font-size: .8rem; }
@@ -1753,4 +1791,295 @@ body.no-pages .bar-row { cursor: default; }
 /* まだ線を引けない（記録1件）の製品は凡例で薄く */
 .lg-item.is-pending {
   opacity: .45;
+}
+
+/* ==========================================================================
+   スマートフォン対応
+   PCと違ってタッチ・細い画面・ノッチ・アドレスバーの出入りがあるため、
+   ここでまとめて面倒を見る。
+   ========================================================================== */
+
+/* ------------------------- タッチ操作そのものの調整 ------------------------- */
+
+/* 押せるものは二度押し判定の300msを待たずに即反応させる。
+   長押しの選択ハイライトも邪魔なので切る */
+button,
+.tab,
+.chip,
+.cat-item,
+.choice,
+.table-card,
+.bar-row,
+.zoom-label,
+.switch,
+.lg-item,
+.watch-chip {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 押した瞬間のフィードバック。hover が使えないタッチ端末では
+   これが「押せた」の唯一の合図になる */
+@media (hover: none) {
+  .chip:active,
+  .tab:active,
+  .cat-item:active,
+  .choice:not(:disabled):active,
+  .table-card:active,
+  .icon-btn:active,
+  .zoom-label:active {
+    filter: brightness(0.94);
+  }
+  [data-theme="dark"] .chip:active,
+  [data-theme="dark"] .tab:active,
+  [data-theme="dark"] .cat-item:active,
+  [data-theme="dark"] .choice:not(:disabled):active,
+  [data-theme="dark"] .table-card:active,
+  [data-theme="dark"] .icon-btn:active,
+  [data-theme="dark"] .zoom-label:active {
+    filter: brightness(1.35);
+  }
+}
+
+/* ノッチ・ホームバーの内側に収める */
+.site-header {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+.site-footer,
+.credit-wrap {
+  padding-bottom: calc(28px + env(safe-area-inset-bottom));
+}
+.modal {
+  padding:
+    calc(16px + env(safe-area-inset-top))
+    calc(16px + env(safe-area-inset-right))
+    calc(16px + env(safe-area-inset-bottom))
+    calc(16px + env(safe-area-inset-left));
+}
+/* 誌面ビューアを開けている間は、背面のページが指で動かないようにする */
+.modal-backdrop {
+  touch-action: none;
+}
+
+/* 横スクロールする箱の中で指を動かしたとき、
+   行きどまりで背面のページまで一緒に動かない */
+.tbl-scroll,
+.tabs {
+  overscroll-behavior-x: contain;
+}
+/* タブの横スクロールバーは邪魔なので隠す（スクロール自体は生きている） */
+.tabs {
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+/* 横に続きがあることを右端のグラデーションで示す。
+   スマホだと「横に振れる」と気づけないため */
+.tbl-scroll {
+  position: relative;
+  background:
+    linear-gradient(to left, var(--surface), rgba(255, 255, 255, 0)) right / 28px 100% no-repeat;
+}
+[data-theme="dark"] .tbl-scroll {
+  background:
+    linear-gradient(to left, var(--surface), rgba(0, 0, 0, 0)) right / 28px 100% no-repeat;
+}
+
+/* --------------------------- 細い画面のレイアウト --------------------------- */
+@media (max-width: 560px) {
+  /* 左右の余白を少し詰めて、本文に使える幅を稼ぐ */
+  .wrap {
+    width: min(760px, 100% - 24px);
+  }
+  .card {
+    padding: 15px;
+    border-radius: 12px;
+  }
+  .question-card {
+    padding: 16px;
+  }
+
+  /* 指で押せる大きさ（44px）を確保する */
+  .btn,
+  .chip,
+  .tab,
+  .cat-item,
+  .build-select,
+  .text-input {
+    min-height: 44px;
+  }
+  .btn-sm {
+    min-height: 40px;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+  .icon-btn {
+    width: 44px;
+    height: 44px;
+  }
+  .icon-btn.sm {
+    width: 38px;
+    height: 38px;
+  }
+  .choice {
+    padding: 15px;
+  }
+
+  /* 入力欄の文字を16px以上にする。これより小さいと
+     iPhone がタップした瞬間に画面を勝手に拡大してしまう */
+  input,
+  select,
+  textarea,
+  .build-select,
+  .text-input {
+    font-size: 16px;
+  }
+
+  /* ヘッダーを薄くして、問題文に使える縦幅を増やす */
+  .header-inner {
+    padding: 9px 0;
+    gap: 8px;
+  }
+  .logo {
+    font-size: 0.95rem;
+    gap: 7px;
+    min-width: 0;
+  }
+  .logo-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .screen {
+    padding: 14px 0 32px;
+  }
+
+  /* 幅が足りない横並びを縦に落とす */
+  .quiz-actions {
+    flex-wrap: wrap;
+  }
+  .quiz-actions .btn:last-child {
+    margin-left: 0;
+    flex: 1 1 100%;
+  }
+  .resume-btns {
+    width: 100%;
+  }
+  .resume-btns .btn {
+    flex: 1;
+  }
+  .row-btns {
+    flex-wrap: wrap;
+  }
+  .row-btns .btn {
+    flex: 1 1 auto;
+  }
+
+  /* 表は横スクロールで読む。折り返すと縦に伸びすぎて比較できない */
+  .data-table {
+    font-size: 0.82rem;
+  }
+  .data-table th,
+  .data-table td {
+    padding: 8px 9px;
+  }
+
+  /* 誌面ビューアは画面いっぱいに使う */
+  .modal-body {
+    padding: 9px;
+    max-height: none;
+    height: 100%;
+  }
+  .modal-head {
+    margin-bottom: 7px;
+  }
+  .modal-title {
+    font-size: 0.78rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .zoom-label {
+    min-width: 60px;
+  }
+
+  /* 折れ線グラフの吹き出しは画面幅に合わせる */
+  .viz-tip {
+    max-width: calc(100vw - 24px);
+  }
+  .tip-nm {
+    max-width: 130px;
+  }
+}
+
+/* うんと細い端末（iPhone SE など 375px 未満） */
+@media (max-width: 374px) {
+  .wrap {
+    width: min(760px, 100% - 16px);
+  }
+  .stats-body {
+    gap: 4px;
+  }
+  .stat {
+    padding: 10px 4px;
+  }
+  .stat b {
+    font-size: 1.05rem;
+  }
+  .stat span {
+    font-size: 0.68rem;
+  }
+  .logo-mark {
+    display: none;
+  }
+}
+
+/* -------------------------- 横向き（ランドスケープ） -------------------------- */
+/* 画面が低いので、縦方向の飾りを削って本文を見せる */
+@media (max-height: 460px) and (orientation: landscape) {
+  .site-header {
+    position: static;
+  }
+  .screen {
+    padding: 10px 0 20px;
+  }
+  .score-ring {
+    width: 116px;
+    height: 116px;
+  }
+  .score-ring-inner {
+    width: 90px;
+    height: 90px;
+  }
+  .score-ring-inner span {
+    font-size: 1.5rem;
+  }
+  .hint {
+    display: none;
+  }
+}
+
+/* -------------------------- 動きを減らす設定の尊重 -------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* キーボードの操作説明は、キーボードのない端末では出さない */
+@media (hover: none) and (pointer: coarse) {
+  .hint {
+    display: none;
+  }
+  .modal-hint kbd {
+    display: none;
+  }
 }
