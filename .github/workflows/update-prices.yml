@@ -1,0 +1,43 @@
+name: 価格を毎日取得する
+
+on:
+  schedule:
+    # 毎日 06:00 JST（UTC 21:00）。GitHub 側の混雑で数十分ずれることがあります
+    - cron: '0 21 * * *'
+  workflow_dispatch:        # 手動実行用のボタンを出す
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-prices
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリを取得
+        uses: actions/checkout@v4
+
+      - name: Python を用意
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 価格を取得
+        env:
+          YAHOO_APPID: ${{ secrets.YAHOO_APPID }}
+        run: python tools/fetch_prices.py
+
+      - name: 変更があればコミットする
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/prices.js data/prices.json
+          if git diff --staged --quiet; then
+            echo "変更なし"
+          else
+            git commit -m "価格を更新: $(TZ=Asia/Tokyo date +%Y-%m-%d)"
+            git push
+          fi
