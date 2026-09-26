@@ -45,6 +45,18 @@ MIN_HITS = 2        # これ未満しか残らない日は中央値が当てに�
 NG_WORDS = ('中古', 'ジャンク', '訳あり', '部品取り', '本体のみ', '箱のみ', '空箱',
             'ステッカー', 'キーホルダー', 'Tシャツ')
 
+# 区分ごとの追加除外。
+# 例：GPUを検索すると「そのGPUを積んだゲーミングノートPC」が大量に出てくる。
+# 型番は一致してしまうので、パソコン本体を示す語で落とす。
+NG_BY_CAT = {
+    'gpu': ('ノート', 'ゲーミングPC', 'デスクトップ', 'BTO', '一体型', 'ミニPC',
+            'インチ', 'WQXGA', 'OLED', 'Legion', 'Raider', 'Windows'),
+    'cpu': ('ノート', 'ゲーミングPC', 'デスクトップ', 'BTO', '一体型', 'ミニPC'),
+    'mb':  ('ノート', 'ゲーミングPC', 'BTO'),
+}
+# パソコン本体は「GPUとCPUの両方」が商品名に入りがち。型番同士の同居も手がかりにする
+CPU_IN_NAME = re.compile(r'(ultra\s*\d|ryzen\s*\d|core\s*i\d|celeron|pentium)', re.I)
+
 
 def norm_name(s):
     """全角・大文字・記号の違いを吸収して比較できる形にする"""
@@ -103,7 +115,7 @@ def search(appid, query):
             raise
 
 
-def extract(data, ref, must=None, ban=None):
+def extract(data, ref, must=None, ban=None, cat=None):
     """APIの応答から対象パーツらしい価格だけを取り出し、診断情報も返す。
 
     戻り値: (価格のリスト, 診断dict)
@@ -138,7 +150,10 @@ def extract(data, ref, must=None, ban=None):
         if ban and any(b in nn for b in ban):
             diag['name'] += 1
             continue
-        hit = next((w for w in NG_WORDS if w in name), None)
+        words = NG_WORDS + NG_BY_CAT.get(cat, ())
+        hit = next((w for w in words if w in name), None)
+        if hit is None and cat == 'gpu' and CPU_IN_NAME.search(name):
+            hit = 'CPU名が同居'      # グラボ単体の商品名にCPU名は出てこない
         if hit:
             diag['ng'] += 1
             diag['ngw'][hit] = diag['ngw'].get(hit, 0) + 1
@@ -228,7 +243,7 @@ def main():
             anchor = prev_mid
         try:
             prices, dg = extract(search(appid, query), anchor,
-                                 p.get('must'), p.get('not'))
+                                 p.get('must'), p.get('not'), p.get('cat'))
         except Exception as e:
             print('  [%2d/%d] %-28s 取得失敗: %s' % (i, len(parts), name, e), file=sys.stderr)
             diag[name] = {'ok': False, 'why': 'api', 'msg': str(e)[:80]}
