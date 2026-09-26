@@ -12,6 +12,9 @@ const LOG_KEY   = 'pcQuiz.priceLog.v1';
 const FEED_KEY  = 'pcQuiz.feedUrl';
 /* 同じ日に複数の取得元があるときの優先順位（自分で測った値を優先する） */
 const PRIO = { manual: 3, rakuten: 2, feed: 1, book: 0 };
+/* 初回に自動でウォッチへ入れる代表パーツ（空の画面を見せないため）。
+   自分で外した場合は seeded フラグが立っているので勝手に戻さない */
+const SEED_WATCH = ['Ryzen 7 9800X3D', 'Core Ultra 7 265K', 'RTX 5070', 'RX 9070 XT'];
 const MAX_WATCH = 4;   // 折れ線は4系列まで（それ以上は線が重なって読めなくなる）
 
 let store = { log: {}, watch: [] };
@@ -20,7 +23,7 @@ let store = { log: {}, watch: [] };
 function load() {
   try {
     const d = JSON.parse(localStorage.getItem(LOG_KEY));
-    if (d && d.log) store = { log: d.log, watch: Array.isArray(d.watch) ? d.watch : [] };
+    if (d && d.log) store = { log: d.log, watch: Array.isArray(d.watch) ? d.watch : [], seeded: !!d.seeded };
   } catch (e) { /* 初期状態で続行 */ }
 }
 function save() {
@@ -121,9 +124,13 @@ function renderTrend() {
   const foot = $('#trendFoot');
   const legend = $('#trendLegend');
 
+  // 記録が1件だけの製品はまだ線を引けないので、凡例では薄く表示して区別する
   legend.innerHTML = ss.map((s) =>
-    '<span class="lg-item"><i class="lg-swatch" style="background:var(--series-' + s.slot + ')"></i>' +
-    s.name + '<em class="lg-val">' + (s.rec.length ? s.rec.length + '件' : '記録なし') + '</em></span>').join('');
+    '<span class="lg-item' + (s.rec.length < 2 ? ' is-pending' : '') + '">' +
+    '<i class="lg-swatch" style="background:var(--series-' + s.slot + ')"></i>' +
+    s.name + '<em class="lg-val">' +
+    (s.rec.length >= 2 ? s.rec.length + '件' : (s.rec.length === 1 ? '1件・線はまだ' : '記録なし')) +
+    '</em></span>').join('');
 
   if (!ss.length) {
     cap.textContent = '';
@@ -134,10 +141,27 @@ function renderTrend() {
 
   const plot = ss.filter((s) => s.rec.length >= 2);
   if (!plot.length) {
-    cap.textContent = 'ウォッチ中 ' + ss.length + ' 製品';
-    box.innerHTML = '<p class="review-empty">まだ記録が1件ずつしかありません。' +
-      '「いまの価格を調べる」を実行するか、下の「価格を手で記録する」から2件目を入れるとグラフになります。</p>';
-    foot.textContent = '';
+    // 点が1つでは線が引けない。代わりに現状を表で示し、次に何をすればよいかを出す
+    cap.textContent = 'ウォッチ中 ' + ss.length + ' 製品（実測値がまだありません）';
+    const feedReady = !!(window.PRICE_FEED && window.PRICE_FEED.items &&
+                         Object.keys(window.PRICE_FEED.items).length);
+    let html = '<table class="data-table start-table"><thead><tr>' +
+      '<th>製品</th><th>誌面価格</th><th>実測値</th></tr></thead><tbody>';
+    html += ss.map(() => '<tr><th scope="row"></th><td class="num"></td><td class="num pending"></td></tr>').join('');
+    html += '</tbody></table>';
+    html += '<p class="start-note"></p>';
+    box.innerHTML = html;
+    $$('#trendChart tbody tr').forEach((tr, i) => {
+      const rec = ss[i].rec[0];
+      tr.children[0].textContent = ss[i].name;
+      tr.children[1].textContent = rec ? yen(rec.p) : '—';
+      tr.children[2].textContent = 'まだなし';
+    });
+    $('.start-note', box).textContent = feedReady
+      ? '価格フィードは読み込めていますが、この製品のデータがまだありません。'
+      : '価格フィードがまだ空です。GitHub の Actions タブで「価格を毎日取得する」を一度実行すると、'
+        + '翌日以降この表が折れ線グラフに変わります。';
+    foot.textContent = '線を引くには同じ製品の価格が2日ぶん必要です。誌面価格が1点目、最初の取得が2点目になります。';
     return;
   }
 
@@ -399,6 +423,14 @@ window.initTrend = function () {
   $('#logDate').value = today();
   refresh();
 
+  // 初回だけ代表パーツを入れておく（何も表示されない画面を避けるため）
+  if (!store.seeded && !store.watch.length) {
+    SEED_WATCH.forEach((n) => { if (findPart(n)) addWatch(n); });
+    store.seeded = true;
+    save();
+    refresh();
+  }
+
   const feedUrl = getFeedUrl();
   $('#feedUrl').value = feedUrl;
   renderFeedState();
@@ -442,7 +474,7 @@ window.initTrend = function () {
 
   $('#btnLogReset').addEventListener('click', () => {
     if (!confirm('記録した価格をすべて消去します。よろしいですか？')) return;
-    store = { log: {}, watch: [] };
+    store = { log: {}, watch: [], seeded: true };
     save();
     refresh();
   });

@@ -1066,7 +1066,8 @@ kbd {
 }
 
 /* ----------------------------- パーツ価格 ----------------------------- */
-.chip.ghost {
+/* 選択中(.is-on)のときは背景を戻さない。透明にすると白文字が見えなくなる */
+.chip.ghost:not(.is-on) {
   background: transparent;
 }
 .models {
@@ -1739,3 +1740,17 @@ body.no-pages #btnTableViewPage,
 body.no-pages .review-item .btn,
 body.no-pages .viz-foot .page-hint { display: none; }
 body.no-pages .bar-row { cursor: default; }
+
+/* 実測値がまだ無いときの、推移カードの初期表示 */
+.start-table { margin-bottom: 12px; }
+.start-table td.pending { color: var(--text-mute); }
+.start-note {
+  margin: 0; padding: 11px 13px; border-radius: 9px;
+  background: var(--warn-bg); border-left: 3px solid var(--warn);
+  font-size: .82rem; line-height: 1.75; color: var(--text);
+}
+
+/* まだ線を引けない（記録1件）の製品は凡例で薄く */
+.lg-item.is-pending {
+  opacity: .45;
+}
