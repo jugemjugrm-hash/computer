@@ -1,0 +1,296 @@
+[
+  {
+    "name": "Ryzen 9 9950X3D",
+    "cat": "cpu",
+    "query": "Ryzen 9 9950X3D",
+    "ref": 110000
+  },
+  {
+    "name": "Ryzen 9 9950X",
+    "cat": "cpu",
+    "query": "Ryzen 9 9950X",
+    "ref": 82000
+  },
+  {
+    "name": "Ryzen 9 9900X3D",
+    "cat": "cpu",
+    "query": "Ryzen 9 9900X3D",
+    "ref": 92000
+  },
+  {
+    "name": "Ryzen 9 9900X",
+    "cat": "cpu",
+    "query": "Ryzen 9 9900X",
+    "ref": 68000
+  },
+  {
+    "name": "Ryzen 7 9800X3D",
+    "cat": "cpu",
+    "query": "Ryzen 7 9800X3D",
+    "ref": 88000
+  },
+  {
+    "name": "Ryzen 7 9700X",
+    "cat": "cpu",
+    "query": "Ryzen 7 9700X",
+    "ref": 50000
+  },
+  {
+    "name": "Ryzen 5 9600X",
+    "cat": "cpu",
+    "query": "Ryzen 5 9600X",
+    "ref": 41000
+  },
+  {
+    "name": "Ryzen 5 9600",
+    "cat": "cpu",
+    "query": "Ryzen 5 9600",
+    "ref": 39000
+  },
+  {
+    "name": "Ryzen 5 9500F",
+    "cat": "cpu",
+    "query": "Ryzen 5 9500F",
+    "ref": 38000
+  },
+  {
+    "name": "Ryzen 7 8700G",
+    "cat": "cpu",
+    "query": "Ryzen 7 8700G",
+    "ref": 48000
+  },
+  {
+    "name": "Ryzen 5 8600G",
+    "cat": "cpu",
+    "query": "Ryzen 5 8600G",
+    "ref": 32000
+  },
+  {
+    "name": "Ryzen 5 8500G",
+    "cat": "cpu",
+    "query": "Ryzen 5 8500G",
+    "ref": 24000
+  },
+  {
+    "name": "Core Ultra 9 285K",
+    "cat": "cpu",
+    "query": "Core Ultra 9 285K",
+    "ref": 95000
+  },
+  {
+    "name": "Core Ultra 9 285",
+    "cat": "cpu",
+    "query": "Core Ultra 9 285",
+    "ref": 95000
+  },
+  {
+    "name": "Core Ultra 7 265K",
+    "cat": "cpu",
+    "query": "Core Ultra 7 265K",
+    "ref": 52000
+  },
+  {
+    "name": "Core Ultra 7 265KF",
+    "cat": "cpu",
+    "query": "Core Ultra 7 265KF",
+    "ref": 47000
+  },
+  {
+    "name": "Core Ultra 7 265",
+    "cat": "cpu",
+    "query": "Core Ultra 7 265",
+    "ref": 58000
+  },
+  {
+    "name": "Core Ultra 7 265F",
+    "cat": "cpu",
+    "query": "Core Ultra 7 265F",
+    "ref": 56000
+  },
+  {
+    "name": "Core Ultra 5 245K",
+    "cat": "cpu",
+    "query": "Core Ultra 5 245K",
+    "ref": 38000
+  },
+  {
+    "name": "Core Ultra 5 245KF",
+    "cat": "cpu",
+    "query": "Core Ultra 5 245KF",
+    "ref": 35000
+  },
+  {
+    "name": "Core Ultra 5 235",
+    "cat": "cpu",
+    "query": "Core Ultra 5 235",
+    "ref": 44000
+  },
+  {
+    "name": "Core Ultra 5 225",
+    "cat": "cpu",
+    "query": "Core Ultra 5 225",
+    "ref": 30000
+  },
+  {
+    "name": "Core Ultra 5 225F",
+    "cat": "cpu",
+    "query": "Core Ultra 5 225F",
+    "ref": 27000
+  },
+  {
+    "name": "RTX 5090",
+    "cat": "gpu",
+    "query": "GeForce RTX 5090",
+    "ref": 400000
+  },
+  {
+    "name": "RTX 5080",
+    "cat": "gpu",
+    "query": "GeForce RTX 5080",
+    "ref": 170000
+  },
+  {
+    "name": "RTX 5070 Ti",
+    "cat": "gpu",
+    "query": "GeForce RTX 5070 Ti",
+    "ref": 130000
+  },
+  {
+    "name": "RTX 5070",
+    "cat": "gpu",
+    "query": "GeForce RTX 5070",
+    "ref": 82000
+  },
+  {
+    "name": "RTX 5060 Ti 16GB",
+    "cat": "gpu",
+    "query": "GeForce RTX 5060 Ti 16GB",
+    "ref": 70000
+  },
+  {
+    "name": "RTX 5060 Ti 8GB",
+    "cat": "gpu",
+    "query": "GeForce RTX 5060 Ti 8GB",
+    "ref": 56000
+  },
+  {
+    "name": "RTX 5060",
+    "cat": "gpu",
+    "query": "GeForce RTX 5060",
+    "ref": 44000
+  },
+  {
+    "name": "RTX 5050",
+    "cat": "gpu",
+    "query": "GeForce RTX 5050",
+    "ref": 34000
+  },
+  {
+    "name": "RX 9070 XT",
+    "cat": "gpu",
+    "query": "Radeon RX 9070 XT",
+    "ref": 90000
+  },
+  {
+    "name": "RX 9070",
+    "cat": "gpu",
+    "query": "Radeon RX 9070",
+    "ref": 85000
+  },
+  {
+    "name": "RX 9060 XT 16GB",
+    "cat": "gpu",
+    "query": "Radeon RX 9060 XT 16GB",
+    "ref": 50000
+  },
+  {
+    "name": "RX 9060 XT 8GB",
+    "cat": "gpu",
+    "query": "Radeon RX 9060 XT 8GB",
+    "ref": 42000
+  },
+  {
+    "name": "Arc B580",
+    "cat": "gpu",
+    "query": "Arc B580",
+    "ref": 40000
+  },
+  {
+    "name": "Arc B570",
+    "cat": "gpu",
+    "query": "Arc B570",
+    "ref": 30000
+  },
+  {
+    "name": "PRIME X870-P WIFI-CSM",
+    "cat": "mb",
+    "query": "PRIME X870-P WIFI-CSM",
+    "ref": 31000
+  },
+  {
+    "name": "PRIME B850-PLUS WIFI-CSM",
+    "cat": "mb",
+    "query": "PRIME B850-PLUS WIFI-CSM",
+    "ref": 30000
+  },
+  {
+    "name": "PRIME B840-PLUS WIFI-CSM",
+    "cat": "mb",
+    "query": "PRIME B840-PLUS WIFI-CSM",
+    "ref": 23000
+  },
+  {
+    "name": "PRIME Z890-P WIFI-CSM",
+    "cat": "mb",
+    "query": "PRIME Z890-P WIFI-CSM",
+    "ref": 31000
+  },
+  {
+    "name": "PRIME B860-PLUS-CSM",
+    "cat": "mb",
+    "query": "PRIME B860-PLUS-CSM",
+    "ref": 20000
+  },
+  {
+    "name": "PRIME H810M-A-CSM",
+    "cat": "mb",
+    "query": "PRIME H810M-A-CSM",
+    "ref": 18000
+  },
+  {
+    "name": "Windows 11 Home パッケージ版",
+    "cat": "os",
+    "query": "Windows 11 Home パッケージ版",
+    "ref": 17000
+  },
+  {
+    "name": "Windows 11 Home ダウンロード版",
+    "cat": "os",
+    "query": "Windows 11 Home ダウンロード版",
+    "ref": 18000
+  },
+  {
+    "name": "Windows 11 Home DSP版",
+    "cat": "os",
+    "query": "Windows 11 Home DSP版",
+    "ref": 20000
+  },
+  {
+    "name": "Windows 11 Pro パッケージ版",
+    "cat": "os",
+    "query": "Windows 11 Pro パッケージ版",
+    "ref": 25000
+  },
+  {
+    "name": "Windows 11 Pro ダウンロード版",
+    "cat": "os",
+    "query": "Windows 11 Pro ダウンロード版",
+    "ref": 26000
+  },
+  {
+    "name": "Windows 11 Pro DSP版",
+    "cat": "os",
+    "query": "Windows 11 Pro DSP版",
+    "ref": 26000
+  }
+]
