@@ -10,6 +10,8 @@ GitHub Actions から毎日1回呼ばれる想定。
 
 import json
 import os
+import re
+import unicodedata
 import statistics
 import sys
 import time
@@ -25,19 +27,28 @@ OUT_JS = os.path.join(ROOT, 'data', 'prices.js')
 OUT_JSON = os.path.join(ROOT, 'data', 'prices.json')
 
 HITS = 20           # 1パーツあたり取得する商品数
-SLEEP = 1.1         # APIへの間隔（秒）。Yahoo!の制限が「1クエリ/秒」なので少し余裕をもたせる
+SLEEP = 3.0         # APIへの間隔（秒）。1.1秒では 429 Too Many Requests になったため広げた
+RETRY = 3           # 429 が返ったときの再試行回数
+BACKOFF = 20        # 再試行までの待ち時間（秒）。試行ごとに倍にする
 DAILY_DAYS = 60     # 直近この日数は毎日の点を残す
 MAX_POINTS = 250    # 1パーツあたりの保持点数の上限
 # 2段階で絞り込む。
 #  1) 誌面価格に対する広めの窓 … 明らかな別物だけを落とす。値下がりで切られないよう広くとる
 #  2) その日の中央値に対する窓 … 付属品・バルク・法外な出品を落とす。相場が動いても追従する
-LO_BOOK = 0.25
-HI_BOOK = 3.00
+# 基準価格は「前回記録した中央値」を優先し、無ければ誌面価格を使う。
+# こうすると相場が下がっても基準が追従するので、窓を不必要に広げなくて済む。
+LO_BOOK = 0.50
+HI_BOOK = 2.50
 LO_MED  = 0.60
 HI_MED  = 2.00
 MIN_HITS = 3        # これ未満しか残らない日は中央値が当てにならないので記録しない
 NG_WORDS = ('中古', 'ジャンク', '訳あり', '部品取り', '本体のみ', '箱のみ', '空箱',
             'ステッカー', 'キーホルダー', 'Tシャツ')
+
+
+def norm_name(s):
+    """全角・大文字・記号の違いを吸収して比較できる形にする"""
+    return re.sub(r'[\s\-_・/]', '', unicodedata.normalize('NFKC', s).lower())
 
 
 def load_dotenv():
@@ -76,17 +87,30 @@ def search(appid, query):
         API + '?' + params,
         headers={'User-Agent': 'pc-price-feed/1.0 (personal study tool)'},
     )
-    with urllib.request.urlopen(req, timeout=20) as res:
-        return json.loads(res.read().decode('utf-8'))
+    wait = BACKOFF
+    for attempt in range(RETRY + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=20) as res:
+                return json.loads(res.read().decode('utf-8'))
+        except urllib.error.HTTPError as e:
+            # 429（アクセスしすぎ）のときだけ、間を置いて数回やり直す
+            if e.code == 429 and attempt < RETRY:
+                print('    429のため %d 秒待って再試行します（%d/%d）' % (wait, attempt + 1, RETRY))
+                time.sleep(wait)
+                wait *= 2
+                continue
+            raise
 
 
-def extract(data, ref):
+def extract(data, ref, must=None, ban=None):
     """APIの応答から対象パーツらしい価格だけを取り出し、診断情報も返す。
 
     戻り値: (価格のリスト, 診断dict)
     """
     hits = (data or {}).get('hits') or []
-    diag = {'hits': len(hits), 'ng': 0, 'book': 0, 'med': 0}
+    diag = {'hits': len(hits), 'name': 0, 'ng': 0, 'book': 0, 'med': 0}
+    must = [m.lower() for m in (must or [])]
+    ban = [b.lower() for b in (ban or [])]
 
     raw = []
     for h in hits:
@@ -99,6 +123,14 @@ def extract(data, ref):
         except (TypeError, ValueError):
             continue
         if price <= 0:
+            continue
+        # 型番が商品名に入っていない＝別商品。ここが一番効く
+        nn = norm_name(name)
+        if must and not all(m in nn for m in must):
+            diag['name'] += 1
+            continue
+        if ban and any(b in nn for b in ban):
+            diag['name'] += 1
             continue
         if any(w in name for w in NG_WORDS):
             diag['ng'] += 1
@@ -167,8 +199,12 @@ def main():
 
     for i, p in enumerate(parts, 1):
         name, query, ref = p['name'], p['query'], int(p.get('ref') or 0)
+        # 前回の中央値があればそれを基準にする（相場の変化に追従させるため）
+        prev = items.get(name, {}).get('hist') or []
+        anchor = prev[-1].get('mid') if prev and prev[-1].get('mid') else ref
         try:
-            prices, dg = extract(search(appid, query), ref)
+            prices, dg = extract(search(appid, query), anchor,
+                                 p.get('must'), p.get('not'))
         except Exception as e:
             print('  [%2d/%d] %-28s 取得失敗: %s' % (i, len(parts), name, e), file=sys.stderr)
             diag[name] = {'ok': False, 'why': 'api', 'msg': str(e)[:80]}
@@ -179,8 +215,8 @@ def main():
         if len(prices) < MIN_HITS:
             why = ('0hit' if dg['hits'] == 0 else
                    'filtered' if dg['hits'] > 0 else 'few')
-            print('  [%2d/%d] %-28s 記録せず（検索%d件 → NG語%d / 誌面外%d / 外れ値%d → 残り%d）'
-                  % (i, len(parts), name, dg['hits'], dg['ng'], dg['book'], dg['med'], len(prices)))
+            print('  [%2d/%d] %-28s 記録せず（検索%d件 → 型番不一致%d / NG語%d / 価格帯外%d / 外れ値%d → 残り%d）'
+                  % (i, len(parts), name, dg['hits'], dg['name'], dg['ng'], dg['book'], dg['med'], len(prices)))
             dg.update({'ok': False, 'why': why, 'kept': len(prices), 'q': query})
             diag[name] = dg
             ng += 1

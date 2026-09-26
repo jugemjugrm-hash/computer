@@ -3,270 +3,446 @@
     "name": "Ryzen 9 9950X3D",
     "cat": "cpu",
     "query": "Ryzen 9 9950X3D",
-    "ref": 110000
+    "ref": 110000,
+    "must": [
+      "9950x3d"
+    ]
   },
   {
     "name": "Ryzen 9 9950X",
     "cat": "cpu",
     "query": "Ryzen 9 9950X",
-    "ref": 82000
+    "ref": 82000,
+    "must": [
+      "9950x"
+    ],
+    "not": [
+      "9950x3d"
+    ]
   },
   {
     "name": "Ryzen 9 9900X3D",
     "cat": "cpu",
     "query": "Ryzen 9 9900X3D",
-    "ref": 92000
+    "ref": 92000,
+    "must": [
+      "9900x3d"
+    ]
   },
   {
     "name": "Ryzen 9 9900X",
     "cat": "cpu",
     "query": "Ryzen 9 9900X",
-    "ref": 68000
+    "ref": 68000,
+    "must": [
+      "9900x"
+    ],
+    "not": [
+      "9900x3d"
+    ]
   },
   {
     "name": "Ryzen 7 9800X3D",
     "cat": "cpu",
     "query": "Ryzen 7 9800X3D",
-    "ref": 88000
+    "ref": 88000,
+    "must": [
+      "9800x3d"
+    ]
   },
   {
     "name": "Ryzen 7 9700X",
     "cat": "cpu",
     "query": "Ryzen 7 9700X",
-    "ref": 50000
+    "ref": 50000,
+    "must": [
+      "9700x"
+    ]
   },
   {
     "name": "Ryzen 5 9600X",
     "cat": "cpu",
     "query": "Ryzen 5 9600X",
-    "ref": 41000
+    "ref": 41000,
+    "must": [
+      "9600x"
+    ]
   },
   {
     "name": "Ryzen 5 9600",
     "cat": "cpu",
     "query": "Ryzen 5 9600",
-    "ref": 39000
+    "ref": 39000,
+    "must": [
+      "9600"
+    ],
+    "not": [
+      "9600x"
+    ]
   },
   {
     "name": "Ryzen 5 9500F",
     "cat": "cpu",
     "query": "Ryzen 5 9500F",
-    "ref": 38000
+    "ref": 38000,
+    "must": [
+      "9500f"
+    ]
   },
   {
     "name": "Ryzen 7 8700G",
     "cat": "cpu",
     "query": "Ryzen 7 8700G",
-    "ref": 48000
+    "ref": 48000,
+    "must": [
+      "8700g"
+    ]
   },
   {
     "name": "Ryzen 5 8600G",
     "cat": "cpu",
     "query": "Ryzen 5 8600G",
-    "ref": 32000
+    "ref": 32000,
+    "must": [
+      "8600g"
+    ]
   },
   {
     "name": "Ryzen 5 8500G",
     "cat": "cpu",
     "query": "Ryzen 5 8500G",
-    "ref": 24000
+    "ref": 24000,
+    "must": [
+      "8500g"
+    ]
   },
   {
     "name": "Core Ultra 9 285K",
     "cat": "cpu",
     "query": "Core Ultra 9 285K",
-    "ref": 95000
+    "ref": 95000,
+    "must": [
+      "coreultra9285k"
+    ]
   },
   {
     "name": "Core Ultra 9 285",
     "cat": "cpu",
     "query": "Core Ultra 9 285",
-    "ref": 95000
+    "ref": 95000,
+    "must": [
+      "coreultra9285"
+    ],
+    "not": [
+      "coreultra9285k"
+    ]
   },
   {
     "name": "Core Ultra 7 265K",
     "cat": "cpu",
     "query": "Core Ultra 7 265K",
-    "ref": 52000
+    "ref": 52000,
+    "must": [
+      "coreultra7265k"
+    ],
+    "not": [
+      "coreultra7265kf"
+    ]
   },
   {
     "name": "Core Ultra 7 265KF",
     "cat": "cpu",
     "query": "Core Ultra 7 265KF",
-    "ref": 47000
+    "ref": 47000,
+    "must": [
+      "coreultra7265kf"
+    ]
   },
   {
     "name": "Core Ultra 7 265",
     "cat": "cpu",
     "query": "Core Ultra 7 265",
-    "ref": 58000
+    "ref": 58000,
+    "must": [
+      "coreultra7265"
+    ],
+    "not": [
+      "coreultra7265f",
+      "coreultra7265k",
+      "coreultra7265kf"
+    ]
   },
   {
     "name": "Core Ultra 7 265F",
     "cat": "cpu",
     "query": "Core Ultra 7 265F",
-    "ref": 56000
+    "ref": 56000,
+    "must": [
+      "coreultra7265f"
+    ]
   },
   {
     "name": "Core Ultra 5 245K",
     "cat": "cpu",
     "query": "Core Ultra 5 245K",
-    "ref": 38000
+    "ref": 38000,
+    "must": [
+      "coreultra5245k"
+    ],
+    "not": [
+      "coreultra5245kf"
+    ]
   },
   {
     "name": "Core Ultra 5 245KF",
     "cat": "cpu",
     "query": "Core Ultra 5 245KF",
-    "ref": 35000
+    "ref": 35000,
+    "must": [
+      "coreultra5245kf"
+    ]
   },
   {
     "name": "Core Ultra 5 235",
     "cat": "cpu",
     "query": "Core Ultra 5 235",
-    "ref": 44000
+    "ref": 44000,
+    "must": [
+      "coreultra5235"
+    ]
   },
   {
     "name": "Core Ultra 5 225",
     "cat": "cpu",
     "query": "Core Ultra 5 225",
-    "ref": 30000
+    "ref": 30000,
+    "must": [
+      "coreultra5225"
+    ],
+    "not": [
+      "coreultra5225f"
+    ]
   },
   {
     "name": "Core Ultra 5 225F",
     "cat": "cpu",
     "query": "Core Ultra 5 225F",
-    "ref": 27000
+    "ref": 27000,
+    "must": [
+      "coreultra5225f"
+    ]
   },
   {
     "name": "RTX 5090",
     "cat": "gpu",
     "query": "GeForce RTX 5090",
-    "ref": 400000
+    "ref": 400000,
+    "must": [
+      "5090"
+    ]
   },
   {
     "name": "RTX 5080",
     "cat": "gpu",
     "query": "GeForce RTX 5080",
-    "ref": 170000
+    "ref": 170000,
+    "must": [
+      "5080"
+    ]
   },
   {
     "name": "RTX 5070 Ti",
     "cat": "gpu",
     "query": "GeForce RTX 5070 Ti",
-    "ref": 130000
+    "ref": 130000,
+    "must": [
+      "5070ti"
+    ]
   },
   {
     "name": "RTX 5070",
     "cat": "gpu",
     "query": "GeForce RTX 5070",
-    "ref": 82000
+    "ref": 82000,
+    "must": [
+      "5070"
+    ],
+    "not": [
+      "5070ti"
+    ]
   },
   {
     "name": "RTX 5060 Ti 16GB",
     "cat": "gpu",
     "query": "GeForce RTX 5060 Ti 16GB",
-    "ref": 70000
+    "ref": 70000,
+    "must": [
+      "5060ti",
+      "16gb"
+    ]
   },
   {
     "name": "RTX 5060 Ti 8GB",
     "cat": "gpu",
     "query": "GeForce RTX 5060 Ti 8GB",
-    "ref": 56000
+    "ref": 56000,
+    "must": [
+      "5060ti",
+      "8gb"
+    ]
   },
   {
     "name": "RTX 5060",
     "cat": "gpu",
     "query": "GeForce RTX 5060",
-    "ref": 44000
+    "ref": 44000,
+    "must": [
+      "5060"
+    ],
+    "not": [
+      "5060ti"
+    ]
   },
   {
     "name": "RTX 5050",
     "cat": "gpu",
     "query": "RTX 5050",
-    "ref": 34000
+    "ref": 34000,
+    "must": [
+      "5050"
+    ]
   },
   {
     "name": "RX 9070 XT",
     "cat": "gpu",
     "query": "RX 9070 XT",
-    "ref": 90000
+    "ref": 90000,
+    "must": [
+      "9070xt"
+    ]
   },
   {
     "name": "RX 9070",
     "cat": "gpu",
     "query": "RX 9070",
-    "ref": 85000
+    "ref": 85000,
+    "must": [
+      "9070"
+    ],
+    "not": [
+      "9070xt"
+    ]
   },
   {
     "name": "RX 9060 XT 16GB",
     "cat": "gpu",
     "query": "RX 9060 XT 16GB",
-    "ref": 50000
+    "ref": 50000,
+    "must": [
+      "9060xt",
+      "16gb"
+    ]
   },
   {
     "name": "RX 9060 XT 8GB",
     "cat": "gpu",
     "query": "RX 9060 XT 8GB",
-    "ref": 42000
+    "ref": 42000,
+    "must": [
+      "9060xt",
+      "8gb"
+    ]
   },
   {
     "name": "Arc B580",
     "cat": "gpu",
     "query": "Intel Arc B580",
-    "ref": 40000
+    "ref": 40000,
+    "must": [
+      "b580"
+    ]
   },
   {
     "name": "Arc B570",
     "cat": "gpu",
     "query": "Intel Arc B570",
-    "ref": 30000
+    "ref": 30000,
+    "must": [
+      "b570"
+    ]
   },
   {
     "name": "PRIME X870-P WIFI-CSM",
     "cat": "mb",
     "query": "ASUS PRIME X870-P",
-    "ref": 31000
+    "ref": 31000,
+    "must": [
+      "primex870"
+    ]
   },
   {
     "name": "PRIME B850-PLUS WIFI-CSM",
     "cat": "mb",
     "query": "ASUS PRIME B850-PLUS",
-    "ref": 30000
+    "ref": 30000,
+    "must": [
+      "primeb850"
+    ]
   },
   {
     "name": "PRIME B840-PLUS WIFI-CSM",
     "cat": "mb",
     "query": "ASUS PRIME B840-PLUS",
-    "ref": 23000
+    "ref": 23000,
+    "must": [
+      "primeb840"
+    ]
   },
   {
     "name": "PRIME Z890-P WIFI-CSM",
     "cat": "mb",
     "query": "ASUS PRIME Z890-P",
-    "ref": 31000
+    "ref": 31000,
+    "must": [
+      "primez890"
+    ]
   },
   {
     "name": "PRIME B860-PLUS-CSM",
     "cat": "mb",
     "query": "ASUS PRIME B860-PLUS",
-    "ref": 20000
+    "ref": 20000,
+    "must": [
+      "primeb860"
+    ]
   },
   {
     "name": "PRIME H810M-A-CSM",
     "cat": "mb",
     "query": "ASUS PRIME H810M-A",
-    "ref": 18000
+    "ref": 18000,
+    "must": [
+      "primeh810m"
+    ]
   },
   {
     "name": "Windows 11 Home パッケージ版",
     "cat": "os",
     "query": "Windows 11 Home",
-    "ref": 17000
+    "ref": 17000,
+    "must": [
+      "windows11",
+      "home"
+    ]
   },
   {
     "name": "Windows 11 Pro パッケージ版",
     "cat": "os",
     "query": "Windows 11 Pro",
-    "ref": 25000
+    "ref": 25000,
+    "must": [
+      "windows11",
+      "pro"
+    ]
   }
 ]
