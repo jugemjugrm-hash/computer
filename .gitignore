@@ -1,0 +1,6 @@
+img/
+.env
+.env.*
+!tools/.env.example
+*.bak
+node_modules/
