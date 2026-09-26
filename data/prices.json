@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-26 22:38",
+ "updated": "2026-09-26 22:55",
  "source": "Yahoo!ショッピング（商品検索API）",
  "note": "各日の値は、検索結果から外れ値を除いたうえでの中央値（mid）と最安値（lo）です。送料・ポイントは含みません。",
  "items": {
@@ -20,8 +20,8 @@
     {
      "d": "2026-09-26",
      "lo": 95716,
-     "mid": 100000,
-     "n": 13
+     "mid": 97792,
+     "n": 11
     }
    ]
   },
@@ -74,9 +74,9 @@
    "hist": [
     {
      "d": "2026-09-26",
-     "lo": 11062,
-     "mid": 14777,
-     "n": 12
+     "lo": 35280,
+     "mid": 35980,
+     "n": 3
     }
    ]
   },
@@ -118,9 +118,9 @@
    "hist": [
     {
      "d": "2026-09-26",
-     "lo": 24979,
+     "lo": 30880,
      "mid": 36980,
-     "n": 16
+     "n": 15
     }
    ]
   },
@@ -140,9 +140,9 @@
    "hist": [
     {
      "d": "2026-09-26",
-     "lo": 100270,
-     "mid": 118591,
-     "n": 10
+     "lo": 105800,
+     "mid": 235800,
+     "n": 3
     }
    ]
   },
@@ -151,9 +151,9 @@
    "hist": [
     {
      "d": "2026-09-26",
-     "lo": 100270,
-     "mid": 115980,
-     "n": 11
+     "lo": 115980,
+     "mid": 120000,
+     "n": 3
     }
    ]
   },
@@ -174,8 +174,8 @@
     {
      "d": "2026-09-26",
      "lo": 48470,
-     "mid": 49946,
-     "n": 12
+     "mid": 50421,
+     "n": 10
     }
    ]
   },
@@ -196,8 +196,8 @@
     {
      "d": "2026-09-26",
      "lo": 55000,
-     "mid": 61984,
-     "n": 17
+     "mid": 60330,
+     "n": 8
     }
    ]
   },
@@ -206,9 +206,9 @@
    "hist": [
     {
      "d": "2026-09-26",
-     "lo": 18693,
+     "lo": 29500,
      "mid": 30980,
-     "n": 12
+     "n": 9
     }
    ]
   },
@@ -218,8 +218,8 @@
     {
      "d": "2026-09-26",
      "lo": 30240,
-     "mid": 31201,
-     "n": 12
+     "mid": 30980,
+     "n": 9
     }
    ]
   },
@@ -228,9 +228,9 @@
    "hist": [
     {
      "d": "2026-09-26",
-     "lo": 40100,
-     "mid": 55480,
-     "n": 15
+     "lo": 48500,
+     "mid": 50480,
+     "n": 5
     }
    ]
   },
@@ -251,8 +251,8 @@
     {
      "d": "2026-09-26",
      "lo": 25980,
-     "mid": 31774,
-     "n": 14
+     "mid": 26111,
+     "n": 4
     }
    ]
   },
@@ -262,8 +262,8 @@
     {
      "d": "2026-09-26",
      "lo": 755800,
-     "mid": 899900,
-     "n": 8
+     "mid": 1003550,
+     "n": 12
     }
    ]
   },
@@ -317,8 +317,8 @@
     {
      "d": "2026-09-26",
      "lo": 74800,
-     "mid": 92617,
-     "n": 18
+     "mid": 92730,
+     "n": 15
     }
    ]
   },
@@ -328,8 +328,129 @@
     {
      "d": "2026-09-26",
      "lo": 67800,
-     "mid": 80520,
+     "mid": 77832,
+     "n": 11
+    }
+   ]
+  },
+  "RTX 5050": {
+   "cat": "gpu",
+   "hist": [
+    {
+     "d": "2026-09-26",
+     "lo": 49980,
+     "mid": 75350,
+     "n": 8
+    }
+   ]
+  },
+  "RX 9070 XT": {
+   "cat": "gpu",
+   "hist": [
+    {
+     "d": "2026-09-26",
+     "lo": 119800,
+     "mid": 131350,
+     "n": 6
+    }
+   ]
+  },
+  "RX 9060 XT 16GB": {
+   "cat": "gpu",
+   "hist": [
+    {
+     "d": "2026-09-26",
+     "lo": 80787,
+     "mid": 104850,
+     "n": 17
+    }
+   ]
+  },
+  "RX 9060 XT 8GB": {
+   "cat": "gpu",
+   "hist": [
+    {
+     "d": "2026-09-26",
+     "lo": 63616,
+     "mid": 73410,
+     "n": 4
+    }
+   ]
+  },
+  "Arc B580": {
+   "cat": "gpu",
+   "hist": [
+    {
+     "d": "2026-09-26",
+     "lo": 41468,
+     "mid": 49293,
+     "n": 11
+    }
+   ]
+  },
+  "PRIME X870-P WIFI-CSM": {
+   "cat": "mb",
+   "hist": [
+    {
+     "d": "2026-09-26",
+     "lo": 30800,
+     "mid": 34500,
+     "n": 7
+    }
+   ]
+  },
+  "PRIME B850-PLUS WIFI-CSM": {
+   "cat": "mb",
+   "hist": [
+    {
+     "d": "2026-09-26",
+     "lo": 26061,
+     "mid": 31577,
+     "n": 5
+    }
+   ]
+  },
+  "PRIME B840-PLUS WIFI-CSM": {
+   "cat": "mb",
+   "hist": [
+    {
+     "d": "2026-09-26",
+     "lo": 22545,
+     "mid": 26983,
+     "n": 8
+    }
+   ]
+  },
+  "PRIME Z890-P WIFI-CSM": {
+   "cat": "mb",
+   "hist": [
+    {
+     "d": "2026-09-26",
+     "lo": 32780,
+     "mid": 45215,
+     "n": 10
+    }
+   ]
+  },
+  "PRIME B860-PLUS-CSM": {
+   "cat": "mb",
+   "hist": [
+    {
+     "d": "2026-09-26",
+     "lo": 20404,
+     "mid": 30306,
      "n": 19
+    }
+   ]
+  },
+  "PRIME H810M-A-CSM": {
+   "cat": "mb",
+   "hist": [
+    {
+     "d": "2026-09-26",
+     "lo": 17280,
+     "mid": 21479,
+     "n": 10
     }
    ]
   }
@@ -337,38 +458,43 @@
  "diag": {
   "Ryzen 9 9950X3D": {
    "hits": 20,
+   "name": 3,
    "ng": 0,
-   "book": 3,
+   "book": 0,
    "med": 0,
    "ok": true,
    "kept": 17
   },
   "Ryzen 9 9950X": {
    "hits": 20,
+   "name": 8,
    "ng": 1,
-   "book": 5,
-   "med": 1,
+   "book": 0,
+   "med": 0,
    "ok": true,
-   "kept": 13
+   "kept": 11
   },
   "Ryzen 9 9900X3D": {
    "hits": 20,
+   "name": 3,
    "ng": 1,
-   "book": 3,
+   "book": 0,
    "med": 0,
    "ok": true,
    "kept": 16
   },
   "Ryzen 9 9900X": {
    "hits": 20,
+   "name": 4,
    "ng": 2,
-   "book": 3,
-   "med": 1,
+   "book": 0,
+   "med": 0,
    "ok": true,
    "kept": 14
   },
   "Ryzen 7 9800X3D": {
    "hits": 20,
+   "name": 0,
    "ng": 6,
    "book": 0,
    "med": 0,
@@ -377,54 +503,63 @@
   },
   "Ryzen 7 9700X": {
    "hits": 20,
+   "name": 1,
    "ng": 6,
    "book": 0,
-   "med": 1,
+   "med": 0,
    "ok": true,
    "kept": 13
   },
   "Ryzen 5 9600X": {
    "hits": 20,
+   "name": 12,
    "ng": 3,
-   "book": 0,
-   "med": 5,
+   "book": 2,
+   "med": 0,
    "ok": true,
-   "kept": 12
+   "kept": 3
   },
   "Ryzen 5 9600": {
    "hits": 20,
-   "ng": 3,
-   "book": 0,
-   "med": 4,
-   "ok": true,
-   "kept": 13
-  },
-  "Ryzen 5 9500F": {
-   "hits": 20,
+   "name": 17,
    "ng": 0,
    "book": 0,
    "med": 1,
+   "ok": false,
+   "why": "filtered",
+   "kept": 2,
+   "q": "Ryzen 5 9600"
+  },
+  "Ryzen 5 9500F": {
+   "hits": 20,
+   "name": 0,
+   "ng": 0,
+   "book": 1,
+   "med": 0,
    "ok": true,
    "kept": 19
   },
   "Ryzen 7 8700G": {
    "hits": 20,
+   "name": 1,
    "ng": 14,
    "book": 0,
-   "med": 1,
+   "med": 0,
    "ok": true,
    "kept": 5
   },
   "Ryzen 5 8600G": {
    "hits": 20,
+   "name": 1,
    "ng": 4,
    "book": 0,
    "med": 0,
    "ok": true,
-   "kept": 16
+   "kept": 15
   },
   "Ryzen 5 8500G": {
    "hits": 20,
+   "name": 0,
    "ng": 4,
    "book": 0,
    "med": 0,
@@ -433,104 +568,119 @@
   },
   "Core Ultra 9 285K": {
    "hits": 20,
+   "name": 11,
    "ng": 4,
-   "book": 4,
-   "med": 2,
+   "book": 1,
+   "med": 1,
    "ok": true,
-   "kept": 10
+   "kept": 3
   },
   "Core Ultra 9 285": {
    "hits": 20,
-   "ng": 5,
-   "book": 3,
-   "med": 1,
+   "name": 16,
+   "ng": 1,
+   "book": 0,
+   "med": 0,
    "ok": true,
-   "kept": 11
+   "kept": 3
   },
   "Core Ultra 7 265K": {
    "hits": 20,
+   "name": 1,
    "ng": 14,
    "book": 0,
-   "med": 1,
+   "med": 0,
    "ok": true,
    "kept": 5
   },
   "Core Ultra 7 265KF": {
    "hits": 20,
-   "ng": 8,
+   "name": 8,
+   "ng": 2,
    "book": 0,
    "med": 0,
    "ok": true,
-   "kept": 12
+   "kept": 10
   },
   "Core Ultra 7 265": {
    "hits": 20,
-   "ng": 16,
-   "book": 1,
-   "med": 1,
+   "name": 20,
+   "ng": 0,
+   "book": 0,
+   "med": 0,
    "ok": false,
    "why": "filtered",
-   "kept": 2,
+   "kept": 0,
    "q": "Core Ultra 7 265"
   },
   "Core Ultra 7 265F": {
    "hits": 20,
+   "name": 10,
+   "ng": 0,
+   "book": 2,
+   "med": 0,
+   "ok": true,
+   "kept": 8
+  },
+  "Core Ultra 5 245K": {
+   "hits": 20,
+   "name": 6,
+   "ng": 3,
+   "book": 2,
+   "med": 0,
+   "ok": true,
+   "kept": 9
+  },
+  "Core Ultra 5 245KF": {
+   "hits": 20,
+   "name": 10,
+   "ng": 1,
+   "book": 0,
+   "med": 0,
+   "ok": true,
+   "kept": 9
+  },
+  "Core Ultra 5 235": {
+   "hits": 20,
+   "name": 12,
    "ng": 0,
    "book": 3,
    "med": 0,
    "ok": true,
-   "kept": 17
-  },
-  "Core Ultra 5 245K": {
-   "hits": 20,
-   "ng": 3,
-   "book": 2,
-   "med": 3,
-   "ok": true,
-   "kept": 12
-  },
-  "Core Ultra 5 245KF": {
-   "hits": 20,
-   "ng": 8,
-   "book": 0,
-   "med": 0,
-   "ok": true,
-   "kept": 12
-  },
-  "Core Ultra 5 235": {
-   "hits": 20,
-   "ng": 1,
-   "book": 4,
-   "med": 0,
-   "ok": true,
-   "kept": 15
+   "kept": 5
   },
   "Core Ultra 5 225": {
    "hits": 20,
+   "name": 15,
    "ng": 3,
-   "book": 1,
+   "book": 0,
    "med": 0,
-   "ok": true,
-   "kept": 16
+   "ok": false,
+   "why": "filtered",
+   "kept": 2,
+   "q": "Core Ultra 5 225"
   },
   "Core Ultra 5 225F": {
    "hits": 20,
+   "name": 11,
    "ng": 0,
-   "book": 6,
+   "book": 5,
    "med": 0,
    "ok": true,
-   "kept": 14
+   "kept": 4
   },
   "RTX 5090": {
    "hits": 20,
+   "name": 5,
    "ng": 2,
-   "book": 6,
-   "med": 4,
+   "book": 1,
+   "med": 0,
    "ok": true,
-   "kept": 8
+   "kept": 12
   },
   "RTX 5080": {
    "hits": 20,
+   "name": 0,
    "ng": 1,
    "book": 3,
    "med": 0,
@@ -539,22 +689,25 @@
   },
   "RTX 5070 Ti": {
    "hits": 20,
-   "ng": 4,
-   "book": 3,
+   "name": 3,
+   "ng": 3,
+   "book": 1,
    "med": 0,
    "ok": true,
    "kept": 13
   },
   "RTX 5070": {
    "hits": 20,
-   "ng": 4,
-   "book": 1,
-   "med": 2,
+   "name": 4,
+   "ng": 3,
+   "book": 0,
+   "med": 0,
    "ok": true,
    "kept": 13
   },
   "RTX 5060 Ti 16GB": {
    "hits": 20,
+   "name": 0,
    "ng": 0,
    "book": 0,
    "med": 0,
@@ -563,94 +716,164 @@
   },
   "RTX 5060 Ti 8GB": {
    "hits": 20,
+   "name": 3,
    "ng": 2,
    "book": 0,
    "med": 0,
    "ok": true,
-   "kept": 18
+   "kept": 15
   },
   "RTX 5060": {
    "hits": 20,
+   "name": 9,
    "ng": 0,
+   "book": 0,
+   "med": 0,
+   "ok": true,
+   "kept": 11
+  },
+  "RTX 5050": {
+   "hits": 20,
+   "name": 1,
+   "ng": 0,
+   "book": 11,
+   "med": 0,
+   "ok": true,
+   "kept": 8
+  },
+  "RX 9070 XT": {
+   "hits": 20,
+   "name": 2,
+   "ng": 10,
+   "book": 1,
+   "med": 1,
+   "ok": true,
+   "kept": 6
+  },
+  "RX 9070": {
+   "hits": 20,
+   "name": 10,
+   "ng": 0,
+   "book": 10,
+   "med": 0,
+   "ok": false,
+   "why": "filtered",
+   "kept": 0,
+   "q": "RX 9070"
+  },
+  "RX 9060 XT 16GB": {
+   "hits": 20,
+   "name": 1,
+   "ng": 2,
+   "book": 0,
+   "med": 0,
+   "ok": true,
+   "kept": 17
+  },
+  "RX 9060 XT 8GB": {
+   "hits": 20,
+   "name": 9,
+   "ng": 2,
+   "book": 5,
+   "med": 0,
+   "ok": true,
+   "kept": 4
+  },
+  "Arc B580": {
+   "hits": 20,
+   "name": 0,
+   "ng": 8,
    "book": 1,
    "med": 0,
    "ok": true,
-   "kept": 19
-  },
-  "RTX 5050": {
-   "ok": false,
-   "why": "api",
-   "msg": "HTTP Error 429: Too Many Requests"
-  },
-  "RX 9070 XT": {
-   "ok": false,
-   "why": "api",
-   "msg": "HTTP Error 429: Too Many Requests"
-  },
-  "RX 9070": {
-   "ok": false,
-   "why": "api",
-   "msg": "HTTP Error 429: Too Many Requests"
-  },
-  "RX 9060 XT 16GB": {
-   "ok": false,
-   "why": "api",
-   "msg": "HTTP Error 429: Too Many Requests"
-  },
-  "RX 9060 XT 8GB": {
-   "ok": false,
-   "why": "api",
-   "msg": "HTTP Error 429: Too Many Requests"
-  },
-  "Arc B580": {
-   "ok": false,
-   "why": "api",
-   "msg": "HTTP Error 429: Too Many Requests"
+   "kept": 11
   },
   "Arc B570": {
+   "hits": 19,
+   "name": 0,
+   "ng": 16,
+   "book": 1,
+   "med": 0,
    "ok": false,
-   "why": "api",
-   "msg": "HTTP Error 429: Too Many Requests"
+   "why": "filtered",
+   "kept": 2,
+   "q": "Intel Arc B570"
   },
   "PRIME X870-P WIFI-CSM": {
-   "ok": false,
-   "why": "api",
-   "msg": "HTTP Error 429: Too Many Requests"
+   "hits": 13,
+   "name": 0,
+   "ng": 3,
+   "book": 1,
+   "med": 2,
+   "ok": true,
+   "kept": 7
   },
   "PRIME B850-PLUS WIFI-CSM": {
-   "ok": false,
-   "why": "api",
-   "msg": "HTTP Error 429: Too Many Requests"
+   "hits": 10,
+   "name": 0,
+   "ng": 5,
+   "book": 0,
+   "med": 0,
+   "ok": true,
+   "kept": 5
   },
   "PRIME B840-PLUS WIFI-CSM": {
-   "ok": false,
-   "why": "api",
-   "msg": "HTTP Error 429: Too Many Requests"
+   "hits": 9,
+   "name": 0,
+   "ng": 1,
+   "book": 0,
+   "med": 0,
+   "ok": true,
+   "kept": 8
   },
   "PRIME Z890-P WIFI-CSM": {
-   "ok": false,
-   "why": "api",
-   "msg": "HTTP Error 429: Too Many Requests"
+   "hits": 11,
+   "name": 0,
+   "ng": 1,
+   "book": 0,
+   "med": 0,
+   "ok": true,
+   "kept": 10
   },
   "PRIME B860-PLUS-CSM": {
-   "ok": false,
-   "why": "api",
-   "msg": "HTTP Error 429: Too Many Requests"
+   "hits": 20,
+   "name": 0,
+   "ng": 0,
+   "book": 0,
+   "med": 1,
+   "ok": true,
+   "kept": 19
   },
   "PRIME H810M-A-CSM": {
-   "ok": false,
-   "why": "api",
-   "msg": "HTTP Error 429: Too Many Requests"
+   "hits": 12,
+   "name": 0,
+   "ng": 2,
+   "book": 0,
+   "med": 0,
+   "ok": true,
+   "kept": 10
   },
   "Windows 11 Home パッケージ版": {
+   "hits": 20,
+   "name": 14,
+   "ng": 2,
+   "book": 4,
+   "med": 0,
    "ok": false,
-   "why": "api",
-   "msg": "HTTP Error 429: Too Many Requests"
+   "why": "filtered",
+   "kept": 0,
+   "q": "Windows 11 Home"
   },
   "Windows 11 Pro パッケージ版": {
+   "hits": 20,
+   "name": 15,
+   "ng": 0,
+   "book": 5,
+   "med": 0,
    "ok": false,
-   "why": "api",
-   "msg": "HTTP Error 429: Too Many Requests"
+   "why": "filtered",
+   "kept": 0,
+   "q": "Windows 11 Pro"
   }
  }
 }
