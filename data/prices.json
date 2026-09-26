@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-26 23:29",
+ "updated": "2026-09-26 23:35",
  "source": "Yahoo!ショッピング（商品検索API）",
  "note": "各日の値は、検索結果から外れ値を除いたうえでの中央値（mid）と最安値（lo）です。送料・ポイントは含みません。",
  "items": {
@@ -10,7 +10,7 @@
      "d": "2026-09-26",
      "lo": 109680,
      "mid": 153780,
-     "n": 26
+     "n": 25
     }
    ]
   },
@@ -30,9 +30,9 @@
    "hist": [
     {
      "d": "2026-09-26",
-     "lo": 86347,
-     "mid": 92172,
-     "n": 15
+     "lo": 88100,
+     "mid": 92451,
+     "n": 14
     }
    ]
   },
@@ -53,8 +53,8 @@
     {
      "d": "2026-09-26",
      "lo": 57629,
-     "mid": 64000,
-     "n": 17
+     "mid": 63485,
+     "n": 14
     }
    ]
   },
@@ -64,8 +64,8 @@
     {
      "d": "2026-09-26",
      "lo": 38274,
-     "mid": 40000,
-     "n": 19
+     "mid": 40670,
+     "n": 18
     }
    ]
   },
@@ -76,7 +76,7 @@
      "d": "2026-09-26",
      "lo": 35280,
      "mid": 48449,
-     "n": 27
+     "n": 26
     }
    ]
   },
@@ -97,8 +97,8 @@
     {
      "d": "2026-09-26",
      "lo": 30030,
-     "mid": 36499,
-     "n": 22
+     "mid": 36480,
+     "n": 21
     }
    ]
   },
@@ -140,9 +140,9 @@
    "hist": [
     {
      "d": "2026-09-26",
-     "lo": 105800,
-     "mid": 235800,
-     "n": 3
+     "lo": 100270,
+     "mid": 103035,
+     "n": 2
     }
    ]
   },
@@ -153,7 +153,7 @@
      "d": "2026-09-26",
      "lo": 115980,
      "mid": 120000,
-     "n": 4
+     "n": 3
     }
    ]
   },
@@ -261,9 +261,9 @@
    "hist": [
     {
      "d": "2026-09-26",
-     "lo": 511729,
-     "mid": 866850,
-     "n": 16
+     "lo": 464444,
+     "mid": 733727,
+     "n": 12
     }
    ]
   },
@@ -295,8 +295,8 @@
     {
      "d": "2026-09-26",
      "lo": 145800,
-     "mid": 166110,
-     "n": 13
+     "mid": 162975,
+     "n": 12
     }
    ]
   },
@@ -317,8 +317,8 @@
     {
      "d": "2026-09-26",
      "lo": 74800,
-     "mid": 100940,
-     "n": 17
+     "mid": 104420,
+     "n": 19
     }
    ]
   },
@@ -371,9 +371,9 @@
    "hist": [
     {
      "d": "2026-09-26",
-     "lo": 73220,
-     "mid": 112000,
-     "n": 8
+     "lo": 63616,
+     "mid": 73410,
+     "n": 4
     }
    ]
   },
@@ -503,14 +503,16 @@
   "Ryzen 9 9950X3D": {
    "hits": 30,
    "name": 0,
-   "ng": 0,
-   "book": 4,
+   "ng": 5,
+   "book": 0,
    "med": 0,
-   "ngw": {},
+   "ngw": {
+    "ゲーミングPC": 5
+   },
    "sample": [],
    "range": [
     109680,
-    640800
+    217110
    ],
    "anchor": 153780,
    "kept_items": [
@@ -522,7 +524,7 @@
     "114,600円 AMD Ryzen 9 9950X3D Box  クーラーなし 100-100000719WOF【当店3"
    ],
    "ok": true,
-   "kept": 26
+   "kept": 25
   },
   "Ryzen 9 9950X": {
    "hits": 30,
@@ -553,15 +555,17 @@
   "Ryzen 9 9900X3D": {
    "hits": 30,
    "name": 0,
-   "ng": 1,
-   "book": 14,
+   "ng": 14,
+   "book": 2,
    "med": 0,
    "ngw": {
-    "中古": 1
+    "中古": 1,
+    "デスクトップ": 6,
+    "ゲーミングPC": 7
    },
    "sample": [],
    "range": [
-    86347,
+    88100,
     659580
    ],
    "anchor": 92172,
@@ -571,10 +575,10 @@
     "92,172円 Ryzen 9 9900X3D　100-100001368WOF　【国内正規品】",
     "92,167円 AMD Ryzen 9 9900X3D Box  クーラーなし 100-100000719WOF【当店3",
     "89,420円 ★AMD Ryzen 9 9900X3D BOX【CPU】【送料無料】",
-    "86,347円 AMD Ryzen 9 9900X3D BOX AMD CPU Ryzen 9000 シリーズ デスクト"
+    "92,730円 AMD Ryzen 9 9900X3D BOX"
    ],
    "ok": true,
-   "kept": 15
+   "kept": 14
   },
   "Ryzen 9 9900X": {
    "hits": 30,
@@ -605,16 +609,18 @@
   "Ryzen 7 9800X3D": {
    "hits": 30,
    "name": 0,
-   "ng": 1,
-   "book": 12,
+   "ng": 15,
+   "book": 1,
    "med": 0,
    "ngw": {
+    "デスクトップ": 3,
+    "ゲーミングPC": 11,
     "中古": 1
    },
    "sample": [],
    "range": [
     57629,
-    620800
+    545080
    ],
    "anchor": 64000,
    "kept_items": [
@@ -626,21 +632,23 @@
     "69,495円 AMD Ryzen 7 9800X3D BOX Socket AM5 / 8コア16スレッド  / 4."
    ],
    "ok": true,
-   "kept": 17
+   "kept": 14
   },
   "Ryzen 7 9700X": {
    "hits": 30,
    "name": 0,
-   "ng": 1,
-   "book": 10,
+   "ng": 10,
+   "book": 2,
    "med": 0,
    "ngw": {
+    "ゲーミングPC": 6,
+    "デスクトップ": 3,
     "中古": 1
    },
    "sample": [],
    "range": [
     38274,
-    370000
+    182800
    ],
    "anchor": 40000,
    "kept_items": [
@@ -652,23 +660,24 @@
     "40,000円 【新品】AMDエーエムディー Ryzen 7 9700X BOX without cooler 0730"
    ],
    "ok": true,
-   "kept": 19
+   "kept": 18
   },
   "Ryzen 5 9600X": {
    "hits": 30,
    "name": 0,
-   "ng": 3,
+   "ng": 4,
    "book": 0,
    "med": 0,
    "ngw": {
-    "中古": 3
+    "中古": 3,
+    "デスクトップ": 1
    },
    "sample": [],
    "range": [
     35280,
     93760
    ],
-   "anchor": 47559,
+   "anchor": 48449,
    "kept_items": [
     "40,202円 Ryzen 5 9600X　100-100001405WOF　【国内正規品】",
     "38,480円 AMD Ryzen 5 9600X Box  クーラーなし 100-100001405WOF【当店3年保",
@@ -678,7 +687,7 @@
     "48,450円 AMD Ryzen 5 9600X W/O Cooler WOF (6C/12T、3.9GHz、65W)"
    ],
    "ok": true,
-   "kept": 27
+   "kept": 26
   },
   "Ryzen 5 9600": {
    "hits": 30,
@@ -706,14 +715,16 @@
   "Ryzen 5 9500F": {
    "hits": 30,
    "name": 0,
-   "ng": 0,
-   "book": 6,
+   "ng": 5,
+   "book": 2,
    "med": 2,
-   "ngw": {},
+   "ngw": {
+    "デスクトップ": 5
+   },
    "sample": [],
    "range": [
     30030,
-    338000
+    95920
    ],
    "anchor": 36499,
    "kept_items": [
@@ -725,23 +736,24 @@
     "67,800円 AMD Ryzen 5 9500F CPU + MSI MAG B850 TOMAHAWK MAX WI"
    ],
    "ok": true,
-   "kept": 22
+   "kept": 21
   },
   "Ryzen 7 8700G": {
    "hits": 30,
    "name": 1,
-   "ng": 10,
-   "book": 9,
+   "ng": 17,
+   "book": 2,
    "med": 0,
    "ngw": {
-    "中古": 10
+    "中古": 10,
+    "デスクトップ": 7
    },
    "sample": [
     "AMD Ryzen 5 8500G BOX With Wraith Stealth Co"
    ],
    "range": [
     44980,
-    182980
+    176907
    ],
    "anchor": 54032,
    "kept_items": [
@@ -758,11 +770,12 @@
   "Ryzen 5 8600G": {
    "hits": 30,
    "name": 0,
-   "ng": 4,
-   "book": 6,
+   "ng": 5,
+   "book": 5,
    "med": 0,
    "ngw": {
-    "中古": 4
+    "中古": 4,
+    "デスクトップ": 1
    },
    "sample": [],
    "range": [
@@ -784,12 +797,13 @@
   "Ryzen 5 8500G": {
    "hits": 30,
    "name": 0,
-   "ng": 3,
-   "book": 7,
+   "ng": 6,
+   "book": 4,
    "med": 0,
    "ngw": {
     "訳あり": 2,
-    "中古": 1
+    "中古": 1,
+    "デスクトップ": 3
    },
    "sample": [],
    "range": [
@@ -811,10 +825,11 @@
   "Core Ultra 9 285K": {
    "hits": 30,
    "name": 5,
-   "ng": 4,
-   "book": 17,
+   "ng": 20,
+   "book": 2,
    "med": 1,
    "ngw": {
+    "ゲーミングPC": 16,
     "中古": 4
    },
    "sample": [
@@ -825,25 +840,27 @@
    ],
    "range": [
     100270,
-    724980
+    327800
    ],
-   "anchor": 103035,
+   "anchor": 95000,
    "kept_items": [
     "105,800円 Intel Core Ultra 9 285K BOX ArrowLake-S LGA1851 BX80",
-    "243,800円 インテル最新 Core Ultra9 285K 搭載/B860/メモリ DDR5-16GB/M.2 SS",
-    "235,800円 インテル最新 Core Ultra9 285K 搭載/メモリ DDR5-16GB/M.2 SSD 500"
+    "100,270円 Core Ultra 9 285K BOX/intel"
    ],
    "ok": true,
-   "kept": 3
+   "kept": 2
   },
   "Core Ultra 9 285": {
    "hits": 30,
    "name": 19,
-   "ng": 1,
-   "book": 5,
-   "med": 1,
+   "ng": 6,
+   "book": 2,
+   "med": 0,
    "ngw": {
-    "中古": 1
+    "デスクトップ": 3,
+    "中古": 1,
+    "ミニPC": 1,
+    "ゲーミングPC": 1
    },
    "sample": [
     "インテル CPU プロセッサー 285K BX80768285K Core Ultra ",
@@ -856,19 +873,19 @@
    "anchor": 120000,
    "kept_items": [
     "120,000円 intel インテル Core Ultra 9 285 BOX LGA1851/24コア/内臓CPUあり",
-    "115,980円 Intel CPU Core Ultra 9 285T バルク品 Arrow Lake-S 低電圧 LG",
-    "228,180円 デスクトップパソコン 新品 Core Ultra 9 285/8GB/500GB SSD/Windows"
+    "115,980円 Intel CPU Core Ultra 9 285T バルク品 Arrow Lake-S 低電圧 LG"
    ],
    "ok": true,
-   "kept": 4
+   "kept": 3
   },
   "Core Ultra 7 265K": {
    "hits": 30,
    "name": 1,
-   "ng": 12,
-   "book": 4,
+   "ng": 14,
+   "book": 2,
    "med": 0,
    "ngw": {
+    "デスクトップ": 2,
     "中古": 10,
     "訳あり": 2
    },
@@ -894,10 +911,11 @@
   "Core Ultra 7 265KF": {
    "hits": 30,
    "name": 2,
-   "ng": 1,
-   "book": 20,
+   "ng": 21,
+   "book": 0,
    "med": 0,
    "ngw": {
+    "ゲーミングPC": 20,
     "中古": 1
    },
    "sample": [
@@ -906,7 +924,7 @@
    ],
    "range": [
     48410,
-    1382800
+    52800
    ],
    "anchor": 49570,
    "kept_items": [
@@ -923,10 +941,12 @@
   "Core Ultra 7 265": {
    "hits": 30,
    "name": 23,
-   "ng": 0,
-   "book": 2,
+   "ng": 2,
+   "book": 0,
    "med": 0,
-   "ngw": {},
+   "ngw": {
+    "デスクトップ": 2
+   },
    "sample": [
     "【ラッピング可】【即日発送】【新品】Intel インテル CPU Ultra 7 265",
     "DELL｜デル スリム デスクトップパソコン Dell Slim ECS1250(Cor",
@@ -935,7 +955,7 @@
    ],
    "range": [
     69080,
-    279800
+    73800
    ],
    "anchor": 70242,
    "kept_items": [
@@ -951,16 +971,19 @@
   "Core Ultra 7 265F": {
    "hits": 30,
    "name": 1,
-   "ng": 0,
-   "book": 21,
+   "ng": 21,
+   "book": 0,
    "med": 0,
-   "ngw": {},
+   "ngw": {
+    "ゲーミングPC": 15,
+    "デスクトップ": 6
+   },
    "sample": [
     "【ラッピング可】【即日発送】【新品】Intel インテル CPU Ultra 7 265"
    ],
    "range": [
     55000,
-    533200
+    71718
    ],
    "anchor": 60330,
    "kept_items": [
@@ -977,12 +1000,13 @@
   "Core Ultra 5 245K": {
    "hits": 30,
    "name": 2,
-   "ng": 5,
-   "book": 4,
+   "ng": 6,
+   "book": 3,
    "med": 0,
    "ngw": {
     "中古": 4,
-    "訳あり": 1
+    "訳あり": 1,
+    "デスクトップ": 1
    },
    "sample": [
     "Intel インテル Core Ultra 5 プロセッサー 245K BOX[ラッピン",
@@ -1007,11 +1031,12 @@
   "Core Ultra 5 245KF": {
    "hits": 30,
    "name": 13,
-   "ng": 3,
-   "book": 2,
+   "ng": 5,
+   "book": 0,
    "med": 0,
    "ngw": {
-    "中古": 3
+    "中古": 3,
+    "ゲーミングPC": 2
    },
    "sample": [
     "ｉｎｔｅｌ Core Ultra5プロセッサー245KF(24Mキャッシュ、最大5.20",
@@ -1021,7 +1046,7 @@
    ],
    "range": [
     29980,
-    344000
+    41760
    ],
    "anchor": 30980,
    "kept_items": [
@@ -1038,10 +1063,13 @@
   "Core Ultra 5 235": {
    "hits": 30,
    "name": 3,
-   "ng": 0,
-   "book": 22,
+   "ng": 8,
+   "book": 14,
    "med": 0,
-   "ngw": {},
+   "ngw": {
+    "ノート": 7,
+    "デスクトップ": 1
+   },
    "sample": [
     "Intel｜インテル (国内正規品)インテル Core Ultra 5 プロセッサー 2",
     "未使用 CF-SC6 LTEモデル SIMフリー Ultra 5 235U 16GB S",
@@ -1065,10 +1093,12 @@
   "Core Ultra 5 225": {
    "hits": 30,
    "name": 14,
-   "ng": 2,
-   "book": 9,
+   "ng": 10,
+   "book": 1,
    "med": 0,
    "ngw": {
+    "デスクトップ": 3,
+    "ノート": 5,
     "中古": 2
    },
    "sample": [
@@ -1079,7 +1109,7 @@
    ],
    "range": [
     32848,
-    282800
+    135949
    ],
    "anchor": 35350,
    "kept_items": [
@@ -1095,17 +1125,20 @@
   "Core Ultra 5 225F": {
    "hits": 30,
    "name": 2,
-   "ng": 0,
-   "book": 24,
+   "ng": 24,
+   "book": 0,
    "med": 0,
-   "ngw": {},
+   "ngw": {
+    "ゲーミングPC": 19,
+    "デスクトップ": 5
+   },
    "sample": [
     "Intel｜インテル (国内正規品)インテル Core Ultra 5 プロセッサー 2",
     "Intel インテル Core Ultra 5 プロセッサー 225F インテル Cor"
    ],
    "range": [
     25980,
-    419080
+    26480
    ],
    "anchor": 26111,
    "kept_items": [
@@ -1119,11 +1152,14 @@
   "RTX 5090": {
    "hits": 30,
    "name": 2,
-   "ng": 3,
-   "book": 7,
-   "med": 2,
+   "ng": 10,
+   "book": 6,
+   "med": 0,
    "ngw": {
-    "中古": 3
+    "Raider": 2,
+    "ノート": 4,
+    "中古": 3,
+    "WQXGA": 1
    },
    "sample": [
     "【並行輸入品】 PTM7950 放熱 熱伝導シート 8.5W/mK 高導電性シリコンシー",
@@ -1135,38 +1171,42 @@
    ],
    "anchor": 400000,
    "kept_items": [
-    "755,800円 MSI Raider 16 Max HX B2W(16型/ Windows11/ Ultra 9 275",
-    "766,900円 Lenovo Legion Pro 7i Gen 10 ゲーミング ノートPC 83F5CTO1WW W",
-    "900,000円 ゲーミングノート AORUS MASTER 16 6ZJM6JPE64SP [16型 /Ryzen 9 ",
-    "977,300円 Lenovo Legion Pro 7i 16\" WQXGA OLED Glossy 240Hz, Ga",
-    "899,800円 MSI Raider 18 Max HX A2W(18型/ Windows11/ Ultra 9 290",
-    "834,700円 MSI ステルス 18 HX AI 18インチ 120Hz UHD+ ゲーミングノートパソコン:Inte"
+    "998,880円 【2年保証、日本正規代理店品】Inno3D GeForce RTX 5090 X3 32GB GDDR7",
+    "984,848円 ZOTAC GAMING GeForce RTX 5090 SOLID OC　ZT-B50900J-10",
+    "707,051円 GeForce RTX 5090 X3　GD5090-32GERX3",
+    "464,444円 GeForce RTX 5090 32G VANGUARD SOC",
+    "899,000円 GIGABYTE AORUS GeForce RTX 5090 XTREME WATERFORCE 32",
+    "650,000円 【新品】【即納】 ZOTAC GAMING GeForce RTX 5090 SOLID OC 32GB"
    ],
    "ok": true,
-   "kept": 16
+   "kept": 12
   },
   "RTX 5080": {
    "hits": 30,
    "name": 0,
-   "ng": 1,
-   "book": 10,
+   "ng": 11,
+   "book": 0,
    "med": 0,
    "ngw": {
-    "中古": 1
+    "ゲーミングPC": 5,
+    "中古": 1,
+    "Windows": 1,
+    "ノート": 3,
+    "Raider": 1
    },
    "sample": [],
    "range": [
     269800,
-    792000
+    444764
    ],
-   "anchor": 170000,
+   "anchor": 335152,
    "kept_items": [
     "269,800円 Palit(パリット) GeForce RTX 5080 GamingPro 16GB / NE7508",
     "282,800円 Palit NE75080S19T2-GB2031A (GeForce RTX 5080 GamingP",
-    "399,800円 GIGABYTE｜ギガバイト GIGABYTE AORUS GeForce RTX 5080 INFIN",
     "394,747円 GeForce RTX 5080 16GB GDDR7 Noctua OC Edition　RTX508",
     "336,380円 MSI GeForce RTX 5080 16G GAMING TRIO OC (GeForce RTX",
-    "305,600円 MSI GeForce RTX 5080 16G VENTUS 3X OC ブラック グラフィックボード"
+    "305,600円 MSI GeForce RTX 5080 16G VENTUS 3X OC ブラック グラフィックボード",
+    "444,764円 ASUS エイスース ROG Astral GeForce RTX 5080 16GB GDDR7 OC"
    ],
    "ok": true,
    "kept": 19
@@ -1174,16 +1214,19 @@
   "RTX 5070 Ti": {
    "hits": 30,
    "name": 0,
-   "ng": 3,
-   "book": 11,
+   "ng": 13,
+   "book": 1,
    "med": 0,
    "ngw": {
-    "中古": 3
+    "中古": 3,
+    "ノート": 2,
+    "デスクトップ": 2,
+    "ゲーミングPC": 6
    },
    "sample": [],
    "range": [
     218000,
-    651293
+    379400
    ],
    "anchor": 130000,
    "kept_items": [
@@ -1200,16 +1243,18 @@
   "RTX 5070": {
    "hits": 30,
    "name": 9,
-   "ng": 2,
-   "book": 6,
+   "ng": 8,
+   "book": 1,
    "med": 0,
    "ngw": {
-    "中古": 2
+    "中古": 2,
+    "ゲーミングPC": 3,
+    "ノート": 3
    },
    "sample": [],
    "range": [
     145800,
-    420000
+    215000
    ],
    "anchor": 82000,
    "kept_items": [
@@ -1221,21 +1266,24 @@
     "159,840円 ★MSI GeForce RTX 5070 12G VENTUS 2X OC [PCIExp 12GB]"
    ],
    "ok": true,
-   "kept": 13
+   "kept": 12
   },
   "RTX 5060 Ti 16GB": {
    "hits": 30,
    "name": 1,
-   "ng": 0,
-   "book": 20,
+   "ng": 10,
+   "book": 10,
    "med": 0,
-   "ngw": {},
+   "ngw": {
+    "ゲーミングPC": 9,
+    "CPU名が同居": 1
+   },
    "sample": [
     "MDL Ryzen7 5700X × RTX 5060Ti ゲーミング デスクトップPC"
    ],
    "range": [
     129800,
-    484828
+    258900
    ],
    "anchor": 70000,
    "kept_items": [
@@ -1252,11 +1300,14 @@
   "RTX 5060 Ti 8GB": {
    "hits": 30,
    "name": 4,
-   "ng": 2,
-   "book": 7,
+   "ng": 7,
+   "book": 0,
    "med": 0,
    "ngw": {
-    "中古": 2
+    "ゲーミングPC": 3,
+    "中古": 2,
+    "デスクトップ": 1,
+    "CPU名が同居": 1
    },
    "sample": [
     "送料無料 MSI GeForce RTX 5060 Ti 8G SHADOW 2X OC",
@@ -1266,9 +1317,9 @@
    ],
    "range": [
     74800,
-    323212
+    167400
    ],
-   "anchor": 56000,
+   "anchor": 100940,
    "kept_items": [
     "74,800円 Palit(パリット)  GeForce RTX 5060 Ti Dual 8GB / NE7506T0",
     "94,800円 ASUS｜エイスース ASUS T1 GeForce RTX 5060 Ti 8GB GDDR7 OC ",
@@ -1278,19 +1329,23 @@
     "91,800円 ZOTAC ゾタック ZOTAC GAMING GeForce RTX 5060 Ti 8GB Twin"
    ],
    "ok": true,
-   "kept": 17
+   "kept": 19
   },
   "RTX 5060": {
    "hits": 30,
    "name": 14,
-   "ng": 0,
-   "book": 4,
-   "med": 1,
-   "ngw": {},
+   "ng": 5,
+   "book": 0,
+   "med": 0,
+   "ngw": {
+    "ノート": 2,
+    "ゲーミングPC": 1,
+    "デスクトップ": 2
+   },
    "sample": [],
    "range": [
     67800,
-    319980
+    109640
    ],
    "anchor": 83800,
    "kept_items": [
@@ -1307,16 +1362,19 @@
   "RTX 5050": {
    "hits": 30,
    "name": 0,
-   "ng": 1,
-   "book": 22,
+   "ng": 12,
+   "book": 11,
    "med": 0,
    "ngw": {
-    "中古": 1
+    "デスクトップ": 1,
+    "ノート": 7,
+    "中古": 1,
+    "ゲーミングPC": 3
    },
    "sample": [],
    "range": [
     49980,
-    322000
+    136200
    ],
    "anchor": 34000,
    "kept_items": [
@@ -1333,16 +1391,18 @@
   "RX 9070 XT": {
    "hits": 30,
    "name": 0,
-   "ng": 3,
-   "book": 1,
-   "med": 2,
+   "ng": 6,
+   "book": 0,
+   "med": 0,
    "ngw": {
-    "中古": 3
+    "中古": 3,
+    "ゲーミングPC": 2,
+    "デスクトップ": 1
    },
    "sample": [],
    "range": [
     119800,
-    529200
+    234280
    ],
    "anchor": 165633,
    "kept_items": [
@@ -1383,18 +1443,20 @@
   "RX 9060 XT 16GB": {
    "hits": 30,
    "name": 1,
-   "ng": 2,
-   "book": 15,
+   "ng": 7,
+   "book": 10,
    "med": 0,
    "ngw": {
-    "中古": 2
+    "デスクトップ": 3,
+    "中古": 2,
+    "ゲーミングPC": 2
    },
    "sample": [
     "【ラッピング可】【即日発送】【新品 箱不良・シュリンク破れ品】SAPPHIRE サファイ"
    ],
    "range": [
     80787,
-    427300
+    153180
    ],
    "anchor": 50000,
    "kept_items": [
@@ -1412,8 +1474,8 @@
    "hits": 30,
    "name": 19,
    "ng": 2,
-   "book": 0,
-   "med": 1,
+   "book": 5,
+   "med": 0,
    "ngw": {
     "中古": 2
    },
@@ -1427,31 +1489,30 @@
     63616,
     148000
    ],
-   "anchor": 73410,
+   "anchor": 42000,
    "kept_items": [
+    "63,616円 PULSE Radeon RX 9060 XT GAMING OC 8GB　PULSERX9060XT8",
     "73,600円 Power Color AMD Radeon RX9060XT 搭載 グラフィックボード GDDR6 8",
     "73,220円 ★エイスース / ASUS PRIME-RX9060XT-O8G [PCIExp 8GB]【グラフィック",
-    "114,100円 【並行輸入品】 Sapphire Technology Pulse AMD Radeon RX 9060",
-    "113,500円 【並行輸入品】 XFX Swift AMD Radeon RX 9060 XT OC ゲーミングエディシ",
-    "74,990円 ★エイスース / ASUS PRIME-RX9060XT-O8G [PCIExp 8GB]【グラフィック",
-    "124,800円 【並行輸入品】 ASUS Prime Radeon RX 9060 XT 8GB GDDR6 OC Ed"
+    "74,990円 ★エイスース / ASUS PRIME-RX9060XT-O8G [PCIExp 8GB]【グラフィック"
    ],
    "ok": true,
-   "kept": 8
+   "kept": 4
   },
   "Arc B580": {
    "hits": 25,
    "name": 0,
-   "ng": 8,
-   "book": 2,
+   "ng": 9,
+   "book": 1,
    "med": 0,
    "ngw": {
+    "CPU名が同居": 1,
     "中古": 8
    },
    "sample": [],
    "range": [
     41468,
-    419320
+    380710
    ],
    "anchor": 50303,
    "kept_items": [
