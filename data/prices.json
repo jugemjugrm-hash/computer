@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-26 23:20",
+ "updated": "2026-09-26 23:29",
  "source": "Yahoo!ショッピング（商品検索API）",
  "note": "各日の値は、検索結果から外れ値を除いたうえでの中央値（mid）と最安値（lo）です。送料・ポイントは含みません。",
  "items": {
@@ -75,8 +75,8 @@
     {
      "d": "2026-09-26",
      "lo": 35280,
-     "mid": 47559,
-     "n": 26
+     "mid": 48449,
+     "n": 27
     }
    ]
   },
@@ -140,9 +140,9 @@
    "hist": [
     {
      "d": "2026-09-26",
-     "lo": 100270,
-     "mid": 103035,
-     "n": 2
+     "lo": 105800,
+     "mid": 235800,
+     "n": 3
     }
    ]
   },
@@ -273,8 +273,8 @@
     {
      "d": "2026-09-26",
      "lo": 269800,
-     "mid": 393232,
-     "n": 28
+     "mid": 335152,
+     "n": 19
     }
    ]
   },
@@ -284,8 +284,8 @@
     {
      "d": "2026-09-26",
      "lo": 218000,
-     "mid": 289650,
-     "n": 26
+     "mid": 262239,
+     "n": 16
     }
    ]
   },
@@ -295,8 +295,8 @@
     {
      "d": "2026-09-26",
      "lo": 145800,
-     "mid": 169647,
-     "n": 16
+     "mid": 166110,
+     "n": 13
     }
    ]
   },
@@ -306,8 +306,8 @@
     {
      "d": "2026-09-26",
      "lo": 129800,
-     "mid": 197400,
-     "n": 28
+     "mid": 162800,
+     "n": 9
     }
    ]
   },
@@ -317,8 +317,8 @@
     {
      "d": "2026-09-26",
      "lo": 74800,
-     "mid": 112715,
-     "n": 20
+     "mid": 100940,
+     "n": 17
     }
    ]
   },
@@ -371,9 +371,9 @@
    "hist": [
     {
      "d": "2026-09-26",
-     "lo": 63616,
-     "mid": 73410,
-     "n": 4
+     "lo": 73220,
+     "mid": 112000,
+     "n": 8
     }
    ]
   },
@@ -512,7 +512,15 @@
     109680,
     640800
    ],
-   "anchor": 120780,
+   "anchor": 153780,
+   "kept_items": [
+    "134,141円 Ryzen 9 9950X3D　100-100000719WOF　【国内正規品】",
+    "132,800円 AMD｜エーエムディー AMD Ryzen 9 9950X3D BOX(国内正規品) 100-10000",
+    "109,680円 『新品』AMD(エーエムディー)Ryzen 9 9950X3D BOX",
+    "171,945円 Ryzen 9 9950X3D2 Dual Edition　100-100001978WOF",
+    "170,226円 AMD｜エーエムディー AMD Ryzen 9 9950X3D2 Dual Edition W/ O C",
+    "114,600円 AMD Ryzen 9 9950X3D Box  クーラーなし 100-100000719WOF【当店3"
+   ],
    "ok": true,
    "kept": 26
   },
@@ -530,7 +538,15 @@
     95716,
     121720
    ],
-   "anchor": 97792,
+   "anchor": 112105,
+   "kept_items": [
+    "97,770円 爆買AMD Ryzen 9 9950X 100-000001277 4.3GHz SocketAM5",
+    "112,800円 AMD｜エーエムディー AMD Ryzen 9 9950X BOX(国内正規品) 100-1000012",
+    "112,903円 Ryzen 9 9950X　100-100001277WOF 【国内正規品】",
+    "118,340円 AMD　〔CPU〕 Ryzen 9 9950X W/O Cooler WOF (Zen5) ［ Ryze",
+    "95,716円 『新品』AMD(エーエムディー)Ryzen 9 9950X BOX",
+    "105,499円 AMD Ryzen 9 9950X Box  クーラーなし 100-100001277WOF【当店3年保"
+   ],
    "ok": true,
    "kept": 8
   },
@@ -548,7 +564,15 @@
     86347,
     659580
    ],
-   "anchor": 92451,
+   "anchor": 92172,
+   "kept_items": [
+    "88,100円 AMD｜エーエムディー AMD Ryzen 9 9900X3D BOX(国内正規品) 100-10000",
+    "88,180円 『新品』AMD(エーエムディー)Ryzen 9 9900X3D BOX",
+    "92,172円 Ryzen 9 9900X3D　100-100001368WOF　【国内正規品】",
+    "92,167円 AMD Ryzen 9 9900X3D Box  クーラーなし 100-100000719WOF【当店3",
+    "89,420円 ★AMD Ryzen 9 9900X3D BOX【CPU】【送料無料】",
+    "86,347円 AMD Ryzen 9 9900X3D BOX AMD CPU Ryzen 9000 シリーズ デスクト"
+   ],
    "ok": true,
    "kept": 15
   },
@@ -566,7 +590,15 @@
     67510,
     202800
    ],
-   "anchor": 70995,
+   "anchor": 79800,
+   "kept_items": [
+    "70,990円 Ryzen 9 9900X　100-100000662WOF 【国内正規品】",
+    "70,280円 AMD｜エーエムディー AMD Ryzen 9 9900X BOX(国内正規品) (12C/ 24T4.",
+    "80,230円 AMD　〔CPU〕 Ryzen 9 9900X W/O Cooler WOF (Zen5) ［ Ryze",
+    "79,600円 AMD Ryzen 9 9900X W/O Cooler WOF (12C/24T、4.4GHz、120",
+    "99,860円 AMD Ryzen 9 9900X W/O Cooler WOF (12C/24T、4.4GHz、120",
+    "75,900円 AMD Ryzen 9 9900X BOX Socket AM5 / 12コア24スレッド / 4.4G"
+   ],
    "ok": true,
    "kept": 17
   },
@@ -584,7 +616,15 @@
     57629,
     620800
    ],
-   "anchor": 61915,
+   "anchor": 64000,
+   "kept_items": [
+    "57,630円 AMD｜エーエムディー AMD Ryzen 7 9800X3D BOX(国内正規品) 100-10000",
+    "59,980円 Ryzen 7 9800X3D　100-100001084WOF　【国内正規品】",
+    "58,800円 【ラッピング可】【即日発送】【新品】AMD エーエムディー Ryzen 7 9800X3D BOX CP",
+    "57,629円 Ryzen 7 9800X3D BOX",
+    "64,500円 【夏祭り】【新品】AMDエーエムディー Ryzen 7 9800X3D BOX 073014331528",
+    "69,495円 AMD Ryzen 7 9800X3D BOX Socket AM5 / 8コア16スレッド  / 4."
+   ],
    "ok": true,
    "kept": 17
   },
@@ -602,7 +642,15 @@
     38274,
     370000
    ],
-   "anchor": 38798,
+   "anchor": 40000,
+   "kept_items": [
+    "47,798円 Ryzen 7 9700X　100-100001404WOF　【国内正規品】",
+    "38,280円 AMD エーエムディー Ryzen 7 9700X BOX【国内正規品】",
+    "45,800円 AMD Ryzen 7 9700X Box  クーラーなし 100-100001404WOF【当店3年保",
+    "39,500円 【新品】AMD CPU Ryzen 7 9700X BOX",
+    "38,274円 AMD エーエムディー Ryzen 7 9700X BOX 100-100001404WOF [CPU]",
+    "40,000円 【新品】AMDエーエムディー Ryzen 7 9700X BOX without cooler 0730"
+   ],
    "ok": true,
    "kept": 19
   },
@@ -610,7 +658,7 @@
    "hits": 30,
    "name": 0,
    "ng": 3,
-   "book": 1,
+   "book": 0,
    "med": 0,
    "ngw": {
     "中古": 3
@@ -620,9 +668,17 @@
     35280,
     93760
    ],
-   "anchor": 36780,
+   "anchor": 47559,
+   "kept_items": [
+    "40,202円 Ryzen 5 9600X　100-100001405WOF　【国内正規品】",
+    "38,480円 AMD Ryzen 5 9600X Box  クーラーなし 100-100001405WOF【当店3年保",
+    "42,410円 AMD　Ryzen 5 9600X W/O Cooler WOF (6C/12T3.9GHz65W) ［",
+    "39,800円 AMD｜エーエムディー AMD Ryzen 5 9600X BOX(国内正規品) (6C/ 12T3.9",
+    "35,280円 『新品』AMD(エーエムディー)Ryzen 5 9600X BOX",
+    "48,450円 AMD Ryzen 5 9600X W/O Cooler WOF (6C/12T、3.9GHz、65W)"
+   ],
    "ok": true,
-   "kept": 26
+   "kept": 27
   },
   "Ryzen 5 9600": {
    "hits": 30,
@@ -636,7 +692,14 @@
     35968,
     152800
    ],
-   "anchor": 39000,
+   "anchor": 40800,
+   "kept_items": [
+    "35,968円 【ラッピング可】【即日発送】【新品】AMD CPU Ryzen 5 9600 BOX",
+    "35,979円 送料無料　AMD Ryzen 5 9600 Box  クーラー付き 100-100000718BOX【当",
+    "40,800円 AMD　Ryzen 5 9600 W/Wraith Stealth Cooler BOX (6C/12T",
+    "36,980円 AMD AMD Ryzen 5 9600 CPU",
+    "41,212円 Ryzen 5 9600　100-100000718BOX　【国内正規品】"
+   ],
    "ok": true,
    "kept": 7
   },
@@ -652,7 +715,15 @@
     30030,
     338000
    ],
-   "anchor": 36480,
+   "anchor": 36499,
+   "kept_items": [
+    "30,030円 ★AMD Ryzen 5 9500F BOX【CPU】【送料無料】",
+    "36,153円 AMD｜エーエムディー AMD Ryzen 5 9500F W/ Wraith Stealth Cool",
+    "30,300円 【ラッピング可】【即日発送】【新品】AMD エーエムディー CPU Ryzen 5 9500F BOX ",
+    "36,518円 Ryzen 5 9500F BOX　100-100001406BOX 【国内正規品】",
+    "30,750円 ★AMD Ryzen 5 9500F BOX【CPU】【送料無料】",
+    "67,800円 AMD Ryzen 5 9500F CPU + MSI MAG B850 TOMAHAWK MAX WI"
+   ],
    "ok": true,
    "kept": 22
   },
@@ -672,7 +743,15 @@
     44980,
     182980
    ],
-   "anchor": 49298,
+   "anchor": 54032,
+   "kept_items": [
+    "52,510円 AMD｜エーエムディー AMD Ryzen 7 8700G BOX with Wraith Stealt",
+    "44,980円 【未使用】AMD Ryzen 7 8700G (4.2GHz/TC:5.1GHz) BOX AM5/8C",
+    "57,690円 AMD Ryzen 7 8700G Wraith Stealth Cooler CPU",
+    "56,230円 AMD Ryzen 7 8700G BOX (100-100001236SBX) Socket AM5 ",
+    "49,298円 AMD Ryzen 7 8700G BOX With Wraith Spire Cooler (8C16",
+    "48,480円 箱難あり品 AMD Ryzen 7 8700G BOX With Wraith Spire Cooler"
+   ],
    "ok": true,
    "kept": 10
   },
@@ -690,7 +769,15 @@
     30880,
     528600
    ],
-   "anchor": 36980,
+   "anchor": 37496,
+   "kept_items": [
+    "30,880円 AMD Ryzen 5 8600G BOX With Wraith Stealth Cooler (6C",
+    "33,795円 AMD Ryzen 5 8600G BOX with Wraith Stealth Cooler(国内正",
+    "34,410円 AMD　CPU Ryzen 5 8600G BOX With Wraith Stealth Cooler",
+    "34,085円 Ryzen 5 8600G　100-100001237BOX　【国内正規品】",
+    "36,170円 AMD AMD Ryzen 5 8600G BOX With Wraith Stealth Cooler",
+    "36,980円 AMD AMD Ryzen 5 8600G BOX With Wraith Stealth Cooler"
+   ],
    "ok": true,
    "kept": 20
   },
@@ -709,7 +796,15 @@
     22980,
     220849
    ],
-   "anchor": 28440,
+   "anchor": 28803,
+   "kept_items": [
+    "26,009円 Ryzen 5 8500G　100-100000931BOX　【国内正規品】",
+    "24,979円 AMD Ryzen 5 8500G BOX With Wraith Stealth Cooler (6C",
+    "25,749円 AMD｜エーエムディー AMD Ryzen 5 8500G BOX with Wraith Stealt",
+    "22,980円 【未使用】AMD Ryzen 5 8500G (3.5GHz/TC:5GHz) BOX AM5/6C/1",
+    "32,800円 AMD　CPU Ryzen 5 8500G BOX With Wraith Stealth Cooler",
+    "28,300円 AMD AMD Ryzen 5 8500G BOX With Wraith Stealth Cooler"
+   ],
    "ok": true,
    "kept": 20
   },
@@ -717,7 +812,7 @@
    "hits": 30,
    "name": 5,
    "ng": 4,
-   "book": 18,
+   "book": 17,
    "med": 1,
    "ngw": {
     "中古": 4
@@ -732,9 +827,14 @@
     100270,
     724980
    ],
-   "anchor": 95000,
+   "anchor": 103035,
+   "kept_items": [
+    "105,800円 Intel Core Ultra 9 285K BOX ArrowLake-S LGA1851 BX80",
+    "243,800円 インテル最新 Core Ultra9 285K 搭載/B860/メモリ DDR5-16GB/M.2 SS",
+    "235,800円 インテル最新 Core Ultra9 285K 搭載/メモリ DDR5-16GB/M.2 SSD 500"
+   ],
    "ok": true,
-   "kept": 2
+   "kept": 3
   },
   "Core Ultra 9 285": {
    "hits": 30,
@@ -754,6 +854,11 @@
     872600
    ],
    "anchor": 120000,
+   "kept_items": [
+    "120,000円 intel インテル Core Ultra 9 285 BOX LGA1851/24コア/内臓CPUあり",
+    "115,980円 Intel CPU Core Ultra 9 285T バルク品 Arrow Lake-S 低電圧 LG",
+    "228,180円 デスクトップパソコン 新品 Core Ultra 9 285/8GB/500GB SSD/Windows"
+   ],
    "ok": true,
    "kept": 4
   },
@@ -774,7 +879,15 @@
     50077,
     255800
    ],
-   "anchor": 50100,
+   "anchor": 51999,
+   "kept_items": [
+    "53,980円 Intel Core Ultra 7 265K BOX",
+    "50,088円 『新品』Intel(インテル)Core Ultra 7 265K BOX",
+    "60,480円 Intel Core Ultra 7 265K BOX ArrowLake-S LGA1851 BX80",
+    "50,310円 Intel インテル Core Ultra 7 265K BOX コア:20(8+12) 20スレッド ",
+    "51,400円 爆買【新品(開封のみ)】 Core Ultra 7 265K 3.9GHz LGA1851 SRQCW",
+    "50,077円 【新品】Intel インテル Core Ultra 7 265K BOX　BX80768265K"
+   ],
    "ok": true,
    "kept": 13
   },
@@ -795,7 +908,15 @@
     48410,
     1382800
    ],
-   "anchor": 50421,
+   "anchor": 49570,
+   "kept_items": [
+    "49,475円 Core Ultra 7 265KF　BX80768265KF",
+    "52,479円 Intel Core Ultra 7 265KF BOX ArrowLake-S LGA1851 BX8",
+    "52,800円 Intel Core Ultra 7 265KF BOX",
+    "48,410円 ★インテル Core Ultra 7 265KF BOX【CPU】【送料無料】",
+    "49,336円 [新品未開封] Core Ultra 7 265KF BOX    [国内正規品]",
+    "50,262円 Intel Core Ultra 7 265KF"
+   ],
    "ok": true,
    "kept": 7
   },
@@ -816,7 +937,14 @@
     69080,
     279800
    ],
-   "anchor": 48499,
+   "anchor": 70242,
+   "kept_items": [
+    "70,242円 Core Ultra 7 265　BX80768265",
+    "69,980円 Intel Core Ultra 7 265 BOX ArrowLake-S LGA1851 BX807",
+    "70,980円 Intel CPU Core Ultra 7 265T バルク品 Arrow Lake-S 低電圧 LG",
+    "69,080円 Intel Core Ultra 7 265 BOX",
+    "73,800円 インテル　CPU Core Ultra7-265 (Arrow Lake 20コア) ［intel Co"
+   ],
    "ok": true,
    "kept": 5
   },
@@ -835,6 +963,14 @@
     533200
    ],
    "anchor": 60330,
+   "kept_items": [
+    "66,374円 Core Ultra 7 265F　BX80768265F",
+    "55,000円 【ラッピング可】【即日発送】【新品 開封済み未使用品】Intel インテル CPU Core Ultra",
+    "71,718円 Intel｜インテル (国内正規品)Intel Core Ultra 7 265F(Arrow Lake",
+    "59,950円 ★インテル Core Ultra 7 265F BOX【CPU】【送料無料】",
+    "58,540円 ★インテル Core Ultra 7 265F BOX【CPU】【送料無料】",
+    "60,710円 インテル Core Ultra 7 265F BOX"
+   ],
    "ok": true,
    "kept": 8
   },
@@ -856,7 +992,15 @@
     29500,
     229800
    ],
-   "anchor": 30980,
+   "anchor": 31980,
+   "kept_items": [
+    "37,172円 Core Ultra 5 245K　BX80768245K",
+    "38,480円 Intel Core Ultra 5 245K BOX ArrowLake-S LGA1851 BX80",
+    "49,800円 intel インテル Core Ultra 5 245K BX80768245K(2623817)",
+    "40,960円 【新品】インテル Core Ultra 5 245K BOX【日曜日以外即日発送】【送料無料】",
+    "29,500円 Core Ultra 5 245K BOX",
+    "31,980円 【未使用】Intel Core Ultra 5 245K(4.2GHz) Box LGA1851/14C"
+   ],
    "ok": true,
    "kept": 19
   },
@@ -880,6 +1024,14 @@
     344000
    ],
    "anchor": 30980,
+   "kept_items": [
+    "31,293円 Core Ultra 5 245KF　BX80768245KF",
+    "30,220円 Core Ultra 5 245KF BOX",
+    "31,090円 ★インテル Core Ultra 5 245KF BOX【CPU】【送料無料】",
+    "30,360円 ★インテル Core Ultra 5 245KF BOX【CPU】【送料無料】",
+    "36,273円 Intel Core Ultra 5 245KF BOX ArrowLake-S LGA1851 BX8",
+    "31,300円 Intel Core Ultra 5 245KF"
+   ],
    "ok": true,
    "kept": 12
   },
@@ -900,6 +1052,13 @@
     716510
    ],
    "anchor": 50480,
+   "kept_items": [
+    "49,374円 Core Ultra 5 235　BX80768235",
+    "50,480円 Intel Core Ultra 5 235 BOX ArrowLake-S LGA1851 BX807",
+    "51,800円 intel インテル Core Ultra 5 235 Arrow Lake-S 3.4 5 /2.9 ",
+    "48,500円 【ラッピング可】【即日発送】【新品】Intel インテル Core Ultra 5 235 BOX",
+    "55,480円 Intel CPU Core Ultra 5 235T バルク品 Arrow Lake-S 低電圧 LG"
+   ],
    "ok": true,
    "kept": 5
   },
@@ -922,7 +1081,14 @@
     32848,
     282800
    ],
-   "anchor": 31774,
+   "anchor": 35350,
+   "kept_items": [
+    "32,848円 Core Ultra 5 225　BX80768225",
+    "34,380円 Intel Core Ultra 5 225 BOX",
+    "35,979円 Intel Core Ultra 5 225 BOX ArrowLake-S LGA1851 BX807",
+    "35,350円 intel インテル Core Ultra 5 225 Arrow Lake-S 3.3 4.9 /2.",
+    "35,480円 箱難あり品 Intel Core Ultra 5 225 BOX ArrowLake-S LGA1851"
+   ],
    "ok": true,
    "kept": 5
   },
@@ -942,6 +1108,11 @@
     419080
    ],
    "anchor": 26111,
+   "kept_items": [
+    "26,242円 Core Ultra 5 225F　BX80768225F",
+    "26,480円 Intel Core Ultra 5 225F BOX ArrowLake-S LGA1851 BX80",
+    "25,980円 【未使用】Intel Core Ultra 5 225F (3.3GHz) Box LGA1851/10"
+   ],
    "ok": true,
    "kept": 4
   },
@@ -963,6 +1134,14 @@
     1579740
    ],
    "anchor": 400000,
+   "kept_items": [
+    "755,800円 MSI Raider 16 Max HX B2W(16型/ Windows11/ Ultra 9 275",
+    "766,900円 Lenovo Legion Pro 7i Gen 10 ゲーミング ノートPC 83F5CTO1WW W",
+    "900,000円 ゲーミングノート AORUS MASTER 16 6ZJM6JPE64SP [16型 /Ryzen 9 ",
+    "977,300円 Lenovo Legion Pro 7i 16\" WQXGA OLED Glossy 240Hz, Ga",
+    "899,800円 MSI Raider 18 Max HX A2W(18型/ Windows11/ Ultra 9 290",
+    "834,700円 MSI ステルス 18 HX AI 18インチ 120Hz UHD+ ゲーミングノートパソコン:Inte"
+   ],
    "ok": true,
    "kept": 16
   },
@@ -970,7 +1149,7 @@
    "hits": 30,
    "name": 0,
    "ng": 1,
-   "book": 1,
+   "book": 10,
    "med": 0,
    "ngw": {
     "中古": 1
@@ -980,15 +1159,23 @@
     269800,
     792000
    ],
-   "anchor": 312070,
+   "anchor": 170000,
+   "kept_items": [
+    "269,800円 Palit(パリット) GeForce RTX 5080 GamingPro 16GB / NE7508",
+    "282,800円 Palit NE75080S19T2-GB2031A (GeForce RTX 5080 GamingP",
+    "399,800円 GIGABYTE｜ギガバイト GIGABYTE AORUS GeForce RTX 5080 INFIN",
+    "394,747円 GeForce RTX 5080 16GB GDDR7 Noctua OC Edition　RTX508",
+    "336,380円 MSI GeForce RTX 5080 16G GAMING TRIO OC (GeForce RTX",
+    "305,600円 MSI GeForce RTX 5080 16G VENTUS 3X OC ブラック グラフィックボード"
+   ],
    "ok": true,
-   "kept": 28
+   "kept": 19
   },
   "RTX 5070 Ti": {
    "hits": 30,
    "name": 0,
    "ng": 3,
-   "book": 1,
+   "book": 11,
    "med": 0,
    "ngw": {
     "中古": 3
@@ -998,16 +1185,24 @@
     218000,
     651293
    ],
-   "anchor": 236500,
+   "anchor": 130000,
+   "kept_items": [
+    "239,192円 GeForce RTX 5070 Ti 16G GAMING TRIO OC",
+    "218,000円 Palit(パリット)  GeForce RTX 5070 Ti GamingPro-S 1 / NE7",
+    "239,800円 ASUS PRIME GeForce RTX 5070 Ti 16GB GDDR7 OC Edition",
+    "249,800円 ASUS ProArt GeForce RTX 5070 Ti OC Edition 16GB GDDR",
+    "244,470円 MSI GeForce RTX 5070 Ti 16G GAMING TRIO OC グラフィックボード",
+    "252,900円 MSI GeForce RTX 5070 Ti 16G GAMING TRIO OC グラフィックボード"
+   ],
    "ok": true,
-   "kept": 26
+   "kept": 16
   },
   "RTX 5070": {
    "hits": 30,
    "name": 9,
    "ng": 2,
-   "book": 2,
-   "med": 1,
+   "book": 6,
+   "med": 0,
    "ngw": {
     "中古": 2
    },
@@ -1016,15 +1211,23 @@
     145800,
     420000
    ],
-   "anchor": 159280,
+   "anchor": 82000,
+   "kept_items": [
+    "145,800円 ASUS｜エイスース ASUS T1 GeForce RTX 5070 12GB GDDR7 OC Ed",
+    "169,495円 GeForce RTX 5070 12G GAMING TRIO OC",
+    "159,800円 MSI｜エムエスアイ MSI GeForce RTX 5070 12G VENTUS 2X OC /  ",
+    "169,800円 ASUS TUF Gaming GeForce RTX 5070 12GB GDDR7 OC Editi",
+    "188,687円 ASUS エイスース PRIME GeForce RTX 5070 12GB GDDR7 OC Edit",
+    "159,840円 ★MSI GeForce RTX 5070 12G VENTUS 2X OC [PCIExp 12GB]"
+   ],
    "ok": true,
-   "kept": 16
+   "kept": 13
   },
   "RTX 5060 Ti 16GB": {
    "hits": 30,
    "name": 1,
    "ng": 0,
-   "book": 1,
+   "book": 20,
    "med": 0,
    "ngw": {},
    "sample": [
@@ -1034,15 +1237,23 @@
     129800,
     484828
    ],
-   "anchor": 137750,
+   "anchor": 70000,
+   "kept_items": [
+    "129,800円 Palit(パリット) GeForce RTX 5060 Ti Infinity 3 16GB / NE",
+    "134,800円 PNY VCG5060T16DFXPB1-O (GeForce RTX 5060 Ti OC 16GB)",
+    "132,380円 PNY VCG5060T16DFXPB1-O GeForce RTX 5060 Ti 16GB Over",
+    "138,000円 Palit NE7506TU19T1-GB2061M (GeForce RTX 5060 Ti Whit",
+    "170,505円 ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 White OC Ed",
+    "164,088円 ASUS エイスース Dual GeForce RTX 5060 Ti 16GB GDDR7 OC Ed"
+   ],
    "ok": true,
-   "kept": 28
+   "kept": 9
   },
   "RTX 5060 Ti 8GB": {
    "hits": 30,
    "name": 4,
    "ng": 2,
-   "book": 4,
+   "book": 7,
    "med": 0,
    "ngw": {
     "中古": 2
@@ -1057,9 +1268,17 @@
     74800,
     323212
    ],
-   "anchor": 92730,
+   "anchor": 56000,
+   "kept_items": [
+    "74,800円 Palit(パリット)  GeForce RTX 5060 Ti Dual 8GB / NE7506T0",
+    "94,800円 ASUS｜エイスース ASUS T1 GeForce RTX 5060 Ti 8GB GDDR7 OC ",
+    "128,180円 ASUS(エイスース) グラフィックボード TUF Gaming GeForce RTX 5060 Ti",
+    "123,900円 【並行輸入品】 PNY GeForce RTX(TM) 5060 Ti 8GB オーバークロックデュアル",
+    "98,780円 ASUS DUAL-RTX5060TI-O8G (GeForce RTX 5060 Ti 8GB)",
+    "91,800円 ZOTAC ゾタック ZOTAC GAMING GeForce RTX 5060 Ti 8GB Twin"
+   ],
    "ok": true,
-   "kept": 20
+   "kept": 17
   },
   "RTX 5060": {
    "hits": 30,
@@ -1073,7 +1292,15 @@
     67800,
     319980
    ],
-   "anchor": 77832,
+   "anchor": 83800,
+   "kept_items": [
+    "69,800円 MSI｜エムエスアイ MSI GeForce RTX 5060 8G VENTUS 2X OC /  P",
+    "67,800円 Palit(パリット)  GeForce  RTX5060 WHITE OC / NE75060U19P",
+    "84,646円 GeForce RTX 5060 WINDFORCE MAX OC V2 8G　GV-N5060WF2M",
+    "72,002円 MSI GeForce RTX 5060 8G VENTUS 2X OC WHITE グラフィックスボー",
+    "109,640円 ASUS エイスース PRIME GeForce RTX 5060 8GB GDDR7 OC Editi",
+    "97,190円 ★エイスース / ASUS DUAL-RTX5060-O8G-WHITE [PCIExp 8GB]【グラ"
+   ],
    "ok": true,
    "kept": 11
   },
@@ -1092,6 +1319,14 @@
     322000
    ],
    "anchor": 34000,
+   "kept_items": [
+    "54,800円 Palit(パリット)  GeForce RTX5050 Dual 8G / NE65050019P1 ",
+    "49,980円 Palit(パリット)  GeForce RTX5050 StormX 8G / NE65050019P",
+    "59,800円 ASUS｜エイスース ASUS PRIME シリーズ NVIDIA GeForce RTX 5050 ト",
+    "80,900円 新品グラフィックボード グラフィックボード GIGABYTE GeForce RTX 5050 WIND",
+    "84,647円 ASUS エイスース Dual GeForce RTX 5050 8GB GDDR6 OC Editio",
+    "69,800円 ZOTAC ZT-B50500G-10L GAMING GeForce RTX 5050 SOLO グラ"
+   ],
    "ok": true,
    "kept": 7
   },
@@ -1099,8 +1334,8 @@
    "hits": 30,
    "name": 0,
    "ng": 3,
-   "book": 3,
-   "med": 0,
+   "book": 1,
+   "med": 2,
    "ngw": {
     "中古": 3
    },
@@ -1109,7 +1344,15 @@
     119800,
     529200
    ],
-   "anchor": 131350,
+   "anchor": 165633,
+   "kept_items": [
+    "119,800円 ASRock アスロック AMD Radeon RX 9070 XT Challenger 16GB (",
+    "141,212円 XFX Swift AMD Radeon RX 9070XT White Triple fan Gami",
+    "128,000円 GIGABYTE Radeon RX 9070 XT GAMING OC 16G /  PCI Expr",
+    "148,800円 ASRock｜アスロック ASRock Radeon RX 9070XT Steel Legend 16",
+    "129,800円 ASRock アスロック Radeon RX 9070 XT Steel Legend Dark 16G",
+    "139,800円 ASUS Prime Radeon RX 9070 XT White OC Edition 16GB G"
+   ],
    "ok": true,
    "kept": 24
   },
@@ -1125,7 +1368,15 @@
     100800,
     145454
    ],
-   "anchor": 85000,
+   "anchor": 138485,
+   "kept_items": [
+    "100,800円 ASUS｜エイスース ASUS Radeon RX 9070 GRE トリプルファン搭載 オーバークロッ",
+    "133,131円 Prime Radeon RX 9070GRE EVO OC Edition 12GB GDDR6",
+    "129,800円 SAPPHIRE｜サファイア SAPPHIRE NITRO+ Radeon RX 9070 GAMING",
+    "138,485円 Radeon RX 9070 GAMING OC 16G　GV-R9070GAMING OC-16GD",
+    "108,800円 SAPPHIRE PULSE Radeon RX 9070 GRE GAMING OC 12GB GDD",
+    "144,242円 NITRO+ Radeon RX 9070 GAMING OC 16GB　NITRORX907016GB"
+   ],
    "ok": true,
    "kept": 9
   },
@@ -1146,6 +1397,14 @@
     427300
    ],
    "anchor": 50000,
+   "kept_items": [
+    "99,800円 ASUS｜エイスース ASUS DUAL Radeon RX 9060 XT 16GB GDDR6 デュ",
+    "86,667円 XFX SWIFT AMD Radeon RX 9060XT OC Triple Fan Gaming ",
+    "89,800円 ASRock AMD Radeon RX 9060 XT Challenger 16GB (RX9060",
+    "80,787円 PURE Radeon RX 9060 XT GAMING OC 16GB　PURERX9060XT16",
+    "100,880円 ASRock(アスロック) グラフィックボード Radeon RX 9060 XT Challenger",
+    "88,687円 XFX SWIFT AMD Radeon RX 9060XT OC White Triple Fan G"
+   ],
    "ok": true,
    "kept": 12
   },
@@ -1153,8 +1412,8 @@
    "hits": 30,
    "name": 19,
    "ng": 2,
-   "book": 5,
-   "med": 0,
+   "book": 0,
+   "med": 1,
    "ngw": {
     "中古": 2
    },
@@ -1168,9 +1427,17 @@
     63616,
     148000
    ],
-   "anchor": 42000,
+   "anchor": 73410,
+   "kept_items": [
+    "73,600円 Power Color AMD Radeon RX9060XT 搭載 グラフィックボード GDDR6 8",
+    "73,220円 ★エイスース / ASUS PRIME-RX9060XT-O8G [PCIExp 8GB]【グラフィック",
+    "114,100円 【並行輸入品】 Sapphire Technology Pulse AMD Radeon RX 9060",
+    "113,500円 【並行輸入品】 XFX Swift AMD Radeon RX 9060 XT OC ゲーミングエディシ",
+    "74,990円 ★エイスース / ASUS PRIME-RX9060XT-O8G [PCIExp 8GB]【グラフィック",
+    "124,800円 【並行輸入品】 ASUS Prime Radeon RX 9060 XT 8GB GDDR6 OC Ed"
+   ],
    "ok": true,
-   "kept": 4
+   "kept": 8
   },
   "Arc B580": {
    "hits": 25,
@@ -1186,7 +1453,15 @@
     41468,
     419320
    ],
-   "anchor": 49293,
+   "anchor": 50303,
+   "kept_items": [
+    "60,586円 Intel Arc B580 Challenger 12GB OC　B580 CL 12GO",
+    "94,900円 【並行輸入品】 SPARKLE Intel Arc B580 グラフィックカードOC版 トリプルファン「",
+    "49,293円 Intel Arc B580 TITAN OC SB580T-12GOC",
+    "50,303円 Intel Arc B580 ROC Luna OC　SB580RW-12GOC",
+    "59,885円 【ラッピング可】【即日発送】【新品】ASRock アスロック グラフィックボード Intel Arc B",
+    "41,468円 SPARKLE Intel Arc B580 TITAN Luna OC SB580TW-12GOC ["
+   ],
    "ok": true,
    "kept": 15
   },
@@ -1204,7 +1479,11 @@
     38182,
     105600
    ],
-   "anchor": 30000,
+   "anchor": 41808,
+   "kept_items": [
+    "38,182円 Intel Arc B570 GUARDIAN Luna OC　SB570GW-10GOC",
+    "45,434円 Intel Arc B570 Challenger 10GB OC　B570 CL 10GO"
+   ],
    "ok": true,
    "kept": 2
   },
@@ -1223,6 +1502,14 @@
     75600
    ],
    "anchor": 34500,
+   "kept_items": [
+    "31,111円 PRIME X870-P WIFI-CSM",
+    "30,800円 ASUS｜エイスース AMD X870 チップセット搭載ATXマザーボード 「PRIME X870-P ",
+    "31,440円 ASUS エイスース　マザーボード ［ATX］　PRIME/X870-P/WIFI-CSM",
+    "35,883円 ASUS PRIME-X870-P WIFI-CSM AMD X870チップセット搭載 ATXマザーボー",
+    "35,880円 ASUS エイスース DOS/Vマザーボード PRIME X870-P WIFI-CSM(2623478",
+    "65,000円 【並行輸入品】 ASUS Prime X870-P WiFi AMD AM5 X870 ATX マザーボ"
+   ],
    "ok": true,
    "kept": 7
   },
@@ -1241,6 +1528,13 @@
     49700
    ],
    "anchor": 31577,
+   "kept_items": [
+    "26,061円 PRIME B850-PLUS WIFI-CSM",
+    "31,577円 ASUS PRIME B850-PLUS WIFI-CSM AMD B850チップセット搭載「PRIME",
+    "31,570円 ASUS エイスース DOS/Vマザーボード PRIME B850-PLUS WIFI-CSM(2662",
+    "49,700円 【並行輸入品】 ASUS Prime B850-PLUS WiFi AMD AM5 AMD B850 A",
+    "38,880円 ASUS エイスース　マザーボード (B850/ ATX/ AM5) ［ATX］　PRIME/B850-"
+   ],
    "ok": true,
    "kept": 5
   },
@@ -1259,6 +1553,14 @@
     44300
    ],
    "anchor": 26983,
+   "kept_items": [
+    "26,987円 ASUS PRIME B840-PLUS WIFI-CSM AMD B840チップセット搭載「PRIME",
+    "27,830円 ASUS エイスース　マザーボード　PRIME/B840-PLUS/WIFI-CSM",
+    "24,040円 ASUS PRIME B840-PLUS WIFI-CSM 目安在庫=△",
+    "44,300円 【並行輸入品】 ASUS Prime B840-PLUS WiFi AMD AM5 B840 ATX マ",
+    "26,980円 ASUS エイスース DOS/Vマザーボード PRIME B840-PLUS WIFI-CSM(2642",
+    "31,035円 ASUS PRIME B840-PLUS WIFI-CSM 目安在庫=△"
+   ],
    "ok": true,
    "kept": 8
   },
@@ -1277,6 +1579,14 @@
     63000
    ],
    "anchor": 45215,
+   "kept_items": [
+    "32,780円 ASUS PRIME Z890-P WIFI-CSM (Z890 1851 ATX)",
+    "36,800円 LGA1851対応 intel Z890チップセット搭載ATXマザーボード ASUS PRIME Z89",
+    "50,830円 ASUS PRIME Z890-P WIFI-CSM マザーボード",
+    "49,480円 ASUS PRIME Z890-P WIFI-CSM マザーボード",
+    "43,980円 ASUS エイスース PRIME Z890-P WIFI-CSM Intel Z890 チップセット搭載",
+    "63,000円 【並行輸入品】 ASUS PRIME Z890-P WIFI Z890 LGA 1851 ATXマザーボ"
+   ],
    "ok": true,
    "kept": 10
   },
@@ -1295,6 +1605,14 @@
     46600
    ],
    "anchor": 30306,
+   "kept_items": [
+    "20,404円 PRIME B860-PLUS WIFI-CSM",
+    "24,949円 PRIME B860-PLUS-CSM",
+    "24,507円 ASUS PRIME B860-PLUS WIFI-CSM Intel B860チップセット搭載「PRI",
+    "24,500円 ASUS エイスース マザーボード PRIME ATX/Intel B860/Intel Core Ul",
+    "39,000円 ASUS PRIME B860-PLUS WIFI-CSM マザーボード",
+    "27,509円 ASUS PRIME B860-PLUS-CSM 目安在庫=△"
+   ],
    "ok": true,
    "kept": 19
   },
@@ -1313,6 +1631,14 @@
     37300
    ],
    "anchor": 21479,
+   "kept_items": [
+    "17,700円 ★エイスース / ASUS PRIME H810M-A-CSM【マザーボード】【送料無料】",
+    "17,280円 ★エイスース / ASUS PRIME H810M-A-CSM【マザーボード】【送料無料】",
+    "19,500円 ASUS Core Ultra Processors マザーボード PRIME H810M-A-CSM",
+    "20,980円 ASUS エイスース H810チップセット搭載 DOS/Vマザーボード PRIME H810M-A-CS",
+    "21,980円 ASUS｜エイスース Inte H810 Chipset 搭載 micro-ATXマザーボード「PRIM",
+    "22,369円 ASUS PRIME H810M-A-CSM 目安在庫=△"
+   ],
    "ok": true,
    "kept": 10
   },
@@ -1335,7 +1661,15 @@
     2666,
     276841
    ],
-   "anchor": 17000,
+   "anchor": 21799,
+   "kept_items": [
+    "16,530円 Microsoft（マイクロソフト） Windows 11 Home 日本語版 HAJ-00094",
+    "16,700円 マイクロソフト Windows 11 Home 日本語版 HAJ-00094",
+    "21,850円 Office Home and Business 2024 永続版 Windows11,windows ",
+    "23,800円 Microsoft Office Home and Business 2024 永続版 Windows1",
+    "23,850円 Microsoft Office Home and Business 2024 永続版PC1台|Wind",
+    "19,999円 Office Home 2024 (最新 永続版) Windows11,10対応 | 1ユーザー・1デバ"
+   ],
    "ok": true,
    "kept": 9
   },
@@ -1358,7 +1692,13 @@
     3266,
     93500
    ],
-   "anchor": 25000,
+   "anchor": 27110,
+   "kept_items": [
+    "24,111円 Microsoft（マイクロソフト） Windows 11 Pro 日本語版 HAV-00213",
+    "24,420円 マイクロソフト Windows 11 Pro 日本語版 HAV-00213",
+    "29,800円 タブレットpc 新品  Windows11Pro 10.1インチ Office2019搭載  SSD12",
+    "33,980円 デスクトップパソコンセット FUJITSU ESPRIMO D588シリーズ 第8世代 Core i5 "
+   ],
    "ok": true,
    "kept": 4
   }
