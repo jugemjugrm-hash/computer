@@ -110,11 +110,12 @@ def extract(data, ref, must=None, ban=None):
     """
     hits = (data or {}).get('hits') or []
     diag = {'hits': len(hits), 'name': 0, 'ng': 0, 'book': 0, 'med': 0,
-            'ngw': {}, 'sample': [], 'range': None, 'anchor': ref}
+            'ngw': {}, 'sample': [], 'range': None, 'anchor': ref, 'kept_items': []}
     must = [m.lower() for m in (must or [])]
     ban = [b.lower() for b in (ban or [])]
 
     raw = []
+    kept_names = []
     for h in hits:
         name = h.get('name') or ''
         price = h.get('price')
@@ -143,6 +144,7 @@ def extract(data, ref, must=None, ban=None):
             diag['ngw'][hit] = diag['ngw'].get(hit, 0) + 1
             continue
         raw.append(price)
+        kept_names.append((name, price))
 
     if raw:
         diag['range'] = [min(raw), max(raw)]   # 価格帯で切る前の分布（診断用）
@@ -157,7 +159,14 @@ def extract(data, ref, must=None, ban=None):
     med = statistics.median(step1)
     step2 = [p for p in step1 if med * LO_MED <= p <= med * HI_MED]
     diag['med'] = len(step1) - len(step2)
-    return sorted(step2), diag
+    # 実際に中央値の計算に使われた商品を記録する（誤検出の特定用・最大6件）
+    used = sorted(step2)
+    seen = set()
+    for nm, pr in kept_names:
+        if pr in used and pr not in seen and len(diag['kept_items']) < 6:
+            seen.add(pr)
+            diag['kept_items'].append('%s円 %s' % ('{:,}'.format(pr), nm[:52]))
+    return used, diag
 
 
 def thin(hist, today):
