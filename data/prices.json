@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-26 22:55",
+ "updated": "2026-09-26 23:02",
  "source": "Yahoo!ショッピング（商品検索API）",
  "note": "各日の値は、検索結果から外れ値を除いたうえでの中央値（mid）と最安値（lo）です。送料・ポイントは含みません。",
  "items": {
@@ -75,8 +75,8 @@
     {
      "d": "2026-09-26",
      "lo": 35280,
-     "mid": 35980,
-     "n": 3
+     "mid": 36780,
+     "n": 5
     }
    ]
   },
@@ -262,8 +262,8 @@
     {
      "d": "2026-09-26",
      "lo": 755800,
-     "mid": 1003550,
-     "n": 12
+     "mid": 867250,
+     "n": 6
     }
    ]
   },
@@ -306,8 +306,8 @@
     {
      "d": "2026-09-26",
      "lo": 129800,
-     "mid": 166937,
-     "n": 20
+     "mid": 137750,
+     "n": 12
     }
    ]
   },
@@ -371,9 +371,9 @@
    "hist": [
     {
      "d": "2026-09-26",
-     "lo": 63616,
-     "mid": 73410,
-     "n": 4
+     "lo": 73220,
+     "mid": 112000,
+     "n": 8
     }
    ]
   },
@@ -462,6 +462,17 @@
    "ng": 0,
    "book": 0,
    "med": 0,
+   "ngw": {},
+   "sample": [
+    "Noctua NH-D9L NF-A9 92mmファン付きプレミアムクーラー (ブラウン",
+    "Noctua NH-D9L NF-A9 92mmファン付きプレミアムクーラー (ブラウン",
+    "Noctua NH-D9L NF-A9 92mmファン付きプレミアムクーラー (ブラウン"
+   ],
+   "range": [
+    109680,
+    131980
+   ],
+   "anchor": 120780,
    "ok": true,
    "kept": 17
   },
@@ -471,6 +482,20 @@
    "ng": 1,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 1
+   },
+   "sample": [
+    "Noctua NH-D9L NF-A9 92mmファン付きプレミアムクーラー (ブラウン",
+    "Noctua NH-D9L NF-A9 92mmファン付きプレミアムクーラー (ブラウン",
+    "Noctua NH-D9L NF-A9 92mmファン付きプレミアムクーラー (ブラウン",
+    "Noctua NH-U9S, NF-A9 92mmファン付きプレミアムCPUクーラー ("
+   ],
+   "range": [
+    95716,
+    107620
+   ],
+   "anchor": 97792,
    "ok": true,
    "kept": 11
   },
@@ -480,6 +505,19 @@
    "ng": 1,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 1
+   },
+   "sample": [
+    "Noctua NH-D9L NF-A9 92mmファン付きプレミアムクーラー (ブラウン",
+    "Noctua NH-D9L NF-A9 92mmファン付きプレミアムクーラー (ブラウン",
+    "Noctua NH-D9L NF-A9 92mmファン付きプレミアムクーラー (ブラウン"
+   ],
+   "range": [
+    86347,
+    129499
+   ],
+   "anchor": 92451,
    "ok": true,
    "kept": 16
   },
@@ -489,6 +527,20 @@
    "ng": 2,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 2
+   },
+   "sample": [
+    "Noctua NH-D9L NF-A9 92mmファン付きプレミアムクーラー (ブラウン",
+    "Noctua NH-D9L NF-A9 92mmファン付きプレミアムクーラー (ブラウン",
+    "Noctua NH-D9L NF-A9 92mmファン付きプレミアムクーラー (ブラウン",
+    "Noctua NH-U9S, NF-A9 92mmファン付きプレミアムCPUクーラー ("
+   ],
+   "range": [
+    67510,
+    77710
+   ],
+   "anchor": 70995,
    "ok": true,
    "kept": 14
   },
@@ -498,6 +550,15 @@
    "ng": 6,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 6
+   },
+   "sample": [],
+   "range": [
+    57629,
+    66060
+   ],
+   "anchor": 61915,
    "ok": true,
    "kept": 14
   },
@@ -507,6 +568,17 @@
    "ng": 6,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 6
+   },
+   "sample": [
+    "Noctua NH-D15, プレミアム CPUクーラー NF-A15 PWM 140m"
+   ],
+   "range": [
+    38275,
+    42340
+   ],
+   "anchor": 38798,
    "ok": true,
    "kept": 13
   },
@@ -514,17 +586,43 @@
    "hits": 20,
    "name": 12,
    "ng": 3,
-   "book": 2,
+   "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 3
+   },
+   "sample": [
+    "Noctua NH-L12S, プレミアムロープロファイルCPU 静音120mm PWM",
+    "Noctua NH-L12S プレミアムロープロファイルCPU 静音120mm PWMフ",
+    "Noctua NH-L12S プレミアムロープロファイルCPU 静音120mm PWMフ",
+    "Noctua NH-D9L NF-A9 92mmファン付きプレミアムクーラー (ブラウン"
+   ],
+   "range": [
+    35280,
+    37670
+   ],
+   "anchor": 35980,
    "ok": true,
-   "kept": 3
+   "kept": 5
   },
   "Ryzen 5 9600": {
    "hits": 20,
    "name": 17,
    "ng": 0,
-   "book": 0,
-   "med": 1,
+   "book": 1,
+   "med": 0,
+   "ngw": {},
+   "sample": [
+    "Noctua NH-L12S, プレミアムロープロファイルCPU 静音120mm PWM",
+    "Noctua NH-L12S プレミアムロープロファイルCPU 静音120mm PWMフ",
+    "Noctua NH-L12S プレミアムロープロファイルCPU 静音120mm PWMフ",
+    "Noctua NH-D9L NF-A9 92mmファン付きプレミアムクーラー (ブラウン"
+   ],
+   "range": [
+    12100,
+    35979
+   ],
+   "anchor": 39000,
    "ok": false,
    "why": "filtered",
    "kept": 2,
@@ -536,6 +634,13 @@
    "ng": 0,
    "book": 1,
    "med": 0,
+   "ngw": {},
+   "sample": [],
+   "range": [
+    12100,
+    62800
+   ],
+   "anchor": 36480,
    "ok": true,
    "kept": 19
   },
@@ -545,6 +650,17 @@
    "ng": 14,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 14
+   },
+   "sample": [
+    "AMD Ryzen 5 8500G BOX With Wraith Stealth Co"
+   ],
+   "range": [
+    44980,
+    49440
+   ],
+   "anchor": 49298,
    "ok": true,
    "kept": 5
   },
@@ -554,6 +670,17 @@
    "ng": 4,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 4
+   },
+   "sample": [
+    "AMD Ryzen 5 8500G BOX With Wraith Stealth Co"
+   ],
+   "range": [
+    30880,
+    38190
+   ],
+   "anchor": 36980,
    "ok": true,
    "kept": 15
   },
@@ -563,6 +690,16 @@
    "ng": 4,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 2,
+    "訳あり": 2
+   },
+   "sample": [],
+   "range": [
+    22980,
+    32799
+   ],
+   "anchor": 28440,
    "ok": true,
    "kept": 16
   },
@@ -570,10 +707,26 @@
    "hits": 20,
    "name": 11,
    "ng": 4,
-   "book": 1,
+   "book": 2,
    "med": 1,
-   "ok": true,
-   "kept": 3
+   "ngw": {
+    "中古": 4
+   },
+   "sample": [
+    "Noctua NH-U9S, NF-A9 92mmファン付きプレミアムCPUクーラー (",
+    "Noctua NH-D12L chromax.black, ローハイトデュアルタワーCP",
+    "Noctua NH-D12L chromax.black ローハイトデュアルタワーCPU",
+    "Noctua NH-D15 G2、デュアルタワーCPUクーラー、AMD AM5及びInt"
+   ],
+   "range": [
+    100270,
+    327800
+   ],
+   "anchor": 95000,
+   "ok": false,
+   "why": "filtered",
+   "kept": 2,
+   "q": "Core Ultra 9 285K"
   },
   "Core Ultra 9 285": {
    "hits": 20,
@@ -581,6 +734,20 @@
    "ng": 1,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 1
+   },
+   "sample": [
+    "Noctua NH-U9S, NF-A9 92mmファン付きプレミアムCPUクーラー (",
+    "Noctua NH-D12L chromax.black, ローハイトデュアルタワーCP",
+    "Noctua NH-D12L chromax.black ローハイトデュアルタワーCPU",
+    "Noctua NH-D15 G2、デュアルタワーCPUクーラー、AMD AM5及びInt"
+   ],
+   "range": [
+    115980,
+    120000
+   ],
+   "anchor": 120000,
    "ok": true,
    "kept": 3
   },
@@ -590,6 +757,17 @@
    "ng": 14,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 14
+   },
+   "sample": [
+    "Noctua NH-D15, プレミアム CPUクーラー NF-A15 PWM 140m"
+   ],
+   "range": [
+    50088,
+    51310
+   ],
+   "anchor": 50100,
    "ok": true,
    "kept": 5
   },
@@ -599,6 +777,20 @@
    "ng": 2,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 2
+   },
+   "sample": [
+    "【Intel Core Ultra 200シリーズ】 Core Ultra 7 Proc",
+    "【Intel Core Ultra 200シリーズ】 Core Ultra 7 Proc",
+    "今日も当日発送 Core Ultra i7 マシン デスクトップ PC 新品 パソコン ",
+    "今日も当日発送 Core Ultra i7 マシン デスクトップ PC 新品 パソコン "
+   ],
+   "range": [
+    48470,
+    76560
+   ],
+   "anchor": 50421,
    "ok": true,
    "kept": 10
   },
@@ -608,6 +800,14 @@
    "ng": 0,
    "book": 0,
    "med": 0,
+   "ngw": {},
+   "sample": [
+    "Core Ultra 3/5/7 CPUヒートシンク - Intel(インテル) CPU",
+    "Noctua NH-D15, プレミアム CPUクーラー NF-A15 PWM 140m",
+    "【Intel Core Ultra 200シリーズ】 Core Ultra 7 Proc"
+   ],
+   "range": null,
+   "anchor": 48499,
    "ok": false,
    "why": "filtered",
    "kept": 0,
@@ -619,6 +819,18 @@
    "ng": 0,
    "book": 2,
    "med": 0,
+   "ngw": {},
+   "sample": [
+    "Core Ultra 3/5/7 CPUヒートシンク - Intel(インテル) CPU",
+    "【ラッピング可】【即日発送】【新品】Intel インテル CPU Ultra 7 265",
+    "INTEL インテル MM99CN98 CoreU7-265F LGA1851(INT-",
+    "インテルR Core? Ultra 7 デスクトッププロセッサー 265F 20コア ("
+   ],
+   "range": [
+    55000,
+    266700
+   ],
+   "anchor": 60330,
    "ok": true,
    "kept": 8
   },
@@ -628,6 +840,21 @@
    "ng": 3,
    "book": 2,
    "med": 0,
+   "ngw": {
+    "中古": 2,
+    "訳あり": 1
+   },
+   "sample": [
+    "Noctua NH-C14S, NF-A14 PWM 140mmファン付きプレミアムCP",
+    "Noctua NH-D15, プレミアム CPUクーラー NF-A15 PWM 140m",
+    "Noctua NH-U9S, NF-A9 92mmファン付きプレミアムCPUクーラー (",
+    "Noctua NH-D12L chromax.black, ローハイトデュアルタワーCP"
+   ],
+   "range": [
+    29500,
+    229800
+   ],
+   "anchor": 30980,
    "ok": true,
    "kept": 9
   },
@@ -637,6 +864,20 @@
    "ng": 1,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 1
+   },
+   "sample": [
+    "ｉｎｔｅｌ Core Ultra5プロセッサー245KF(24Mキャッシュ、最大5.20",
+    "ｉｎｔｅｌ Core Ultra5プロセッサー245KF(24Mキャッシュ、最大5.20",
+    "Core Ultra5プロセッサー245KF(24Mキャッシュ、最大5.20GHz)、 ",
+    "今日も当日発送 Core Ultra i5 マシンデスクトップ PC 新品 パソコン 第"
+   ],
+   "range": [
+    30240,
+    36273
+   ],
+   "anchor": 30980,
    "ok": true,
    "kept": 9
   },
@@ -646,6 +887,18 @@
    "ng": 0,
    "book": 3,
    "med": 0,
+   "ngw": {},
+   "sample": [
+    "インテル? Core? Ultra 5 デスクトッププロセッサー 235、14コア (6",
+    "インテル インテル Core Ultra 5 プロセッサー 235 BX80768235",
+    "Intel｜インテル (国内正規品)インテル Core Ultra 5 プロセッサー 2",
+    "MM99D4V0 CoreU5-235 LGA1851 取り寄せ商品"
+   ],
+   "range": [
+    48500,
+    147200
+   ],
+   "anchor": 50480,
    "ok": true,
    "kept": 5
   },
@@ -655,6 +908,20 @@
    "ng": 3,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 3
+   },
+   "sample": [
+    "Core Ultra 3/5/7 CPUヒートシンク - Intel(インテル) CPU",
+    "インテルR Core? Ultra 5 デスクトッププロセッサー 225F 10コア (",
+    "インテルR Core? Ultra 5 デスクトッププロセッサー 225F 10コア (",
+    "【ラッピング可】【即日発送】【新品 箱不良・シュリンク破れ品】Intel インテル CP"
+   ],
+   "range": [
+    32848,
+    34380
+   ],
+   "anchor": 31774,
    "ok": false,
    "why": "filtered",
    "kept": 2,
@@ -666,6 +933,18 @@
    "ng": 0,
    "book": 5,
    "med": 0,
+   "ngw": {},
+   "sample": [
+    "Core Ultra 3/5/7 CPUヒートシンク - Intel(インテル) CPU",
+    "インテルR Core? Ultra 5 デスクトッププロセッサー 225F 10コア (",
+    "インテルR Core? Ultra 5 デスクトッププロセッサー 225F 10コア (",
+    "INTEL インテル MM99CN9C CoreU5-225F LGA1851(INT-"
+   ],
+   "range": [
+    25980,
+    149000
+   ],
+   "anchor": 26111,
    "ok": true,
    "kept": 4
   },
@@ -673,10 +952,24 @@
    "hits": 20,
    "name": 5,
    "ng": 2,
-   "book": 1,
+   "book": 7,
    "med": 0,
+   "ngw": {
+    "中古": 2
+   },
+   "sample": [
+    "【並行輸入品】 PTM7950 放熱 熱伝導シート 8.5W/mK 高導電性シリコンシー",
+    "GIGABYTE NVIDIA Geforce RTX5080 搭載 グラフィックボード",
+    "【全額返金保証】【最速発送】Lenovo LEGION T5 ハイスペックゲーミングPC",
+    "ASUS NVIDIA GeForce RTX 5070Ti ビデオカード 16GB G"
+   ],
+   "range": [
+    2290,
+    1579740
+   ],
+   "anchor": 400000,
    "ok": true,
-   "kept": 12
+   "kept": 6
   },
   "RTX 5080": {
    "hits": 20,
@@ -684,6 +977,15 @@
    "ng": 1,
    "book": 3,
    "med": 0,
+   "ngw": {
+    "中古": 1
+   },
+   "sample": [],
+   "range": [
+    2290,
+    378600
+   ],
+   "anchor": 312070,
    "ok": true,
    "kept": 16
   },
@@ -693,6 +995,19 @@
    "ng": 3,
    "book": 1,
    "med": 0,
+   "ngw": {
+    "中古": 3
+   },
+   "sample": [
+    "中古一般PC雑誌 週刊アスキー特別編集 週アス2025May",
+    "週刊アスキー特別編集週アス２０２５Ｍａｙ",
+    "CORSAIR Hydro X Series iCUE LINK XG3 RGB HYB"
+   ],
+   "range": [
+    22281,
+    249800
+   ],
+   "anchor": 236500,
    "ok": true,
    "kept": 13
   },
@@ -702,6 +1017,19 @@
    "ng": 3,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 3
+   },
+   "sample": [
+    "中古一般PC雑誌 週刊アスキー特別編集 週アス2025May",
+    "週刊アスキー特別編集週アス２０２５Ｍａｙ",
+    "CORSAIR Hydro X Series iCUE LINK XG3 RGB HYB"
+   ],
+   "range": [
+    145800,
+    166110
+   ],
+   "anchor": 159280,
    "ok": true,
    "kept": 13
   },
@@ -709,10 +1037,17 @@
    "hits": 20,
    "name": 0,
    "ng": 0,
-   "book": 0,
+   "book": 8,
    "med": 0,
+   "ngw": {},
+   "sample": [],
+   "range": [
+    129800,
+    198200
+   ],
+   "anchor": 70000,
    "ok": true,
-   "kept": 20
+   "kept": 12
   },
   "RTX 5060 Ti 8GB": {
    "hits": 20,
@@ -720,6 +1055,19 @@
    "ng": 2,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 2
+   },
+   "sample": [
+    "MSI GeForce RTX 5060 Ti 8G VENTUS 2X OC PLUS",
+    "送料無料 MSI GeForce RTX 5060 Ti 8G SHADOW 2X OC",
+    "NVIDIA GeForce RTX 5060 Ti搭載 オーバークロックグラフィックボ"
+   ],
+   "range": [
+    74800,
+    104790
+   ],
+   "anchor": 92730,
    "ok": true,
    "kept": 15
   },
@@ -729,6 +1077,15 @@
    "ng": 0,
    "book": 0,
    "med": 0,
+   "ngw": {},
+   "sample": [
+    "【並行輸入品】 PTM7950 放熱 熱伝導シート 8.5W/mK 高導電性シリコンシー"
+   ],
+   "range": [
+    67800,
+    91798
+   ],
+   "anchor": 77832,
    "ok": true,
    "kept": 11
   },
@@ -738,6 +1095,15 @@
    "ng": 0,
    "book": 11,
    "med": 0,
+   "ngw": {},
+   "sample": [
+    "【並行輸入品】 PTM7950 放熱 熱伝導シート 8.5W/mK 高導電性シリコンシー"
+   ],
+   "range": [
+    49980,
+    101300
+   ],
+   "anchor": 34000,
    "ok": true,
    "kept": 8
   },
@@ -745,8 +1111,20 @@
    "hits": 20,
    "name": 2,
    "ng": 10,
-   "book": 1,
-   "med": 1,
+   "book": 2,
+   "med": 0,
+   "ngw": {
+    "中古": 10
+   },
+   "sample": [
+    "中古一般PC雑誌 週刊アスキー特別編集 週アス2025May",
+    "週刊アスキー特別編集週アス２０２５Ｍａｙ"
+   ],
+   "range": [
+    12019,
+    140100
+   ],
+   "anchor": 131350,
    "ok": true,
    "kept": 6
   },
@@ -756,6 +1134,18 @@
    "ng": 0,
    "book": 10,
    "med": 0,
+   "ngw": {},
+   "sample": [
+    "中古一般PC雑誌 週刊アスキー特別編集 週アス2025May",
+    "週刊アスキー特別編集週アス２０２５Ｍａｙ",
+    "RG レーシングギア SR 純正HID交換キセノンバルブ ヘッドライト ロービーム用 D",
+    "RG レーシングギア SR 純正HID交換キセノンバルブ ヘッドライト ロービーム用 D"
+   ],
+   "range": [
+    5884,
+    15030
+   ],
+   "anchor": 85000,
    "ok": false,
    "why": "filtered",
    "kept": 0,
@@ -767,6 +1157,17 @@
    "ng": 2,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 2
+   },
+   "sample": [
+    "【ラッピング可】【即日発送】【新品 箱不良・シュリンク破れ品】SAPPHIRE サファイ"
+   ],
+   "range": [
+    80787,
+    114506
+   ],
+   "anchor": 50000,
    "ok": true,
    "kept": 17
   },
@@ -774,10 +1175,24 @@
    "hits": 20,
    "name": 9,
    "ng": 2,
-   "book": 5,
-   "med": 0,
+   "book": 0,
+   "med": 1,
+   "ngw": {
+    "中古": 2
+   },
+   "sample": [
+    "Radeon RX 9060 XT GAMING OC 8G　GV-R9060XTGAM",
+    "ゲーミングPC Ryzen 7 5700X / RX9060XT / メモリ32GB /",
+    "ゲーミングPC Ryzen 7 5700X / RX9060XT / メモリ32GB /",
+    "ゲーミングPC Ryzen 7 5700X / RX9060XT / メモリ32GB /"
+   ],
+   "range": [
+    63616,
+    148000
+   ],
+   "anchor": 73410,
    "ok": true,
-   "kept": 4
+   "kept": 8
   },
   "Arc B580": {
    "hits": 20,
@@ -785,6 +1200,15 @@
    "ng": 8,
    "book": 1,
    "med": 0,
+   "ngw": {
+    "中古": 8
+   },
+   "sample": [],
+   "range": [
+    41468,
+    419320
+   ],
+   "anchor": 49293,
    "ok": true,
    "kept": 11
   },
@@ -794,6 +1218,15 @@
    "ng": 16,
    "book": 1,
    "med": 0,
+   "ngw": {
+    "中古": 16
+   },
+   "sample": [],
+   "range": [
+    38182,
+    105600
+   ],
+   "anchor": 30000,
    "ok": false,
    "why": "filtered",
    "kept": 2,
@@ -805,6 +1238,15 @@
    "ng": 3,
    "book": 1,
    "med": 2,
+   "ngw": {
+    "中古": 3
+   },
+   "sample": [],
+   "range": [
+    1800,
+    75600
+   ],
+   "anchor": 34500,
    "ok": true,
    "kept": 7
   },
@@ -814,6 +1256,15 @@
    "ng": 5,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 5
+   },
+   "sample": [],
+   "range": [
+    26061,
+    49700
+   ],
+   "anchor": 31577,
    "ok": true,
    "kept": 5
   },
@@ -823,6 +1274,15 @@
    "ng": 1,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 1
+   },
+   "sample": [],
+   "range": [
+    22545,
+    44300
+   ],
+   "anchor": 26983,
    "ok": true,
    "kept": 8
   },
@@ -832,6 +1292,15 @@
    "ng": 1,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 1
+   },
+   "sample": [],
+   "range": [
+    32780,
+    63000
+   ],
+   "anchor": 45215,
    "ok": true,
    "kept": 10
   },
@@ -841,6 +1310,13 @@
    "ng": 0,
    "book": 0,
    "med": 1,
+   "ngw": {},
+   "sample": [],
+   "range": [
+    15868,
+    46600
+   ],
+   "anchor": 30306,
    "ok": true,
    "kept": 19
   },
@@ -850,6 +1326,15 @@
    "ng": 2,
    "book": 0,
    "med": 0,
+   "ngw": {
+    "中古": 2
+   },
+   "sample": [],
+   "range": [
+    17280,
+    37300
+   ],
+   "anchor": 21479,
    "ok": true,
    "kept": 10
   },
@@ -859,6 +1344,20 @@
    "ng": 2,
    "book": 4,
    "med": 0,
+   "ngw": {
+    "中古": 2
+   },
+   "sample": [
+    "ドット方眼ノート　B5サイズ",
+    "はじめてのＷｉｎｄｏｗｓ　７ Ｓｔａｒｔｅｒ／Ｈｏｍｅ　Ｐｒｅｍｉｕｍ／Ｐｒｏｆ 基本編",
+    "ひと目でわかるＭｉｃｒｏｓｏｆｔ　Ｗｉｎｄｏｗｓ　ＸＰ　Ｈｏｍｅ　Ｅｄｉｔｉｏｎ   /",
+    "光学式マウス/USB/3ボタン/ブラック/ROHS指令準拠 M-K6URBK/RS"
+   ],
+   "range": [
+    558,
+    1320
+   ],
+   "anchor": 17000,
    "ok": false,
    "why": "filtered",
    "kept": 0,
@@ -870,6 +1369,18 @@
    "ng": 0,
    "book": 5,
    "med": 0,
+   "ngw": {},
+   "sample": [
+    "2.6×18mm 縦巾広 移動カン リュックカン 一本線送り アンティーク ４個セット ",
+    "日本ノート　カレッジアニマル　漢字　120字",
+    "FileMaker Pro11スーパーリファレンス for Windows &amp; ",
+    "DELL Resource Media　OptiPlex - 3020、7020、902"
+   ],
+   "range": [
+    100,
+    605
+   ],
+   "anchor": 25000,
    "ok": false,
    "why": "filtered",
    "kept": 0,
