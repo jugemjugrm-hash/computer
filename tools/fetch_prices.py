@@ -108,7 +108,8 @@ def extract(data, ref, must=None, ban=None):
     戻り値: (価格のリスト, 診断dict)
     """
     hits = (data or {}).get('hits') or []
-    diag = {'hits': len(hits), 'name': 0, 'ng': 0, 'book': 0, 'med': 0}
+    diag = {'hits': len(hits), 'name': 0, 'ng': 0, 'book': 0, 'med': 0,
+            'ngw': {}, 'sample': [], 'range': None, 'anchor': ref}
     must = [m.lower() for m in (must or [])]
     ban = [b.lower() for b in (ban or [])]
 
@@ -126,18 +127,26 @@ def extract(data, ref, must=None, ban=None):
             continue
         # 型番が商品名に入っていない＝別商品。ここが一番効く
         nn = norm_name(name)
-        if must and not all(m in nn for m in must):
+        # 'windows11|win11' のように | で別表記を並べられる
+        if must and not all(any(alt in nn for alt in m.split('|')) for m in must):
             diag['name'] += 1
+            if len(diag['sample']) < 4:
+                diag['sample'].append(name[:44])
             continue
         if ban and any(b in nn for b in ban):
             diag['name'] += 1
             continue
-        if any(w in name for w in NG_WORDS):
+        hit = next((w for w in NG_WORDS if w in name), None)
+        if hit:
             diag['ng'] += 1
+            diag['ngw'][hit] = diag['ngw'].get(hit, 0) + 1
             continue
         raw.append(price)
 
-    # 1段階目：誌面価格に対する広めの窓
+    if raw:
+        diag['range'] = [min(raw), max(raw)]   # 価格帯で切る前の分布（診断用）
+
+    # 1段階目：基準価格に対する窓
     step1 = [p for p in raw if not ref or (ref * LO_BOOK <= p <= ref * HI_BOOK)]
     diag['book'] = len(raw) - len(step1)
     if not step1:
@@ -201,7 +210,12 @@ def main():
         name, query, ref = p['name'], p['query'], int(p.get('ref') or 0)
         # 前回の中央値があればそれを基準にする（相場の変化に追従させるため）
         prev = items.get(name, {}).get('hist') or []
-        anchor = prev[-1].get('mid') if prev and prev[-1].get('mid') else ref
+        prev_mid = prev[-1].get('mid') if prev else None
+        # 前回値は「誌面価格の0.5〜2.0倍に収まっているとき」だけ基準に使う。
+        # そうしないと、一度おかしな値が入ったときに次回以降ずっと引きずられる
+        anchor = ref
+        if prev_mid and ref and ref * 0.5 <= prev_mid <= ref * 2.0:
+            anchor = prev_mid
         try:
             prices, dg = extract(search(appid, query), anchor,
                                  p.get('must'), p.get('not'))

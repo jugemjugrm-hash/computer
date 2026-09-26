@@ -431,7 +431,7 @@
     "query": "Windows 11 Home",
     "ref": 17000,
     "must": [
-      "windows11",
+      "windows11|win11|ウィンドウズ11",
       "home"
     ]
   },
@@ -441,7 +441,7 @@
     "query": "Windows 11 Pro",
     "ref": 25000,
     "must": [
-      "windows11",
+      "windows11|win11|ウィンドウズ11",
       "pro"
     ]
   }
