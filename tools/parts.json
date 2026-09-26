@@ -306,7 +306,7 @@
   {
     "name": "RTX 5050",
     "cat": "gpu",
-    "query": "RTX 5050",
+    "query": "GeForce RTX 5050",
     "ref": 34000,
     "must": [
       "5050"
@@ -315,7 +315,7 @@
   {
     "name": "RX 9070 XT",
     "cat": "gpu",
-    "query": "RX 9070 XT",
+    "query": "Radeon RX 9070 XT",
     "ref": 90000,
     "must": [
       "9070xt"
@@ -324,7 +324,7 @@
   {
     "name": "RX 9070",
     "cat": "gpu",
-    "query": "RX 9070",
+    "query": "Radeon RX 9070",
     "ref": 85000,
     "must": [
       "9070"
@@ -336,7 +336,7 @@
   {
     "name": "RX 9060 XT 16GB",
     "cat": "gpu",
-    "query": "RX 9060 XT 16GB",
+    "query": "Radeon RX 9060 XT 16GB",
     "ref": 50000,
     "must": [
       "9060xt",
@@ -346,7 +346,7 @@
   {
     "name": "RX 9060 XT 8GB",
     "cat": "gpu",
-    "query": "RX 9060 XT 8GB",
+    "query": "Radeon RX 9060 XT 8GB",
     "ref": 42000,
     "must": [
       "9060xt",

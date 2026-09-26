@@ -26,7 +26,7 @@ PARTS = os.path.join(HERE, 'parts.json')
 OUT_JS = os.path.join(ROOT, 'data', 'prices.js')
 OUT_JSON = os.path.join(ROOT, 'data', 'prices.json')
 
-HITS = 20           # 1パーツあたり取得する商品数
+HITS = 30           # 1パーツあたり取得する商品数（関連度順で広めに取る）
 SLEEP = 3.0         # APIへの間隔（秒）。1.1秒では 429 Too Many Requests になったため広げた
 RETRY = 3           # 429 が返ったときの再試行回数
 BACKOFF = 20        # 再試行までの待ち時間（秒）。試行ごとに倍にする
@@ -41,7 +41,7 @@ LO_BOOK = 0.50
 HI_BOOK = 2.50
 LO_MED  = 0.60
 HI_MED  = 2.00
-MIN_HITS = 3        # これ未満しか残らない日は中央値が当てにならないので記録しない
+MIN_HITS = 2        # これ未満しか残らない日は中央値が当てにならないので記録しない
 NG_WORDS = ('中古', 'ジャンク', '訳あり', '部品取り', '本体のみ', '箱のみ', '空箱',
             'ステッカー', 'キーホルダー', 'Tシャツ')
 
@@ -81,7 +81,8 @@ def search(appid, query):
         'appid': appid,
         'query': query,
         'results': HITS,
-        'sort': '+price',
+        # 並び順は指定しない＝関連度順。
+        # 安い順(+price)にすると「その商品の安物の関連品」で20件が埋まり、本体が1件も入らない
     })
     req = urllib.request.Request(
         API + '?' + params,
@@ -233,6 +234,12 @@ def main():
                   % (i, len(parts), name, dg['hits'], dg['name'], dg['ng'], dg['book'], dg['med'], len(prices)))
             dg.update({'ok': False, 'why': why, 'kept': len(prices), 'q': query})
             diag[name] = dg
+            # 失敗した日の古い記録は残さない。残すと「取れている」ように見えてしまう
+            ent = items.get(name)
+            if ent:
+                ent['hist'] = [h for h in ent.get('hist', []) if h.get('d') != today]
+                if not ent['hist']:
+                    del items[name]      # 記録が空になった枠は残さない
             ng += 1
             time.sleep(SLEEP)
             continue
