@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-27 08:31",
+ "updated": "2026-09-27 09:05",
  "source": "Yahoo!ショッピング（商品検索API）",
  "note": "各日の値は、検索結果から外れ値を除いたうえでの中央値（mid）と最安値（lo）です。送料・ポイントは含みません。",
  "items": {
@@ -218,9 +218,9 @@
     },
     {
      "d": "2026-09-27",
-     "lo": 105800,
-     "mid": 235800,
-     "n": 3
+     "lo": 100270,
+     "mid": 103035,
+     "n": 2
     }
    ]
   },
@@ -405,9 +405,9 @@
     },
     {
      "d": "2026-09-27",
-     "lo": 650000,
-     "mid": 984848,
-     "n": 15
+     "lo": 464444,
+     "mid": 733727,
+     "n": 12
     }
    ]
   },
@@ -457,8 +457,8 @@
     {
      "d": "2026-09-27",
      "lo": 145800,
-     "mid": 166110,
-     "n": 13
+     "mid": 162975,
+     "n": 12
     }
    ]
   },
@@ -575,9 +575,9 @@
     },
     {
      "d": "2026-09-27",
-     "lo": 73220,
-     "mid": 112000,
-     "n": 8
+     "lo": 63616,
+     "mid": 73410,
+     "n": 4
     }
    ]
   },
@@ -784,7 +784,7 @@
     109680,
     217110
    ],
-   "anchor": 153780,
+   "anchor": 148445,
    "kept_items": [
     "134,141円 Ryzen 9 9950X3D　100-100000719WOF　【国内正規品】",
     "132,800円 AMD｜エーエムディー AMD Ryzen 9 9950X3D BOX(国内正規品) 100-10000",
@@ -810,7 +810,7 @@
     95706,
     121720
    ],
-   "anchor": 112105,
+   "anchor": 112800,
    "kept_items": [
     "97,770円 爆買AMD Ryzen 9 9950X 100-000001277 4.3GHz SocketAM5",
     "112,800円 AMD｜エーエムディー AMD Ryzen 9 9950X BOX(国内正規品) 100-1000012",
@@ -892,7 +892,7 @@
     57629,
     545080
    ],
-   "anchor": 63485,
+   "anchor": 64250,
    "kept_items": [
     "57,630円 AMD｜エーエムディー AMD Ryzen 7 9800X3D BOX(国内正規品) 100-10000",
     "59,980円 Ryzen 7 9800X3D　100-100001084WOF　【国内正規品】",
@@ -1095,7 +1095,7 @@
    "hits": 30,
    "name": 5,
    "ng": 20,
-   "book": 1,
+   "book": 2,
    "med": 1,
    "ngw": {
     "ゲーミングPC": 16,
@@ -1111,14 +1111,13 @@
     100270,
     327800
    ],
-   "anchor": 103035,
+   "anchor": 95000,
    "kept_items": [
     "105,800円 Intel Core Ultra 9 285K BOX ArrowLake-S LGA1851 BX80",
-    "243,800円 インテル最新 Core Ultra9 285K 搭載/B860/メモリ DDR5-16GB/M.2 SS",
-    "235,800円 インテル最新 Core Ultra9 285K 搭載/メモリ DDR5-16GB/M.2 SSD 500"
+    "100,270円 Core Ultra 9 285K BOX/intel"
    ],
    "ok": true,
-   "kept": 3
+   "kept": 2
   },
   "Core Ultra 9 285": {
    "hits": 30,
@@ -1168,7 +1167,7 @@
     50808,
     255800
    ],
-   "anchor": 51999,
+   "anchor": 52015,
    "kept_items": [
     "53,980円 Intel Core Ultra 7 265K BOX",
     "50,809円 『新品』Intel(インテル)Core Ultra 7 265K BOX",
@@ -1198,7 +1197,7 @@
     48160,
     52800
    ],
-   "anchor": 49570,
+   "anchor": 49475,
    "kept_items": [
     "49,475円 Core Ultra 7 265KF　BX80768265KF",
     "52,479円 Intel Core Ultra 7 265KF BOX ArrowLake-S LGA1851 BX8",
@@ -1257,7 +1256,7 @@
     55000,
     71718
    ],
-   "anchor": 60330,
+   "anchor": 60345,
    "kept_items": [
     "66,374円 Core Ultra 7 265F　BX80768265F",
     "55,000円 【ラッピング可】【即日発送】【新品 開封済み未使用品】Intel インテル CPU Core Ultra",
@@ -1424,8 +1423,8 @@
    "hits": 30,
    "name": 2,
    "ng": 9,
-   "book": 1,
-   "med": 3,
+   "book": 7,
+   "med": 0,
    "ngw": {
     "Raider": 2,
     "ノート": 4,
@@ -1440,17 +1439,17 @@
     2290,
     1579740
    ],
-   "anchor": 733727,
+   "anchor": 400000,
    "kept_items": [
-    "1,029,800円 【2年保証、日本正規代理店品】Inno3D GeForce RTX 5090 X3 OC GD5090-",
-    "1,499,958円 【新品】【即納】【代引き不可】 GIGABYTE NVIDIA Geforce RTX5090 搭載 グ",
-    "1,537,800円 ASUS ROG-ASTRAL-RTX5090-O32G-GAMING グラフィックボード",
-    "1,579,740円 ASUS ROG-ASTRAL-RTX5090-O32G-GAMING グラフィックボード",
     "998,880円 【2年保証、日本正規代理店品】Inno3D GeForce RTX 5090 X3 32GB GDDR7",
-    "984,848円 ZOTAC GAMING GeForce RTX 5090 SOLID OC　ZT-B50900J-10"
+    "984,848円 ZOTAC GAMING GeForce RTX 5090 SOLID OC　ZT-B50900J-10",
+    "707,051円 GeForce RTX 5090 X3　GD5090-32GERX3",
+    "464,444円 GeForce RTX 5090 32G VANGUARD SOC",
+    "899,000円 GIGABYTE AORUS GeForce RTX 5090 XTREME WATERFORCE 32",
+    "666,000円 【新品】【即納】MSI GeForce RTX 5090 32G VENTUS 3X OC グラフィック"
    ],
    "ok": true,
-   "kept": 15
+   "kept": 12
   },
   "RTX 5080": {
    "hits": 30,
@@ -1515,7 +1514,7 @@
    "hits": 30,
    "name": 9,
    "ng": 8,
-   "book": 0,
+   "book": 1,
    "med": 0,
    "ngw": {
     "中古": 2,
@@ -1527,17 +1526,17 @@
     145800,
     215000
    ],
-   "anchor": 162975,
+   "anchor": 82000,
    "kept_items": [
     "145,800円 ASUS｜エイスース ASUS T1 GeForce RTX 5070 12GB GDDR7 OC Ed",
     "169,495円 GeForce RTX 5070 12G GAMING TRIO OC",
     "159,800円 MSI｜エムエスアイ MSI GeForce RTX 5070 12G VENTUS 2X OC /  ",
-    "215,000円 MSI GeForce RTX 5070 12G GAMING TRIO OC WHITE グラフィック",
     "169,800円 ASUS TUF Gaming GeForce RTX 5070 12GB GDDR7 OC Editi",
-    "188,687円 ASUS エイスース PRIME GeForce RTX 5070 12GB GDDR7 OC Edit"
+    "188,687円 ASUS エイスース PRIME GeForce RTX 5070 12GB GDDR7 OC Edit",
+    "159,840円 ★MSI GeForce RTX 5070 12G VENTUS 2X OC [PCIExp 12GB]"
    ],
    "ok": true,
-   "kept": 13
+   "kept": 12
   },
   "RTX 5060 Ti 16GB": {
    "hits": 30,
@@ -1590,7 +1589,7 @@
     74800,
     167400
    ],
-   "anchor": 104420,
+   "anchor": 102680,
    "kept_items": [
     "74,800円 Palit(パリット)  GeForce RTX 5060 Ti Dual 8GB / NE7506T0",
     "94,800円 ASUS｜エイスース ASUS T1 GeForce RTX 5060 Ti 8GB GDDR7 OC ",
@@ -1699,7 +1698,7 @@
     100800,
     145454
    ],
-   "anchor": 138485,
+   "anchor": 133131,
    "kept_items": [
     "100,800円 ASUS｜エイスース ASUS Radeon RX 9070 GRE トリプルファン搭載 オーバークロッ",
     "133,131円 Prime Radeon RX 9070GRE EVO OC Edition 12GB GDDR6",
@@ -1745,8 +1744,8 @@
    "hits": 30,
    "name": 19,
    "ng": 2,
-   "book": 0,
-   "med": 1,
+   "book": 5,
+   "med": 0,
    "ngw": {
     "中古": 2
    },
@@ -1760,17 +1759,15 @@
     63616,
     148000
    ],
-   "anchor": 73410,
+   "anchor": 42000,
    "kept_items": [
+    "63,616円 PULSE Radeon RX 9060 XT GAMING OC 8GB　PULSERX9060XT8",
     "73,600円 Power Color AMD Radeon RX9060XT 搭載 グラフィックボード GDDR6 8",
     "73,220円 ★エイスース / ASUS PRIME-RX9060XT-O8G [PCIExp 8GB]【グラフィック",
-    "74,990円 ★エイスース / ASUS PRIME-RX9060XT-O8G [PCIExp 8GB]【グラフィック",
-    "114,100円 【並行輸入品】 Sapphire Technology Pulse AMD Radeon RX 9060",
-    "113,500円 【並行輸入品】 XFX Swift AMD Radeon RX 9060 XT OC ゲーミングエディシ",
-    "110,500円 【並行輸入品】 GIGABYTE Radeon RX 9060 XT Gaming OC 8G グラフィ"
+    "74,990円 ★エイスース / ASUS PRIME-RX9060XT-O8G [PCIExp 8GB]【グラフィック"
    ],
    "ok": true,
-   "kept": 8
+   "kept": 4
   },
   "Arc B580": {
    "hits": 25,
@@ -2026,7 +2023,7 @@
     3266,
     93500
    ],
-   "anchor": 27110,
+   "anchor": 29800,
    "kept_items": [
     "24,111円 Microsoft（マイクロソフト） Windows 11 Pro 日本語版 HAV-00213",
     "24,420円 マイクロソフト Windows 11 Pro 日本語版 HAV-00213",
