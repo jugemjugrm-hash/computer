@@ -168,16 +168,20 @@ function renderTrend() {
 
   // 軸の範囲
   const allRec = plot.reduce((a, s) => a.concat(s.rec), []);
-  const t0 = Math.min.apply(null, allRec.map((r) => ts(r.d)));
-  const t1 = Math.max.apply(null, allRec.map((r) => ts(r.d)));
-  const span = Math.max(t1 - t0, 86400000);
   const pLo = Math.min.apply(null, allRec.map((r) => r.p));
   const pHi = Math.max.apply(null, allRec.map((r) => r.p));
   const padY = Math.max((pHi - pLo) * 0.15, pHi * 0.02, 500);
   const yLo = Math.max(0, Math.floor((pLo - padY) / 1000) * 1000);
   const yHi = Math.ceil((pHi + padY) / 1000) * 1000;
 
-  const X = (d) => PAD.l + ((ts(d) - t0) / span) * (VW - PAD.l - PAD.r);
+  // 横軸は「記録1件＝1目盛り」の等間隔にする。
+  // 時間に比例させると、1点目の誌面価格（数ヶ月前）から毎日の記録までが
+  // 右端に潰れてしまい、隣り合う日が重なって触り分けられなくなる
+  const dates = Array.from(new Set(allRec.map((r) => r.d))).sort((a, b) => ts(a) - ts(b));
+  const slot = {};
+  dates.forEach((d, i) => { slot[d] = i; });
+  const stepW = VW - PAD.l - PAD.r;
+  const X = (d) => dates.length < 2 ? PAD.l + stepW / 2 : PAD.l + (slot[d] / (dates.length - 1)) * stepW;
   const Y = (p) => PAD.t + (1 - (p - yLo) / (yHi - yLo)) * (VH - PAD.t - PAD.b);
 
   // 目盛り
@@ -188,18 +192,53 @@ function renderTrend() {
     svg += '<line class="tr-grid" x1="' + PAD.l + '" y1="' + y.toFixed(1) + '" x2="' + (VW - PAD.r) + '" y2="' + y.toFixed(1) + '"/>';
     svg += '<text class="tr-ytick" x="' + (PAD.l - 8) + '" y="' + (y + 4).toFixed(1) + '">' + Math.round(v).toLocaleString('ja-JP') + '</text>';
   }
-  const dates = Array.from(new Set(allRec.map((r) => r.d))).sort((a, b) => ts(a) - ts(b));
-  const xTicks = dates.length <= 5 ? dates : [dates[0], dates[Math.floor(dates.length / 2)], dates[dates.length - 1]];
-  xTicks.forEach((d) => {
-    svg += '<text class="tr-xtick" x="' + X(d).toFixed(1) + '" y="' + (VH - 12) + '">' + fmtDate(d) + '</text>';
+  // 最初と最後は必ず出し、間は等間隔に拾う。
+  // 近すぎるラベルは間引く（スマホだと日付同士がくっついて読めなくなる）
+  const want = Math.min(dates.length, 5);
+  const picked = [];
+  for (let i = 0; i < want; i++) {
+    const d = dates[want === 1 ? 0 : Math.round((i * (dates.length - 1)) / (want - 1))];
+    if (picked.indexOf(d) < 0) picked.push(d);
+  }
+  const MIN_GAP = 92;   // ラベル同士の最小間隔（viewBox 座標）
+  const lastDate = dates[dates.length - 1];
+  const ticks = [];
+  picked.forEach((d) => {
+    if (d === lastDate) { ticks.push(d); return; }
+    const prev = ticks[ticks.length - 1];
+    if (prev && X(d) - X(prev) < MIN_GAP) return;          // 前のラベルに近すぎる
+    if (X(lastDate) - X(d) < MIN_GAP) return;              // 右端のラベルに近すぎる
+    ticks.push(d);
+  });
+  ticks.forEach((d) => {
+    // 両端のラベルは内側に寄せる。はみ出して切れるのを防ぐ
+    const anchor = d === dates[0] ? 'start' : (d === dates[dates.length - 1] ? 'end' : 'middle');
+    svg += '<text class="tr-xtick" style="text-anchor:' + anchor + '" x="' + X(d).toFixed(1) +
+           '" y="' + (VH - 12) + '">' + fmtDate(d) + '</text>';
   });
 
   // 線と点（誌面掲載の点は白抜きにして、実測値と区別する）
   const ends = [];
   plot.forEach((s) => {
-    const pts = s.rec.map((r) => X(r.d).toFixed(1) + ',' + Y(r.p).toFixed(1)).join(' ');
-    svg += '<polyline class="tr-line" points="' + pts + '" style="stroke:var(--series-' + s.slot + ')"/>';
-    s.rec.forEach((r) => {
+    const xy = (r) => X(r.d).toFixed(1) + ',' + Y(r.p).toFixed(1);
+    // 1点目が誌面価格のときは、そこから最初の実測値までを破線で結ぶ。
+    // 横軸は等間隔なので、この区間だけ数ヶ月あいていることを線で示す
+    const gap = s.rec.length >= 2 && s.rec[0].s === 'book';
+    if (gap) {
+      svg += '<polyline class="tr-line is-gap" points="' + xy(s.rec[0]) + ' ' + xy(s.rec[1]) +
+             '" style="stroke:var(--series-' + s.slot + ')"/>';
+    }
+    const solid = gap ? s.rec.slice(1) : s.rec;
+    if (solid.length >= 2) {
+      svg += '<polyline class="tr-line" points="' + solid.map(xy).join(' ') +
+             '" style="stroke:var(--series-' + s.slot + ')"/>';
+    }
+    // 記録が増えると丸同士が重なって団子になる。
+    // 多いときは誌面価格の点と最新の点だけ残し、あとは線で見せる
+    const showAll = dates.length <= 30;
+    s.rec.forEach((r, i) => {
+      const keep = showAll || r.s === 'book' || i === s.rec.length - 1;
+      if (!keep) return;
       const style = r.s === 'book'
         ? 'fill:var(--surface);stroke:var(--series-' + s.slot + ')'
         : 'fill:var(--series-' + s.slot + ')';
@@ -220,15 +259,19 @@ function renderTrend() {
   });
 
   svg += '<line class="tr-cross is-off" x1="0" y1="' + PAD.t + '" x2="0" y2="' + (VH - PAD.b) + '"/>';
-  svg += '<rect class="tr-hit" x="' + PAD.l + '" y="' + PAD.t + '" width="' + (VW - PAD.l - PAD.r) +
+  // 両端の点はグラフのふちにあるので、押せる範囲を左右に少しはみ出させる
+  const hitX = Math.max(0, PAD.l - 24);
+  const hitW = Math.min(VW, VW - PAD.r + 24) - hitX;
+  svg += '<rect class="tr-hit" x="' + hitX + '" y="' + PAD.t + '" width="' + hitW +
          '" height="' + (VH - PAD.t - PAD.b) + '" fill="transparent"/>';
   svg += '</svg>';
   box.innerHTML = svg;
 
   cap.textContent = '記録した価格の推移（' + plot.length + '製品・' + fmtDate(dates[0]) + '〜' + fmtDate(dates[dates.length - 1]) + '）';
-  foot.textContent = '縦軸は0から始まっていません（値動きを見やすくするため）。最初の点は誌面掲載価格、以降は調べた日の中央値です（外れ値を除いた相場）。';
+  foot.textContent = '横軸は記録した日を等間隔に並べています（日数には比例しません。破線の区間は間があいています）。'
+    + '縦軸は0から始まっていません（値動きを見やすくするため）。最初の点は誌面掲載価格、以降は調べた日の中央値です（外れ値を除いた相場）。';
 
-  bindCrosshair(box, plot, dates, X, t0, span);
+  bindCrosshair(box, plot, dates, X);
 }
 
 /* ------------------------- クロスヘア＋ツールチップ ------------------------- */
@@ -243,7 +286,7 @@ function tip() {
   return tipEl;
 }
 
-function bindCrosshair(box, plot, dates, X, t0, span) {
+function bindCrosshair(box, plot, dates, X) {
   const svg = $('.trend-svg', box);
   const hit = $('.tr-hit', box);
   const cross = $('.tr-cross', box);

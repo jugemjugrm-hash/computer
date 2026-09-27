@@ -2083,3 +2083,10 @@ button,
     display: none;
   }
 }
+
+/* 誌面価格から最初の実測値までは期間があいている。
+   横軸を等間隔にしている以上、線の見た目で「ここは飛んでいる」と示す */
+.tr-line.is-gap {
+  stroke-dasharray: 5 5;
+  opacity: 0.55;
+}
