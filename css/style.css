@@ -2095,3 +2095,9 @@ button,
 .tr-span {
   margin: 2px 0 10px;
 }
+
+/* ウォッチ枠がいっぱいのときの案内 */
+.field-note.is-full {
+  color: var(--warn);
+  font-weight: 600;
+}

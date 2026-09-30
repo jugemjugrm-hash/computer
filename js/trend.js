@@ -16,7 +16,7 @@ const PRIO = { manual: 3, rakuten: 2, feed: 1, book: 0 };
 /* 初回に自動でウォッチへ入れる代表パーツ（空の画面を見せないため）。
    自分で外した場合は seeded フラグが立っているので勝手に戻さない */
 const SEED_WATCH = ['Ryzen 7 9800X3D', 'Core Ultra 7 265K', 'RTX 5070', 'RX 9070 XT'];
-const MAX_WATCH = 4;   // 折れ線は4系列まで（それ以上は線が重なって読めなくなる）
+const MAX_WATCH = 6;   // 折れ線は6系列まで（スマホの幅だとこれ以上は線が重なって読めない）
 
 let store = { log: {}, watch: [] };
 
@@ -461,8 +461,16 @@ function bindCrosshair(box, plot, dates, X) {
 /* ------------------------------ ウォッチ一覧 ------------------------------ */
 function renderWatch() {
   const box = $('#watchList');
+  const note = $('#watchNote');
+  const left = MAX_WATCH - store.watch.length;
+  if (note) {
+    note.textContent = store.watch.length + ' / ' + MAX_WATCH + ' 件'
+      + (left > 0 ? '（あと' + left + '件追加できます）'
+                  : '（いっぱいです。追加するには、下のパーツを押して外してください）');
+    note.className = 'field-note' + (left > 0 ? '' : ' is-full');
+  }
   if (!store.watch.length) {
-    box.innerHTML = '<span class="field-note">ウォッチ中のパーツはありません（最大' + MAX_WATCH + '件）</span>';
+    box.innerHTML = '<span class="field-note">ウォッチ中のパーツはありません</span>';
     return;
   }
   box.innerHTML = store.watch.map((n) =>
@@ -614,7 +622,15 @@ window.initTrend = function () {
     const v = $('#watchPick').value;
     if (!v) return;
     const r = addWatch(v);
-    if (r === 'full') { alert('ウォッチできるのは' + MAX_WATCH + '件までです。折れ線が重なって読めなくなるため制限しています。'); return; }
+    if (r === 'full') {
+      const note = $('#watchNote');
+      if (note) {
+        note.textContent = 'ウォッチは' + MAX_WATCH + '件までです。'
+          + '下のパーツを押して1つ外すと追加できます（線が重なって読めなくなるための制限です）。';
+        note.className = 'field-note is-full';
+      }
+      return;
+    }
     $('#watchPick').value = '';
     refresh();
   });

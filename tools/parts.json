@@ -448,7 +448,7 @@
  {
   "name": "DDR5 32GB (16GB×2)",
   "cat": "mem",
-  "query": "DDR5 32GB 16GB×2 デスクトップ",
+  "query": "DDR5 32GB メモリ 2枚組 16GBx2",
   "ref": 30000,
   "must": [
    "ddr5",
@@ -467,7 +467,7 @@
  {
   "name": "DDR5 64GB (32GB×2)",
   "cat": "mem",
-  "query": "DDR5 64GB 32GB×2 デスクトップ",
+  "query": "DDR5 64GB メモリ 2枚組 32GBx2",
   "ref": 58000,
   "must": [
    "ddr5",
@@ -486,7 +486,7 @@
  {
   "name": "DDR4 32GB (16GB×2)",
   "cat": "mem",
-  "query": "DDR4 32GB 16GB×2 デスクトップ",
+  "query": "DDR4 32GB メモリ 2枚組 16GBx2",
   "ref": 14000,
   "must": [
    "ddr4",
