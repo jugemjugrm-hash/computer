@@ -1788,9 +1788,10 @@ body.no-pages .bar-row { cursor: default; }
   font-size: .82rem; line-height: 1.75; color: var(--text);
 }
 
-/* まだ線を引けない（記録1件）の製品は凡例で薄く */
-.lg-item.is-pending {
-  opacity: .45;
+/* 記録が1件の製品。点は描かれるので薄くしすぎず、
+   「線がまだ」であることだけ控えめに伝える */
+.lg-item.is-pending .lg-val {
+  color: var(--warn);
 }
 
 /* ==========================================================================
@@ -2100,4 +2101,11 @@ button,
 .field-note.is-full {
   color: var(--warn);
   font-weight: 600;
+}
+
+/* 記録が1日ぶんしかない製品の点。線が無いぶん見落としやすいので輪で囲む */
+.tr-dot.is-lone {
+  stroke-width: 1.5;
+  opacity: 0.5;
+  vector-effect: non-scaling-stroke;
 }

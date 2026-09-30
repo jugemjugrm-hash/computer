@@ -196,7 +196,7 @@ function renderTrend() {
     '<i class="lg-swatch" style="background:var(--series-' + s.slot + ')"></i>' +
     s.name + '<em class="lg-val">' +
     (s.rec.length >= 2 ? s.rec.length + (span === 'month' ? 'ヶ月' : '件')
-      : (s.rec.length === 1 ? '1件・線はまだ' : '記録なし')) +
+      : (s.rec.length === 1 ? '1件・点のみ' : '記録なし')) +
     '</em></span>').join('');
   renderSpanTabs(span, ss);
 
@@ -207,9 +207,11 @@ function renderTrend() {
     return;
   }
 
-  const plot = ss.filter((s) => s.rec.length >= 2);
+  // 記録が1点の製品も描く。線は引けないが、点は打てる。
+  // 以前は2点未満を丸ごと外していたため、取得できた当日は何も出なかった
+  const plot = ss.filter((s) => s.rec.length >= 1);
   if (!plot.length) {
-    // 点が1つでは線が引けない。代わりに現状を表で示し、次に何をすればよいかを出す
+    // 1点も無いときだけ、現状を表で示して次にすることを出す
     cap.textContent = 'ウォッチ中 ' + ss.length + ' 製品（実測値がまだありません）';
     const feedReady = !!(window.PRICE_FEED && window.PRICE_FEED.items &&
                          Object.keys(window.PRICE_FEED.items).length);
@@ -313,6 +315,11 @@ function renderTrend() {
              '" cy="' + Y(r.p).toFixed(1) + '" r="4.5" style="' + style + '"/>';
     });
     const last = s.rec[s.rec.length - 1];
+    if (s.rec.length === 1) {
+      // 点がひとつだけだと線が無いぶん見落としやすい。輪を重ねて目立たせる
+      svg += '<circle class="tr-dot is-lone" cx="' + X(last.d).toFixed(1) + '" cy="' + Y(last.p).toFixed(1) +
+             '" r="9" style="fill:none;stroke:var(--series-' + s.slot + ')"/>';
+    }
     ends.push({ x: X(last.d) + 10, y: Y(last.p) + 4, t: Math.round(last.p).toLocaleString('ja-JP') });
   });
 
@@ -337,7 +344,9 @@ function renderTrend() {
   cap.textContent = '記録した価格の推移（' + plot.length + '製品・'
     + (span === 'month' ? '月ごと' : '日ごと') + '・'
     + fmtDate(dates[0]) + '〜' + fmtDate(dates[dates.length - 1]) + '）';
-  foot.textContent = (span === 'month'
+  const lone = plot.filter((s) => s.rec.length === 1).length;
+  foot.textContent = (lone ? lone + '製品はまだ記録が1日ぶんなので、線ではなく点だけです（明日の取得で線になります）。' : '')
+    + (span === 'month'
       ? '1点がひと月です（その月に記録した日の中央値）。2年ぶん残ります。'
       : '1点が1日です（直近90日ぶん）。それより前は「月ごと」に切り替えると見られます。')
     + '横軸は記録した分を等間隔に並べています（日数には比例しません。破線の区間は間があいています）。'
