@@ -131,6 +131,28 @@ odd: [
   { n:'内蔵 Blu-rayドライブ',   b:'内蔵', min:12000, max:23000, page:42 },
   { n:'外付け DVDドライブ',     b:'外付け', min:3000,  max:5000,  page:42 },
   { n:'外付け Blu-rayドライブ', b:'外付け', min:10000, max:20000, page:42 }
+],
+
+/* ------------------------- メモリ・SSD・HDD -------------------------
+   誌面に価格表が無いパーツ。min/max が 0 なので「価格帯グラフ」には出さず、
+   相場の推移（毎日の自動取得）のウォッチ対象としてだけ使う。
+   製品個別ではなく「この仕様の相場」を追いかける */
+mem: [
+  { n:'DDR5 32GB (16GB×2)', b:'DDR5', min:0, max:0, spec:'デスクトップ用・2枚組' },
+  { n:'DDR5 64GB (32GB×2)', b:'DDR5', min:0, max:0, spec:'デスクトップ用・2枚組' },
+  { n:'DDR4 32GB (16GB×2)', b:'DDR4', min:0, max:0, spec:'デスクトップ用・2枚組' }
+],
+
+ssd: [
+  { n:'M.2 NVMe SSD 1TB', b:'NVMe', min:0, max:0, spec:'M.2 接続' },
+  { n:'M.2 NVMe SSD 2TB', b:'NVMe', min:0, max:0, spec:'M.2 接続' },
+  { n:'M.2 SSD Gen5 2TB', b:'NVMe', min:0, max:0, spec:'PCIe 5.0' },
+  { n:'SATA SSD 1TB',     b:'SATA', min:0, max:0, spec:'2.5インチ' }
+],
+
+hdd: [
+  { n:'内蔵HDD 3.5インチ 4TB', b:'内蔵', min:0, max:0, spec:'3.5インチ' },
+  { n:'内蔵HDD 3.5インチ 8TB', b:'内蔵', min:0, max:0, spec:'3.5インチ' }
 ]
 
 };
@@ -141,7 +163,12 @@ const PRICE_GROUPS = {
   gpu: { label:'グラフィックボード', brands:['GeForce', 'Radeon', 'Arc'],   unit:'円' },
   mb:  { label:'マザーボード',      brands:['AMD', 'Intel'],                unit:'円' },
   os:  { label:'Windows 11',       brands:['Home', 'Pro'],                 unit:'円' },
-  odd: { label:'光学ドライブ',      brands:['内蔵', '外付け'],               unit:'円' }
+  odd: { label:'光学ドライブ',      brands:['内蔵', '外付け'],               unit:'円' },
+  /* noBook … 誌面に価格表が無いパーツ。価格帯グラフには出さず、
+     相場の推移のウォッチ対象としてだけ使う */
+  mem: { label:'メモリ',           brands:['DDR5', 'DDR4'],                unit:'円', noBook:true },
+  ssd: { label:'SSD',             brands:['NVMe', 'SATA'],                unit:'円', noBook:true },
+  hdd: { label:'HDD',             brands:['内蔵'],                        unit:'円', noBook:true }
 };
 
 /* 構成見積もりで使う、誌面に価格表のないパーツ（初期値は 0 円。自分で入力する） */

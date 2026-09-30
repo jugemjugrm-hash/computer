@@ -10,6 +10,7 @@
 
 const LOG_KEY   = 'pcQuiz.priceLog.v1';
 const FEED_KEY  = 'pcQuiz.feedUrl';
+const SPAN_KEY  = 'pcQuiz.trendSpan';   /* 'day'（日ごと）か 'month'（月ごと） */
 /* 同じ日に複数の取得元があるときの優先順位（自分で測った値を優先する） */
 const PRIO = { manual: 3, rakuten: 2, feed: 1, book: 0 };
 /* 初回に自動でウォッチへ入れる代表パーツ（空の画面を見せないため）。
@@ -40,10 +41,21 @@ function bookDate() {
   const m = /(\d{4})年(\d{1,2})月/.exec(PRICE_ASOF);
   return m ? m[1] + '-' + String(m[2]).padStart(2, '0') + '-01' : '2025-12-01';
 }
-function ts(d) { return new Date(d + 'T00:00:00').getTime(); }
+function ts(d) {
+  // 'YYYY-MM'（月ごとの点）は月初として扱う
+  const v = String(d).length === 7 ? d + '-01' : d;
+  return new Date(v + 'T00:00:00').getTime();
+}
 function fmtDate(d) {
-  const p = d.split('-');
+  const p = String(d).split('-');
+  // 'YYYY-MM' は月ごとの点。'YYYY-MM-DD' は日ごとの点
+  if (p.length < 3) return Number(p[0]) + '/' + Number(p[1]);
   return Number(p[1]) + '/' + Number(p[2]);
+}
+/** ツールチップの見出し。月ごとの点は「2026年8月」と出す */
+function fmtFull(d) {
+  const p = String(d).split('-');
+  return p.length < 3 ? Number(p[0]) + '年' + Number(p[1]) + '月' : d;
 }
 function yen(n) { return '¥' + Number(n || 0).toLocaleString('ja-JP'); }
 
@@ -54,22 +66,59 @@ function feedHist(name) {
   return (f.items[name].hist || []).map((h) => ({ d: h.d, p: h.mid != null ? h.mid : h.lo, s: 'feed', n: h.n, lo: h.lo }));
 }
 
-/** 自分の記録とフィードを日付で突き合わせ、1日1点にまとめる */
-function combined(name) {
+/** 月ごとにまとめた記録。取得スクリプトが2年ぶん作っている。
+    d は 'YYYY-MM'、p はその月の中央値、lo/hi はその月の最安と最高、n は記録できた日数 */
+function feedMon(name) {
+  const f = window.PRICE_FEED;
+  if (!f || !f.items || !f.items[name]) return [];
+  return (f.items[name].mon || []).map((h) =>
+    ({ d: h.d, p: h.mid != null ? h.mid : h.lo, s: 'feed', n: h.n, lo: h.lo, hi: h.hi }));
+}
+
+/** 自分で手入力した記録を月ごとにまとめる（フィードの月次と粒度をそろえる） */
+function monthlyOwn(rec) {
+  const by = {};
+  rec.forEach((r) => {
+    const m = String(r.d).slice(0, 7);
+    (by[m] || (by[m] = [])).push(r);
+  });
+  return Object.keys(by).sort().map((m) => {
+    const ps = by[m].map((r) => r.p).sort((a, b) => a - b);
+    const mid = ps[Math.floor(ps.length / 2)];
+    // 誌面価格しか無い月は、誌面価格の点として扱う（白抜きで描き分けるため）
+    const src = by[m].every((r) => r.s === 'book') ? 'book' : by[m][by[m].length - 1].s;
+    return { d: m, p: mid, s: src, n: by[m].length, lo: ps[0], hi: ps[ps.length - 1] };
+  });
+}
+
+/** 自分の記録とフィードを突き合わせ、1目盛り1点にまとめる。
+    span が 'month' のときは月ごと（2年ぶん）、'day' のときは日ごと（直近90日ぶん）*/
+function combined(name, span) {
   const map = {};
+  // 日ごと：同じ日に複数の取得元があれば、自分で測った値を優先する。
+  // 月ごと：その月に何日ぶん記録できたかを優先する。
+  //         手入力1件がフィードのひと月ぶんの統計を押しのけてしまうのを防ぐ
+  const better = span === 'month'
+    ? (a, b) => ((a.n || 0) - (b.n || 0)) || ((PRIO[a.s] || 0) - (PRIO[b.s] || 0))
+    : (a, b) => (PRIO[a.s] || 0) - (PRIO[b.s] || 0);
   const put = (r) => {
     const cur = map[r.d];
-    if (!cur || (PRIO[r.s] || 0) > (PRIO[cur.s] || 0)) map[r.d] = r;
+    if (!cur || better(r, cur) > 0) map[r.d] = r;
   };
-  const e = store.log[name];
-  if (e) e.rec.forEach(put);
-  feedHist(name).forEach(put);
-  return Object.keys(map).sort((a, b) => ts(a) - ts(b)).map((d) => map[d]);
+  const own = (store.log[name] || {}).rec || [];
+  if (span === 'month') {
+    monthlyOwn(own).forEach(put);
+    feedMon(name).forEach(put);
+  } else {
+    own.forEach(put);
+    feedHist(name).forEach(put);
+  }
+  return Object.keys(map).sort().map((d) => map[d]);
 }
 
 function allParts() {
   const out = [];
-  ['cpu', 'gpu', 'mb', 'os', 'odd'].forEach((cat) => {
+  Object.keys(PRICE_GROUPS).forEach((cat) => {
     (PRICE_DATA[cat] || []).forEach((it) => out.push({ n: it.n, cat: cat, item: it }));
   });
   return out;
@@ -108,18 +157,34 @@ function removeWatch(name) {
 const PAD = { l: 66, r: 84, t: 16, b: 34 };
 const VW = 820, VH = 300;
 
-function series() {
+/** いま選ばれている表示の粒度 */
+function spanMode() {
+  try {
+    return localStorage.getItem(SPAN_KEY) === 'month' ? 'month' : 'day';
+  } catch (e) { return 'day'; }
+}
+function setSpanMode(v) {
+  try { localStorage.setItem(SPAN_KEY, v); } catch (e) { /* 表示は切り替わる */ }
+}
+
+function series(span) {
   return store.watch.map((name, i) => {
     return {
       name: name,
       slot: (i % 8) + 1,
-      rec: combined(name)
+      rec: combined(name, span)
     };
   });
 }
 
 function renderTrend() {
-  const ss = series();
+  let span = spanMode();
+  // 月ごとを選んでいても、まだ月次の記録が2点に満たないときは日ごとに戻す
+  if (span === 'month' && !store.watch.some((n) => feedMon(n).length >= 2
+      || monthlyOwn((store.log[n] || {}).rec || []).length >= 2)) {
+    span = 'day';
+  }
+  const ss = series(span);
   const box = $('#trendChart');
   const cap = $('#trendCaption');
   const foot = $('#trendFoot');
@@ -130,8 +195,10 @@ function renderTrend() {
     '<span class="lg-item' + (s.rec.length < 2 ? ' is-pending' : '') + '">' +
     '<i class="lg-swatch" style="background:var(--series-' + s.slot + ')"></i>' +
     s.name + '<em class="lg-val">' +
-    (s.rec.length >= 2 ? s.rec.length + '件' : (s.rec.length === 1 ? '1件・線はまだ' : '記録なし')) +
+    (s.rec.length >= 2 ? s.rec.length + (span === 'month' ? 'ヶ月' : '件')
+      : (s.rec.length === 1 ? '1件・線はまだ' : '記録なし')) +
     '</em></span>').join('');
+  renderSpanTabs(span, ss);
 
   if (!ss.length) {
     cap.textContent = '';
@@ -267,11 +334,35 @@ function renderTrend() {
   svg += '</svg>';
   box.innerHTML = svg;
 
-  cap.textContent = '記録した価格の推移（' + plot.length + '製品・' + fmtDate(dates[0]) + '〜' + fmtDate(dates[dates.length - 1]) + '）';
-  foot.textContent = '横軸は記録した日を等間隔に並べています（日数には比例しません。破線の区間は間があいています）。'
+  cap.textContent = '記録した価格の推移（' + plot.length + '製品・'
+    + (span === 'month' ? '月ごと' : '日ごと') + '・'
+    + fmtDate(dates[0]) + '〜' + fmtDate(dates[dates.length - 1]) + '）';
+  foot.textContent = (span === 'month'
+      ? '1点がひと月です（その月に記録した日の中央値）。2年ぶん残ります。'
+      : '1点が1日です（直近90日ぶん）。それより前は「月ごと」に切り替えると見られます。')
+    + '横軸は記録した分を等間隔に並べています（日数には比例しません。破線の区間は間があいています）。'
     + '縦軸は0から始まっていません（値動きを見やすくするため）。最初の点は誌面掲載価格、以降は調べた日の中央値です（外れ値を除いた相場）。';
 
   bindCrosshair(box, plot, dates, X);
+}
+
+/** 「日ごと／月ごと」の切り替え。月ごとの記録がまだ無いうちは出さない */
+function renderSpanTabs(span, ss) {
+  const box = $('#trendSpan');
+  if (!box) return;
+  const hasMon = store.watch.some((n) => feedMon(n).length >= 2)
+    || ss.some((s) => monthlyOwn((store.log[s.name] || {}).rec || []).length >= 2);
+  if (!hasMon) { box.innerHTML = ''; box.hidden = true; return; }
+  box.hidden = false;
+  const tab = (v, label) => '<button type="button" class="chip' + (span === v ? ' is-on' : '') +
+    '" data-span="' + v + '">' + label + '</button>';
+  box.innerHTML = tab('day', '日ごと（直近90日）') + tab('month', '月ごと（2年）');
+  $$('[data-span]', box).forEach((b) => {
+    b.addEventListener('click', () => {
+      setSpanMode(b.dataset.span);
+      renderTrend();
+    });
+  });
 }
 
 /* ------------------------- クロスヘア＋ツールチップ ------------------------- */
@@ -315,12 +406,17 @@ function bindCrosshair(box, plot, dates, X) {
 
     const t = tip();
     t.innerHTML = '<b class="tip-date"></b>' + rows.join('');
-    $('.tip-date', t).textContent = best;
+    $('.tip-date', t).textContent = fmtFull(best);
     const found = plot.filter((s) => s.rec.some((x) => x.d === best));
     $$('.tip-nm', t).forEach((el, i) => { el.textContent = found[i].name; });
     $$('.tip-pv', t).forEach((el, i) => {
       const r = found[i].rec.find((x) => x.d === best);
-      el.textContent = yen(r.p) + (r.lo != null && r.lo !== r.p ? '（最安 ' + yen(r.lo) + '）' : '');
+      if (r.hi != null && r.lo != null && r.hi !== r.lo) {
+        // 月ごとの点。その月の中央値と、月内でどこまで振れたかを出す
+        el.textContent = yen(r.p) + '（' + yen(r.lo) + '〜' + yen(r.hi) + '・' + (r.n || 0) + '日ぶん）';
+      } else {
+        el.textContent = yen(r.p) + (r.lo != null && r.lo !== r.p ? '（最安 ' + yen(r.lo) + '）' : '');
+      }
     });
     t.hidden = false;
     const touch = ev.pointerType && ev.pointerType !== 'mouse';

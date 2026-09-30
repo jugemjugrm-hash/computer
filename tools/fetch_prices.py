@@ -30,8 +30,13 @@ HITS = 30           # 1パーツあたり取得する商品数（関連度順で
 SLEEP = 3.0         # APIへの間隔（秒）。1.1秒では 429 Too Many Requests になったため広げた
 RETRY = 3           # 429 が返ったときの再試行回数
 BACKOFF = 20        # 再試行までの待ち時間（秒）。試行ごとに倍にする
-DAILY_DAYS = 60     # 直近この日数は毎日の点を残す
-MAX_POINTS = 250    # 1パーツあたりの保持点数の上限
+# 保持方針。「消さずに残す」ことを優先し、置き場所を2つに分ける。
+#   data/prices.json … 日ごとの記録をそのまま残す保管庫（2年ぶん）。アプリは読まない
+#   data/prices.js   … アプリが毎回読み込むぶん。直近は日ごと、それ以前は月ごとに集計
+# 2年ぶんの日ごとの記録を毎回読ませると 2MB 近くなりスマホで重いため、こう分けている。
+KEEP_DAYS   = 730   # 保管庫に残す日数（約2年）
+DAILY_DAYS  = 90    # アプリ側に日ごとの点を残す日数
+MONTHS_KEEP = 24    # アプリ側に月ごとの点を残す月数（2年）
 # 2段階で絞り込む。
 #  1) 誌面価格に対する広めの窓 … 明らかな別物だけを落とす。値下がりで切られないよう広くとる
 #  2) その日の中央値に対する窓 … 付属品・バルク・法外な出品を落とす。相場が動いても追従する
@@ -53,6 +58,10 @@ NG_BY_CAT = {
             'インチ', 'WQXGA', 'OLED', 'Legion', 'Raider', 'Windows'),
     'cpu': ('ノート', 'ゲーミングPC', 'デスクトップ', 'BTO', '一体型', 'ミニPC'),
     'mb':  ('ノート', 'ゲーミングPC', 'BTO'),
+    # メモリ・SSD・HDDも「それを積んだパソコン本体」が大量に出てくる
+    'mem': ('ノート', 'ゲーミングPC', 'デスクトップPC', 'BTO', '一体型', 'ミニPC'),
+    'ssd': ('ノート', 'ゲーミングPC', 'デスクトップPC', 'BTO', '一体型', 'ミニPC'),
+    'hdd': ('ノート', 'ゲーミングPC', 'デスクトップPC', 'BTO', '一体型', 'ミニPC'),
 }
 # パソコン本体は「GPUとCPUの両方」が商品名に入りがち。型番同士の同居も手がかりにする
 CPU_IN_NAME = re.compile(r'(ultra\s*\d|ryzen\s*\d|core\s*i\d|celeron|pentium)', re.I)
@@ -115,7 +124,7 @@ def search(appid, query):
             raise
 
 
-def extract(data, ref, must=None, ban=None, cat=None):
+def extract(data, ref, must=None, ban=None, cat=None, band=None):
     """APIの応答から対象パーツらしい価格だけを取り出し、診断情報も返す。
 
     戻り値: (価格のリスト, 診断dict)
@@ -164,8 +173,11 @@ def extract(data, ref, must=None, ban=None, cat=None):
     if raw:
         diag['range'] = [min(raw), max(raw)]   # 価格帯で切る前の分布（診断用）
 
-    # 1段階目：基準価格に対する窓
-    step1 = [p for p in raw if not ref or (ref * LO_BOOK <= p <= ref * HI_BOOK)]
+    # 1段階目：基準価格に対する窓。
+    # 誌面価格のないパーツ（メモリ・SSD・HDD）は ref が目安でしかないので、
+    # parts.json の band で窓を広げられるようにしてある
+    lo_k, hi_k = (band or (LO_BOOK, HI_BOOK))
+    step1 = [p for p in raw if not ref or (ref * lo_k <= p <= ref * hi_k)]
     diag['book'] = len(raw) - len(step1)
     if not step1:
         return [], diag
@@ -184,23 +196,61 @@ def extract(data, ref, must=None, ban=None, cat=None):
     return used, diag
 
 
-def thin(hist, today):
-    """直近は毎日、それより古い分は週1点に間引く（フィードを軽く保つため）"""
-    t = datetime.strptime(today, '%Y-%m-%d').date()
-    keep, seen_weeks = [], set()
+def age_days(d, today):
+    """today から何日前か。日付として読めないものは None を返す"""
+    try:
+        return (datetime.strptime(today, '%Y-%m-%d').date()
+                - datetime.strptime(d, '%Y-%m-%d').date()).days
+    except ValueError:
+        return None
+
+
+def prune_archive(hist, today):
+    """保管庫の期限切れを落とす。ここだけが記録を捨てる場所で、2年より古いものだけが対象"""
+    out = []
     for h in hist:
-        try:
-            d = datetime.strptime(h['d'], '%Y-%m-%d').date()
-        except ValueError:
+        a = age_days(h.get('d', ''), today)
+        if a is not None and a <= KEEP_DAYS:
+            out.append(h)
+    return out
+
+
+def monthly(hist):
+    """日ごとの記録を月ごとにまとめる。
+    mid はその月の中央値、lo はその月の最安、hi はその月の最高、n は記録できた日数。
+    日ごとの記録は保管庫に残るので、ここでまとめても情報は失われない"""
+    by = {}
+    for h in hist:
+        m = str(h.get('d', ''))[:7]
+        if len(m) == 7:
+            by.setdefault(m, []).append(h)
+    out = []
+    for m in sorted(by):
+        rows = by[m]
+        mids = [x['mid'] for x in rows if x.get('mid')]
+        los = [x['lo'] for x in rows if x.get('lo')]
+        if not mids:
             continue
-        if (t - d).days <= DAILY_DAYS:
-            keep.append(h)
-        else:
-            wk = d.isocalendar()[:2]
-            if wk not in seen_weeks:
-                seen_weeks.add(wk)
-                keep.append(h)
-    return keep[-MAX_POINTS:]
+        mid = int(statistics.median(mids))
+        lo = min(los) if los else min(mids)
+        out.append({'d': m,
+                    'mid': mid,
+                    'lo': min(lo, mid),   # 最安が中央値を超えることはない
+                    'hi': max(max(mids), mid),
+                    'n': len(rows)})
+    return out
+
+
+def app_view(hist, today):
+    """アプリが読み込むぶんを作る。
+    直近 DAILY_DAYS 日は日ごと、それ以前は月ごとにまとめた点にする"""
+    recent = []
+    for h in hist:
+        a = age_days(h.get('d', ''), today)
+        # 0（今日ぶん）を偽として扱わないよう、必ず None と比べる
+        if a is not None and a <= DAILY_DAYS:
+            recent.append(h)
+    return recent, monthly(hist)[-MONTHS_KEEP:]
 
 
 def load_prev():
@@ -243,7 +293,7 @@ def main():
             anchor = prev_mid
         try:
             prices, dg = extract(search(appid, query), anchor,
-                                 p.get('must'), p.get('not'), p.get('cat'))
+                                 p.get('must'), p.get('not'), p.get('cat'), p.get('band'))
         except Exception as e:
             print('  [%2d/%d] %-28s 取得失敗: %s' % (i, len(parts), name, e), file=sys.stderr)
             diag[name] = {'ok': False, 'why': 'api', 'msg': str(e)[:80]}
@@ -277,25 +327,35 @@ def main():
         entry['hist'] = [h for h in entry.get('hist', []) if h.get('d') != today]
         entry['hist'].append({'d': today, 'lo': lo, 'mid': mid, 'n': len(prices)})
         entry['hist'].sort(key=lambda h: h['d'])
-        entry['hist'] = thin(entry['hist'], today)
+        entry['hist'] = prune_archive(entry['hist'], today)
 
         print('  [%2d/%d] %-28s 最安 %8s / 中央 %8s / %d件'
               % (i, len(parts), name, '{:,}'.format(lo), '{:,}'.format(mid), len(prices)))
         ok += 1
         time.sleep(SLEEP)
 
-    feed = {
+    head = {
         'updated': datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%d %H:%M'),
         'source': 'Yahoo!ショッピング（商品検索API）',
         'note': '各日の値は、検索結果から外れ値を除いたうえでの中央値（mid）と最安値（lo）です。'
                 '送料・ポイントは含みません。',
-        'items': items,
-        'diag': diag,
     }
 
+    # 保管庫：日ごとの記録をそのまま残す。次回の基準値もここから読む
+    archive = dict(head, items=items)
+
+    # アプリ向け：直近は日ごと（hist）、2年ぶんは月ごと（mon）
+    app_items = {}
+    for name, e in items.items():
+        recent, mon = app_view(e['hist'], today)
+        app_items[name] = {'cat': e['cat'], 'hist': recent, 'mon': mon}
+    feed = dict(head, items=app_items, diag=diag)
+
     os.makedirs(os.path.dirname(OUT_JS), exist_ok=True)
+    # indent=0 で1行1要素にしておく。毎日1点ずつ増えるだけになるので、
+    # Git の差分が小さいままで済む（1行にまとめるとファイル全体が毎日書き換わる）
     with open(OUT_JSON, 'w', encoding='utf-8', newline='\n') as f:
-        json.dump(feed, f, ensure_ascii=False, indent=1)
+        json.dump(archive, f, ensure_ascii=False, indent=0)
         f.write('\n')
     with open(OUT_JS, 'w', encoding='utf-8', newline='\n') as f:
         f.write('/* 自動生成：編集しないでください */\n')
@@ -303,7 +363,14 @@ def main():
         json.dump(feed, f, ensure_ascii=False, separators=(',', ':'))
         f.write(';\n')
 
+    days = max((len(e['hist']) for e in items.values()), default=0)
+    months = max((len(v['mon']) for v in app_items.values()), default=0)
     print('\n成功 %d 件 / 取得できず %d 件 / 収録パーツ %d 件' % (ok, ng, len(items)))
+    print('保管庫 %s（最長 %d 日ぶん・%.0f KB） / アプリ用 %s（日ごと %d 点＋月ごと %d 点・%.0f KB）'
+          % (os.path.basename(OUT_JSON), days, os.path.getsize(OUT_JSON) / 1024,
+             os.path.basename(OUT_JS),
+             max((len(v['hist']) for v in app_items.values()), default=0),
+             months, os.path.getsize(OUT_JS) / 1024))
     return 0 if ok else 1
 
 

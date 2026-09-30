@@ -59,8 +59,12 @@ function brandSlot(brand) {
   return (all.indexOf(brand) % 8) + 1;   // 色は「並び順」ではなくブランドに固定
 }
 
+/** 価格帯グラフに出せる区分＝誌面に価格表があるもの */
+function bookCats() {
+  return Object.keys(PRICE_GROUPS).filter((k) => !PRICE_GROUPS[k].noBook);
+}
 function renderCats() {
-  $('#pgCats').innerHTML = Object.keys(PRICE_GROUPS).map((k) =>
+  $('#pgCats').innerHTML = bookCats().map((k) =>
     '<button type="button" class="chip' + (k === G.cat ? ' is-on' : '') + '" data-pgcat="' + k + '">' +
     PRICE_GROUPS[k].label + '</button>').join('');
 }
@@ -607,8 +611,9 @@ async function testKey() {
 /* ============================== 初期化 ============================== */
 window.initPrice = function () {
   $('#priceAsOf').textContent = PRICE_ASOF;
+  // 誌面掲載価格の件数。メモリ・SSD・HDDは誌面に価格表が無いので数に入れない
   $('#priceItemCount').textContent =
-    Object.keys(PRICE_DATA).reduce((s, k) => s + PRICE_DATA[k].length, 0);
+    bookCats().reduce((s, k) => s + (PRICE_DATA[k] || []).length, 0);
 
   renderCats();
   renderBrands();

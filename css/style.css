@@ -2090,3 +2090,8 @@ button,
   stroke-dasharray: 5 5;
   opacity: 0.55;
 }
+
+/* 折れ線グラフの「日ごと／月ごと」切り替え */
+.tr-span {
+  margin: 2px 0 10px;
+}
