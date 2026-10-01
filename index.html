@@ -22,6 +22,7 @@
     <nav class="tabs" id="tabs">
       <button type="button" class="tab is-on" data-tab="quiz">📝 クイズ</button>
       <button type="button" class="tab" data-tab="tables">📋 表を覚える</button>
+      <button type="button" class="tab" data-tab="gloss">📚 用語辞典</button>
       <button type="button" class="tab" data-tab="price">💰 パーツ価格</button>
     </nav>
   </div>
@@ -277,6 +278,209 @@
     </div>
   </section>
 
+
+  <!-- ======================================================================
+       用語辞典：一覧
+       ====================================================================== -->
+  <section id="screenGloss" class="screen" data-tab="gloss">
+
+    <div class="card hero">
+      <p class="hero-lead">アプリに出てくる専門用語を、意味と使いどころまで詳しく解説します</p>
+      <p class="hero-count"><strong id="glossCount">0</strong> 語 <small>／ <span id="glossCatCount">0</span> 分野・関連語のリンク <span id="glossRelCount">0</span> 本</small></p>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">用語を探す</h2>
+      <div class="search-row">
+        <input type="search" id="glossSearch" class="text-input" placeholder="用語・よみ・英語・解説文で検索（例：レイテンシ、ddr、中央値）">
+        <button id="btnGlossClear" class="btn btn-ghost" type="button">クリア</button>
+      </div>
+      <div class="chip-row" id="glossSort">
+        <button type="button" class="chip is-on" data-gsort="cat">分野順</button>
+        <button type="button" class="chip" data-gsort="kana">あいうえお順</button>
+      </div>
+      <div class="chip-row" id="glossCatFilter"></div>
+      <p class="field-note" id="glossHit"></p>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">用語クイズ</h2>
+      <p class="field-note">
+        「用語から意味を答える」と「意味から用語を答える」の両方を出題します。
+        収録した全 <span id="glossQTotal">0</span> 語 × 2方向 ＝ <span id="glossQPairs">0</span> 問で、辞典の中身をすべて網羅できます。
+      </p>
+
+      <div class="field">
+        <label class="field-label">問う向き</label>
+        <div class="chip-row" id="glossDir">
+          <button type="button" class="chip is-on" data-gdir="both">両方</button>
+          <button type="button" class="chip" data-gdir="t2m">用語 → 意味</button>
+          <button type="button" class="chip" data-gdir="m2t">意味 → 用語</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">出題範囲</label>
+        <div class="chip-row" id="glossScope">
+          <button type="button" class="chip is-on" data-gscope="all">すべて</button>
+          <button type="button" class="chip" data-gscope="new">まだ正解していないものだけ</button>
+          <button type="button" class="chip" data-gscope="weak">間違えたものだけ</button>
+        </div>
+        <p class="field-note" id="glossScopeNote"></p>
+      </div>
+
+      <div class="field">
+        <label class="field-label">出題数</label>
+        <div class="chip-row" id="glossCountPick">
+          <button type="button" class="chip is-on" data-gcount="10">10問</button>
+          <button type="button" class="chip" data-gcount="20">20問</button>
+          <button type="button" class="chip" data-gcount="30">30問</button>
+          <button type="button" class="chip" data-gcount="50">50問</button>
+          <button type="button" class="chip" data-gcount="0">全部</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">出題形式</label>
+        <div class="chip-row" id="glossMode">
+          <button type="button" class="chip is-on" data-gmode="choice">4択</button>
+          <button type="button" class="chip" data-gmode="recall">一問一答（思い出す）</button>
+        </div>
+        <p class="field-note">上の「用語を探す」で分野を絞ると、その分野だけが出題されます。</p>
+      </div>
+
+      <div class="start-actions">
+        <button id="btnGlossStart" class="btn btn-primary btn-lg" type="button">用語クイズを始める</button>
+      </div>
+
+      <h3 class="gloss-sub">網羅状況</h3>
+      <div id="glossProgress" class="gloss-progress"></div>
+      <div class="row-btns">
+        <button id="btnGlossReset" class="btn btn-ghost btn-sm" type="button">辞典の記録をリセット</button>
+      </div>
+    </div>
+
+    <div id="glossList" class="gloss-list"></div>
+  </section>
+
+  <!-- ======================================================================
+       用語辞典：語の詳細
+       ====================================================================== -->
+  <section id="screenGlossTerm" class="screen" data-tab="gloss">
+    <div class="card">
+      <div class="q-head">
+        <span id="gtCat" class="badge"></span>
+        <span id="gtPage" class="page-ref"></span>
+      </div>
+      <h2 class="gt-term" id="gtTerm"></h2>
+      <p class="gt-read" id="gtRead"></p>
+      <p class="gt-sum" id="gtSum"></p>
+      <p class="gt-desc" id="gtDesc"></p>
+      <h3 class="gloss-sub" id="gtRelHead" hidden>あわせて覚える</h3>
+      <div class="gt-rel chip-row" id="gtRel"></div>
+      <p class="field-note" id="gtStat"></p>
+    </div>
+
+    <div class="start-actions">
+      <button id="btnGtPage" class="btn btn-ghost btn-lg" type="button">📖 この用語の誌面を見る</button>
+      <button id="btnGtBack" class="btn btn-ghost btn-lg" type="button">← 辞典の一覧へ戻る</button>
+    </div>
+
+    <div class="quiz-actions">
+      <button id="btnGtPrev" class="btn btn-ghost" type="button">← 前の用語</button>
+      <button id="btnGtNext" class="btn btn-primary" type="button">次の用語 →</button>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       用語辞典：クイズ
+       ====================================================================== -->
+  <section id="screenGlossQuiz" class="screen" data-tab="gloss">
+    <div class="quiz-bar">
+      <div class="progress"><div id="gqProgress" class="progress-fill"></div></div>
+      <div class="quiz-meta">
+        <span id="gqCounter" class="q-counter">1 / 10</span>
+        <span id="gqScore" class="q-score">正解 0</span>
+      </div>
+    </div>
+
+    <div class="card question-card">
+      <div class="q-head">
+        <span class="q-head-left">
+          <span id="gqCat" class="badge"></span>
+          <span id="gqDir" class="badge diff"></span>
+        </span>
+        <span id="gqPage" class="page-ref"></span>
+      </div>
+      <p id="gqText" class="q-text"></p>
+
+      <div id="gqChoices" class="choices"></div>
+
+      <div id="gqRecall" class="recall" hidden>
+        <button id="btnGqReveal" class="btn btn-primary btn-lg" type="button">答えを表示</button>
+        <div id="gqRecallAnswer" class="recall-answer" hidden>
+          <p class="recall-label">正解</p>
+          <p id="gqRecallText" class="recall-text"></p>
+        </div>
+      </div>
+
+      <div id="gqFeedback" class="feedback" hidden>
+        <p id="gqFbTitle" class="fb-title"></p>
+        <p id="gqFbText" class="fb-text"></p>
+        <button id="btnGqTerm" class="btn btn-ghost btn-sm" type="button">📚 辞典で詳しく読む</button>
+      </div>
+
+      <div id="gqGrade" class="self-grade" hidden>
+        <button id="btnGqNg" class="btn btn-warn" type="button">思い出せなかった</button>
+        <button id="btnGqOk" class="btn btn-primary" type="button">思い出せた</button>
+      </div>
+    </div>
+
+    <div class="quiz-actions">
+      <button id="btnGqQuit" class="btn btn-ghost" type="button">やめる</button>
+      <button id="btnGqNext" class="btn btn-primary" type="button" disabled>次へ</button>
+    </div>
+
+    <p class="hint" id="gqHint"></p>
+  </section>
+
+  <!-- ======================================================================
+       用語辞典：結果
+       ====================================================================== -->
+  <section id="screenGlossResult" class="screen" data-tab="gloss">
+    <div class="card result-card">
+      <div class="score-ring" id="gqRing">
+        <div class="score-ring-inner">
+          <span id="gqPct">0%</span>
+          <small id="gqFrac">0 / 0</small>
+        </div>
+      </div>
+      <p id="gqComment" class="score-comment"></p>
+      <p id="gqGrowth" class="graduate-note" hidden></p>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">向きごとの正答率</h2>
+      <div id="gqDirResult" class="cat-result"></div>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">分野別の正答率</h2>
+      <div id="gqCatResult" class="cat-result"></div>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">間違えた用語</h2>
+      <div id="gqReview" class="review-list"></div>
+    </div>
+
+    <div class="start-actions">
+      <button id="btnGqRetryWrong" class="btn btn-warn btn-lg" type="button">間違えた用語をもう一度</button>
+      <button id="btnGqAgain" class="btn btn-primary btn-lg" type="button">同じ設定でもう一度</button>
+      <button id="btnGqHome" class="btn btn-ghost btn-lg" type="button">辞典へ戻る</button>
+    </div>
+  </section>
+
   <!-- ======================================================================
        パーツ価格
        ====================================================================== -->
@@ -483,11 +687,13 @@
 
 <script src="js/questions.js"></script>
 <script src="js/tables.js"></script>
+<script src="js/glossary.js"></script>
 <script src="js/prices-data.js"></script>
 <!-- GitHub Actions が毎日更新する価格フィード。同じリポジトリにあるので相対パスで読む -->
 <script src="data/prices.js"></script>
 <script src="js/script.js"></script>
 <script src="js/tables-ui.js"></script>
+<script src="js/glossary-ui.js"></script>
 <script src="js/price.js"></script>
 <script src="js/trend.js"></script>
 </body>

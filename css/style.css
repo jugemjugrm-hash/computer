@@ -2109,3 +2109,177 @@ button,
   opacity: 0.5;
   vector-effect: non-scaling-stroke;
 }
+
+/* ============================== 用語辞典 ============================== */
+
+/* カード内の小見出し（網羅状況、あわせて覚える） */
+.gloss-sub {
+  margin: 18px 0 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-mute);
+  letter-spacing: 0.02em;
+}
+
+/* 分野順に並べたときの区切り見出し */
+.gloss-group {
+  margin: 20px 0 2px;
+  padding: 0 2px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-mute);
+}
+.gloss-group:first-child {
+  margin-top: 0;
+}
+
+.gloss-list {
+  display: grid;
+  gap: 10px;
+}
+
+/* 見出し語1件ぶんのカード。押すと詳細へ */
+.gloss-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  padding: 13px 15px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border);
+  border-radius: 11px;
+  background: var(--surface);
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.08s;
+}
+.gloss-card .gc-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+.gloss-card .gc-term {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.gloss-card .gc-mark {
+  flex: none;
+  color: var(--ok);
+  font-size: 0.95rem;
+}
+.gloss-card .gc-read {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.74rem;
+  color: var(--text-mute);
+}
+.gloss-card .gc-sum {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-mute);
+}
+/* 片方の向きだけ正解済み／両方とも正解済み */
+.gloss-card.is-half {
+  border-left-color: var(--warn);
+}
+.gloss-card.is-done {
+  border-left-color: var(--ok);
+}
+
+/* 網羅状況のバー */
+.gloss-progress {
+  display: grid;
+  gap: 8px;
+}
+.gp-row {
+  display: grid;
+  grid-template-columns: 9.5em 1fr 5.5em;
+  align-items: center;
+  gap: 10px;
+}
+.gp-label {
+  font-size: 0.82rem;
+  color: var(--text-mute);
+}
+.gp-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+.gp-bar i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+.gp-num {
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  color: var(--text-mute);
+}
+
+/* 語の詳細 */
+.gt-term {
+  margin: 10px 0 2px;
+  font-size: 1.5rem;
+  line-height: 1.35;
+}
+.gt-read {
+  margin: 0 0 14px;
+  font-size: 0.8rem;
+  color: var(--text-mute);
+}
+.gt-sum {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border-radius: 11px;
+  background: var(--surface-2);
+  font-size: 0.97rem;
+  font-weight: 600;
+  line-height: 1.7;
+}
+.gt-desc {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.95;
+}
+.gt-rel {
+  margin-bottom: 12px;
+}
+
+@media (hover: hover) {
+  .gloss-card:hover {
+    border-color: var(--accent);
+  }
+}
+@media (hover: none) {
+  .gloss-card:active {
+    transform: scale(0.995);
+    border-color: var(--accent);
+  }
+}
+
+@media (max-width: 560px) {
+  .gp-row {
+    grid-template-columns: 1fr auto;
+    row-gap: 4px;
+  }
+  .gp-bar {
+    grid-column: 1 / -1;
+    order: 3;
+  }
+  .gt-term {
+    font-size: 1.3rem;
+  }
+  .gt-desc {
+    font-size: 0.92rem;
+    line-height: 1.9;
+  }
+}

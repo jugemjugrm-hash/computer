@@ -730,7 +730,7 @@ function init() {
   $('#tabs').addEventListener('click', (ev) => {
     const tab = ev.target.closest('.tab');
     if (!tab) return;
-    const first = { quiz: 'screenHome', tables: 'screenTables', price: 'screenPrice' }[tab.dataset.tab];
+    const first = { quiz: 'screenHome', tables: 'screenTables', gloss: 'screenGloss', price: 'screenPrice' }[tab.dataset.tab];
     showScreen(first);
   });
 
@@ -828,6 +828,7 @@ function init() {
   // 他のモジュールから使う共通機能
   window.App = { $, $$, shuffle, showScreen, openPage, catName, CATS: CATEGORIES };
   if (window.initTables) window.initTables();
+  if (window.initGlossary) window.initGlossary();
   if (window.initPrice) window.initPrice();
   if (window.initTrend) window.initTrend();
 }
